@@ -1,0 +1,28 @@
+{
+  "name": "Rubrica GAP Napoli",
+  "short_name": "GAP Rubrica",
+  "description": "Rubrica telefonica GAP Napoli",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#002d72",
+  "theme_color": "#002d72",
+  "orientation": "any",
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "ChatGPT Image 18 ott 2025, 11_50_58.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "ChatGPT Image 18 ott 2025, 11_50_58.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
