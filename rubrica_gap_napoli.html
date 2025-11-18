@@ -11,23 +11,42 @@
     <meta name="keywords" content="GAP Napoli, pallacanestro, arbitri, rubrica, contatti">
     <meta name="author" content="GAP Napoli">
 
-    <!-- FAVICON ORIGINALE RIPRISTINATA -->
-    <link rel="icon" type="image/x-icon" href="ChatGPT Image 18 ott 2025, 11_50_58.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="ChatGPT Image 18 ott 2025, 11_50_58.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="ChatGPT Image 18 ott 2025, 11_50_58.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="ChatGPT Image 18 ott 2025, 11_50_58.png">
+    <!-- FAVICON MULTIPLA - SOLUZIONE DEFINITIVA -->
+    <!-- Favicon standard -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon-192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon-192.png">
 
-    <!-- Mobile Web App Capabilities - COMPATIBILITÀ UNIVERSALE -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="GAP Rubrica">
-    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Apple Touch Icons (iOS) - ESSENZIALI -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon-192.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="icon-192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icon-192.png">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
+
+    <!-- Android Chrome Icons -->
+    <link rel="icon" sizes="192x192" href="icon-192.png">
+    <link rel="icon" sizes="128x128" href="icon-192.png">
+
+    <!-- Microsoft Tiles (Windows) -->
+    <meta name="msapplication-TileImage" content="icon-192.png">
     <meta name="msapplication-TileColor" content="#002d72">
-    <meta name="theme-color" content="#002d72">
-    <meta name="msapplication-TileImage" content="ChatGPT Image 18 ott 2025, 11_50_58.png">
+    <meta name="msapplication-config" content="browserconfig.xml">
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="site.webmanifest" crossorigin="use-credentials">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#002d72">
+    <meta name="msapplication-TileColor" content="#002d72">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Mobile Web App Capabilities -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="GAP Rubrica">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="GAP Rubrica">
 
     <!-- Preload risorse critiche -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -437,6 +456,28 @@
         .result-item:nth-child(8) { animation-delay: 0.4s; }
         .result-item:nth-child(9) { animation-delay: 0.45s; }
         .result-item:nth-child(10) { animation-delay: 0.5s; }
+
+        /* Ottimizzazioni specifiche per dispositivi */
+        @media (max-width: 768px) {
+            .app-container {
+                padding: clamp(15px, 4vw, 25px) clamp(10px, 3vw, 20px);
+            }
+
+            .logo-container {
+                margin-bottom: clamp(25px, 7vw, 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .action-buttons {
+                gap: 6px;
+            }
+
+            .action-btn {
+                font-size: 0.75rem;
+                padding: 8px 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1621,6 +1662,34 @@ END:VCARD`;
             }, 100);
         }
 
+        // GESTIONE ICONE MOBILE - SOLUZIONE DEFINITIVA
+        function setupMobileIcons() {
+            // Forza il reload delle icone per dispositivi mobile
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                console.log('📱 Setup icone per dispositivo mobile');
+
+                // Aggiorna tutti i link delle icone con timestamp per evitare cache
+                const timestamp = '?v=' + Date.now();
+                const iconLinks = document.querySelectorAll('link[rel*="icon"], link[rel*="apple-touch-icon"], link[rel="manifest"]');
+
+                iconLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href && !href.includes('?')) {
+                        link.setAttribute('href', href + timestamp);
+                    }
+                });
+
+                // Forza il refresh del manifest
+                const manifestLink = document.querySelector('link[rel="manifest"]');
+                if (manifestLink) {
+                    const manifestHref = manifestLink.getAttribute('href');
+                    if (manifestHref && !manifestHref.includes('?')) {
+                        manifestLink.setAttribute('href', manifestHref + timestamp);
+                    }
+                }
+            }
+        }
+
         // Event listeners ottimizzati
         function setupEventListeners() {
             // Enter key support
@@ -1651,12 +1720,16 @@ END:VCARD`;
         // Inizializzazione
         function init() {
             setupEventListeners();
+            setupMobileIcons(); // Setup icone mobile
             document.getElementById('tesseraInput').focus();
 
             // PWA detection
             if (window.matchMedia('(display-mode: standalone)').matches) {
                 document.body.classList.add('pwa');
+                console.log('🚀 PWA rilevato');
             }
+
+            console.log('✅ App GAP Napoli inizializzata');
         }
 
         // Avvia l'app
