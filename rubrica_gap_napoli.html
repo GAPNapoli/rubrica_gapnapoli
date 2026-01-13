@@ -1,0 +1,2093 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Rubrica Telefonica GAP Napoli</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="ChatGPT Image 18 ott 2025, 11_50_58.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="ChatGPT Image 18 ott 2025, 11_50_58.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="ChatGPT Image 18 ott 2025, 11_50_58.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="ChatGPT Image 18 ott 2025, 11_50_58.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXQRQFFDLL"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NXQRQFFDLL');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #002d72;
+            --secondary-blue: #0056b3;
+            --hover-blue: #001f4d;
+            --whatsapp-green: #25D366;
+            --hover-green: #128C7E;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --error-red: #dc3545;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: var(--primary-blue);
+            min-height: 100vh;
+            line-height: 1.4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--hover-blue) 100%);
+            z-index: -1;
+        }
+
+        .page-container {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 15px;
+            min-height: 100vh;
+        }
+
+        .login-wrapper {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 20px 0;
+        }
+
+        .login-wrapper.fade-out {
+            opacity: 0;
+            transform: translateY(-20px);
+            pointer-events: none;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .logo-left img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .logo-right img {
+            max-width: 130px;
+            height: auto;
+        }
+
+        .login-container {
+            width: 100%;
+            background: transparent;
+            text-align: center;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        @media (min-width: 480px) {
+            .login-form {
+                flex-direction: row;
+                gap: 10px;
+            }
+        }
+
+        .input-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .button-group {
+            display: flex;
+        }
+
+        @media (min-width: 480px) {
+            .button-group {
+                width: auto;
+            }
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 14px 16px;
+            font-size: 16px;
+            font-family: 'Montserrat', Arial, sans-serif;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--white);
+            backdrop-filter: blur(8px);
+            transition: all 0.25s ease;
+            width: 100%;
+            -webkit-appearance: none;
+        }
+
+        input[type="text"]::placeholder, input[type="password"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.18);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+        }
+
+        .login-button {
+            padding: 14px 24px;
+            font-size: 16px;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--primary-blue);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            min-height: 50px;
+            white-space: nowrap;
+            -webkit-appearance: none;
+        }
+
+        @media (min-width: 480px) {
+            .login-button {
+                min-height: auto;
+            }
+        }
+
+        .login-button:hover {
+            background: var(--light-gray);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .main-wrapper {
+            width: 100%;
+            max-width: 600px;
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.6s ease;
+            flex: 1;
+        }
+
+        .main-wrapper.show {
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .title-section {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--white);
+            width: 100%;
+        }
+
+        .main-title {
+            font-size: clamp(26px, 5vw, 32px);
+            font-weight: 700;
+            margin-bottom: 6px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .sub-title {
+            font-size: clamp(16px, 3.5vw, 19px);
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        .search-container {
+            background: transparent;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .search-box {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        @media (min-width: 480px) {
+            .search-box {
+                flex-direction: row;
+                gap: 8px;
+            }
+        }
+
+        button {
+            padding: 14px 20px;
+            font-size: 16px;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--primary-blue);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            min-height: 50px;
+            width: 100%;
+            -webkit-appearance: none;
+        }
+
+        @media (min-width: 480px) {
+            button {
+                min-height: auto;
+                padding: 14px 24px;
+                width: auto;
+            }
+        }
+
+        button:hover {
+            background: var(--light-gray);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        #result {
+            width: 100%;
+            flex: 1;
+        }
+
+        .result-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 12px;
+            color: var(--white);
+            backdrop-filter: blur(8px);
+            transition: all 0.25s ease;
+            width: 100%;
+        }
+
+        .result-item:hover {
+            transform: translateY(-1px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .result-count {
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: 500;
+            width: 100%;
+        }
+
+        .no-results {
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            backdrop-filter: blur(8px);
+            width: 100%;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        @media (min-width: 480px) {
+            .contact-info {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+        }
+
+        .contact-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .contact-details strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 16px;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            width: 100%;
+        }
+
+        @media (min-width: 480px) {
+            .action-buttons {
+                flex-direction: row;
+                width: auto;
+                gap: 6px;
+            }
+        }
+
+        .action-buttons button, .action-buttons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 10px 12px;
+            font-weight: 600;
+            font-size: 13px;
+            border-radius: 6px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .copy-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .copy-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .save-button {
+            background: rgba(0, 86, 179, 0.6);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .save-button:hover {
+            background: rgba(0, 86, 179, 0.8);
+        }
+
+        .whatsapp-button {
+            background: var(--whatsapp-green);
+            color: var(--white);
+        }
+
+        .whatsapp-button:hover {
+            background: var(--hover-green);
+        }
+
+        .icon {
+            width: 16px;
+            height: 16px;
+            filter: brightness(0) invert(1);
+        }
+
+        .login-title {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            margin-top: 12px;
+            font-weight: 500;
+            display: none;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--white);
+            color: var(--primary-blue);
+            padding: 14px 18px;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            font-weight: 600;
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--whatsapp-green);
+            max-width: 320px;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.error {
+            border-left-color: var(--error-red);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.4s ease;
+        }
+
+        /* Stagger animation per risultati */
+        .result-item:nth-child(1) { animation-delay: 0.1s; }
+        .result-item:nth-child(2) { animation-delay: 0.2s; }
+        .result-item:nth-child(3) { animation-delay: 0.3s; }
+        .result-item:nth-child(4) { animation-delay: 0.4s; }
+        .result-item:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Mobile optimizations */
+        @media (max-width: 480px) {
+            .page-container {
+                padding: 15px 12px;
+            }
+
+            .login-wrapper {
+                padding: 10px 0;
+            }
+
+            .logo-container {
+                gap: 15px;
+                margin-bottom: 25px;
+            }
+
+            .logo-left img {
+                max-width: 90px;
+            }
+
+            .logo-right img {
+                max-width: 120px;
+            }
+
+            .title-section {
+                margin-bottom: 20px;
+            }
+
+            input[type="text"], input[type="password"], .login-button, button {
+                min-height: 48px;
+            }
+
+            .result-item {
+                padding: 16px;
+            }
+
+            .contact-details strong {
+                font-size: 16px;
+            }
+        }
+
+        /* Ottimizzazione per schermi molto piccoli */
+        @media (max-width: 360px) {
+            .page-container {
+                padding: 12px 10px;
+            }
+
+            .logo-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .contact-info {
+                gap: 12px;
+            }
+
+            .login-title {
+                font-size: 24px;
+            }
+        }
+
+        /* Ottimizzazione per tablet */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .page-container {
+                padding: 30px 25px;
+            }
+
+            .main-wrapper {
+                max-width: 700px;
+            }
+
+            .result-item {
+                padding: 20px;
+            }
+        }
+
+        /* Ottimizzazione per schermi grandi */
+        @media (min-width: 1025px) {
+            .page-container {
+                padding: 40px 30px;
+            }
+
+            .main-wrapper {
+                max-width: 800px;
+            }
+        }
+
+        /* Supporto per orientamento landscape su mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .page-container {
+                padding: 10px 15px;
+            }
+
+            .login-wrapper {
+                padding: 5px 0;
+            }
+
+            .logo-container {
+                margin-bottom: 15px;
+            }
+
+            .logo-left img {
+                max-width: 70px;
+            }
+
+            .logo-right img {
+                max-width: 100px;
+            }
+
+            .login-title {
+                margin-bottom: 15px;
+                font-size: 22px;
+            }
+
+            input[type="text"], input[type="password"], .login-button, button {
+                min-height: 44px;
+                padding: 10px 14px;
+            }
+        }
+
+        /* Miglioramenti per touch su dispositivi mobili */
+        @media (max-width: 767px) {
+            button, .copy-button, .save-button, .whatsapp-button, .login-button {
+                min-height: 44px;
+            }
+
+            input[type="text"], input[type="password"] {
+                font-size: 16px;
+                min-height: 44px;
+            }
+        }
+
+        /* Supporto per dispositivi con notch */
+        @supports (padding: max(0px)) {
+            .page-container {
+                padding-left: max(15px, env(safe-area-inset-left));
+                padding-right: max(15px, env(safe-area-inset-right));
+                padding-top: max(20px, env(safe-area-inset-top));
+                padding-bottom: max(20px, env(safe-area-inset-bottom));
+            }
+        }
+
+        /* Prevenire scroll orizzontale */
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Fix per iOS elastic scroll */
+        .page-container {
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Wrapper per la schermata di login (logo + form) -->
+        <div class="login-wrapper" id="loginWrapper">
+            <div class="logo-container">
+                <div class="logo-left">
+                    <img src="ChatGPT Image 18 ott 2025, 11_50_58.png" alt="GROPPO ARBITRI PALLACANESTRO GAP NAPOLI">
+                </div>
+                <div class="logo-right">
+                    <img src="2.png" alt="FIP CIA CAMPANIA">
+                </div>
+            </div>
+
+            <div class="login-container">
+                <div class="login-title">🔐 Accesso Rubrica</div>
+                <div class="login-form">
+                    <div class="input-group">
+                        <input type="password" id="tesseraInput" placeholder="Numero di Tessera FIP" autocomplete="off">
+                    </div>
+                    <div class="button-group">
+                        <button class="login-button" onclick="verificaTessera()">Accedi</button>
+                    </div>
+                </div>
+                <div class="error-message" id="errorMessage">
+                    Numero di tessera non valido. Riprova.
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenuto Principale (visibile solo dopo login) -->
+        <div class="main-wrapper" id="mainWrapper">
+            <div class="logo-container">
+                <div class="logo-left">
+                    <img src="ChatGPT Image 18 ott 2025, 11_50_58.png" alt="GROPPO ARBITRI PALLACANESTRO GAP NAPOLI">
+                </div>
+                <div class="logo-right">
+                    <img src="2.png" alt="FIP CIA CAMPANIA">
+                </div>
+            </div>
+
+            <div class="title-section">
+                <div class="main-title">🏀 GAP NAPOLI 🏀</div>
+                <div class="sub-title">📞 Rubrica Telefonica 📞</div>
+            </div>
+
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Cerca collega per nome o cognome..." autocomplete="off">
+                    <button onclick="cercaTelefono()">Cerca</button>
+                </div>
+            </div>
+
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <a id="vcardDownload" class="hidden" download="contatto.vcf"></a>
+
+    <script>
+        const rubrica = {
+            "AFFINITO TOMMASO": "3663940558",
+            "AGNESE VINCENZO": "3473218719",
+            "ALFANO FRANCESCO": "3792311632",
+            "ALLOCCA ANTONELLA": "3755617078",
+            "ANNUNZIATA ARCANGELO": "3348870967",
+            "ANNUNZIATA SALVATORE": "3664545648",
+            "ANNUNZIATO MICHELE": "3920119588",
+            "ANTINORI ANNA": "3393309211",
+            "APREA  MARCO": "3668167557",
+            "ARCIELLO ALBERTO": "3315305818",
+            "ARNONE FULVIO": "3467467194",
+            "ASTUTO MARCO": "3271772327",
+            "BACIO TERRACINO ANTONIO": "3791792164",
+            "BARONE LAURA": "3341351919",
+            "BARRA RAFFAELE": "3925098927",
+            "BEN ABBES ASIA": "3337086583",
+            "BETTEGHELLA SARA": "3913882322",
+            "BIANCO RAFFAELE": "3665342874",
+            "BOMBACE EMANUELE": "3883522659",
+            "BORRIELLO ROSA": "3334517063",
+            "BOVA FRANCESCO": "3479199280",
+            "BRAGANTINI FRANCESCO": "3791597125",
+            "BRONTOLONE ELISA": "3395410442",
+            "BUONFINO ANTONIO": "3383164589",
+            "BUONO ALESSIA": "3792064875",
+            "BUONOMO MAURO": "3488531626",
+            "BUSIELLO GIUSEPPE": "3714564661",
+            "CACCIATORE STEFANO": "3913704526",
+            "CAFARO THOMAS": "3927755789",
+            "CAPONE GIULIO": "3755398587",
+            "CAPOZZOLI EMANUELE": "3926505420",
+            "CAPPIELLO GIOVANNI": "3755117427",
+            "CARACCIOLO GIUSEPPINA": "3332655154",
+            "CARIELLO LOREDANA": "3662757594",
+            "CAROTENUTO PAOLO": "3341154406",
+            "CAROZZI CARLO": "3514206090",
+            "CARRELLA EMANUELE": "3928820747",
+            "CASTAGLIUOLO CINZIA": "3518318703",
+            "CASTALDI ANNA": "3402405005",
+            "CASTALDO FABRIZIO": "3924467483",
+            "CASTALDO ROBERTA": "3938957509",
+            "CASTELLANO DANIELE": "3500941754",
+            "CELIENTO ADELE": "3450934933",
+            "CERIELLO UMBERTO": "3343449027",
+            "CERULLO MARCO": "3342310764",
+            "CIGLIANO GIANLUCA": "3471599364",
+            "CIMMINIELLO IMMACOLATA": "3315041884",
+            "CIPULLO GENNARO": "3425096859",
+            "CIPULLO IDA": "3931234524",
+            "COLIMORO LUCA": "3313822673",
+            "COPPOLA VITTORIO": "3661521163",
+            "COPPOLA MARIA": "3396611017",
+            "CORTESE CARMEN": "3924820620",
+            "COSTABILE  MICHELE": "3664321526",
+            "CRISPO MARIACRISTINA": "3452581358",
+            "CRISTIANO MICHELE": "3791706027",
+            "CUCCIOLITO FRANCESCO VINCENZO": "3511596559",
+            "D'AMBROSIO FRANCESCO": "3245624670",
+            "D'AMICO VALERIO": "3441199696",
+            "D'AMORE RACHELE": "3485575912",
+            "D'ANGELO ALESSIO": "3317330991",
+            "DE RISI EDUARDO": "3345300389",
+            "DE ROSA  ANNA": "3455114554",
+            "DE SIMONE MARIO": "3711358284",
+            "DE TOMMASO GIOVANNI": "3331163085",
+            "DE VITA CHIARA": "3270708227",
+            "DEL GAUDIO ARIANNA": "3345044082",
+            "DEL GAUDIO MARCELLO GERARDO": "3429401687",
+            "DEL GIACINTO GIUSEPPE": "3511234750",
+            "DEL GIUDICE ANNA": "3383925994",
+            "DI CARO ALESSANDRO": "3533379022",
+            "DI COSTANZO DIEGO": "3391351535",
+            "DI DOMENICO MATTIA": "3273060910",
+            "DI DONATO MIRKO": "3806389371",
+            "DI GIACOMO LUIGI": "3351638745",
+            "DI GIACOMO ROBERTA": "3499577019",
+            "DI GUIDA DANILO": "3499443509",
+            "DI LEVA PAOLO": "3924775575",
+            "DI MAIO PAOLO": "3516523620",
+            "DI MARCO FRANCESCO": "3888197959",
+            "DI MARTINO VINCENZO": "3382669759",
+            "DI MAURO GIUSEPPE": "3669979759",
+            "DI PALMA ADRIANO": "3895967556",
+            "DI SOMMA DOMENICO PIO": "3510648659",
+            "DI SOMMA GIUSEPPE": "3923649866",
+            "DI SOMMA MATTIA": "3336961850",
+            "DINESSI EMILIO": "3398309297",
+            "DUTKA NINA": "3274946562",
+            "ESPOSITO EMANUELE": "3386916426",
+            "ESPOSITO ELIA": "3518784051",
+            "ESPOSITO ABATE GIUSEPPE": "3342285648",
+            "ESPOSITO ABATE FORTUNATO": "3668992633",
+            "FACCIOLLI LUCIA": "3890055100",
+            "FALANGA RAFFAELE": "3405743107",
+            "FALASCONI RAOUL": "3517679503",
+            "FIORDORO FRANCESCO": "3921512964",
+            "FIORE ADRIANO": "3494298547",
+            "FIORENZA GENNARO": "3510821956",
+            "FIORITO ALESSANDRO": "3204641191",
+            "FRASCOGNA GIOVANNI": "3501246026",
+            "FUSCO MICHELE": "3493988598",
+            "GAGLIANO GIAN MARCO": "3922204333",
+            "GAGLIARDI SALVATORE": "3917971190",
+            "GAGLIARDI FRANCESCO": "3392629131",
+            "GAGLIARDI RINO": "3470950853",
+            "GEMMI PIERGAETANO": "3397357588",
+            "GENSINI MORGANA": "3289254541",
+            "GENSINI VERDIANA": "3884806259",
+            "GRAGNANO LORENZO": "3295715901",
+            "GUADAGNO FRANCESCO": "3338967947",
+            "GUARINO VINCENZO": "3468571090",
+            "IAPIGIA ANDREA": "3516289035",
+            "IAVARONE GIOVANNI": "3342059079",
+            "IMPERATO SALVATORE": "3402283934",
+            "IORIO ANDREA": "3517576971",
+            "IZZO GIOVANNI": "3469494616",
+            "LANGELLA CHRISTIAN": "3510207733",
+            "LAUDATI ALFONSO": "3932309348",
+            "LEPORE MARIO": "3343140500",
+            "LICCIARDO ALESSANDRO": "3317701795",
+            "LUBRANO RAFFAELE": "3298475040",
+            "MAGRI DANIELE": "3703066352",
+            "MAIELLO GENNARO PIO": "3518542441",
+            "MAMMOLITI FRANCESCO MATTIA": "3924570495",
+            "MANCINI GENNARO": "3249851585",
+            "MANCO MARCELLO": "3332142037",
+            "MANNA ALESSANDRO": "3913035760",
+            "MANNA FRANCESCO": "3387046805",
+            "MANNA GIUSEPPE": "3248176131",
+            "MARANO CARMINE": "3383926253",
+            "MARTINELLI FRANCESCO": "3384417776",
+            "MARTINELLI DOMENICO": "3394855915",
+            "MASSA LORENZO": "3755990261",
+            "MATTEI ALESSIA": "3792475904",
+            "MATTERA VINCENZO": "3331945891",
+            "MAZZONE DANIELE": "3664276462",
+            "MELCHIORRE JOSHUA": "3791313531",
+            "MICERA PAOLO": "3494333428",
+            "MICERA DARIO": "3337778357",
+            "MORRA MATTEO": "3294165552",
+            "MUSCERINO SAMUELE": "3317414611",
+            "NAPOLITANO GIORGIO": "3732163722",
+            "NASTO ALDO": "3911081728",
+            "NEGRI SABRINA": "3920825810",
+            "NESPOLINO STEFANO": "3440104688",
+            "NILO MAURO": "3271772327",
+            "OTTIERI RAFFAELE": "3420330884",
+            "PAGANO CARMELA": "3336775967",
+            "PALMA FRANCESCO": "3926500261",
+            "PALMA  CRISTIAN": "3317992414",
+            "PALMA  BIAGIO": "3319597815",
+            "PALUMBO RAFFAELE": "3519204176",
+            "PANICO PACKY": "3512908850",
+            "PANICO VALERIA": "3351480316",
+            "PASTORE GIULIO": "3277350421",
+            "PELLECCHIA MATTEO": "3755651854",
+            "PELLECCHIA CRISTIAN": "3755651675",
+            "PELLEGRINO DANIELE": "3383721068",
+            "PEPE MASSIMO": "3297564710",
+            "PERNA GIOVANNI": "3276836337",
+            "PERREON PAOLA": "3931465198",
+            "PERREON VALERIA": "3931464761",
+            "PERRETTI FRANCESCO": "3662322316",
+            "PESCE CHRISTIAN": "3662145611",
+            "PETRILLO RITA": "3661652121",
+            "PEZZELLA STEFANO": "3341529901",
+            "PICCIRILLO DARIO": "3468410370",
+            "PICCOLO CARMINE": "3339549267",
+            "POLITO MARCO": "3471870835",
+            "POLLIOSO ROSSELLA": "3333988387",
+            "PREZIOSI EMILIO": "3289431421",
+            "RAGUCCI EMANUELA": "3392938728",
+            "RAIOLA VINCENZO": "3389416354",
+            "RICCARDI CHIARA": "3393941270",
+            "RIPPA IRENE": "3335775400",
+            "ROBERTI EUGENIO": "3202839559",
+            "ROCCO SERENA": "3515554899",
+            "RODIO LUIGI PIO": "3662000821",
+            "ROSSI DANIELE": "3518132283",
+            "RUGGIERO DAVIDE": "3421428473",
+            "RUSSO REBECCA": "3911794993",
+            "RUSSO ALDO": "3913256235",
+            "SABBATINO FABRIZIO": "3317360994",
+            "SABBATINO IVANO": "3298372104",
+            "SABBATINO FRANCESCO": "3384464790",
+            "SAGGIOMO FLORIANA": "3476464295",
+            "SANNINO MICHELE": "3515085448",
+            "SANTONICOLA IRENE": "3319256126",
+            "SARINI PIETRO": "3395777655",
+            "SAVARESE ANTONIO": "3333323625",
+            "SAVIO GIOVANNI": "3512649489",
+            "SCHIORCH GABRIELE": "3713872512",
+            "SCIOPERO PAOLO": "3397316980",
+            "SCOTTO DI MINICO SAMUEL JASON": "3914862996",
+            "SCOTTO LAVINA DAVIDE": "3345272969",
+            "SELLAROLI EMANUEL": "3917996458",
+            "SENESE BRUNO": "3389357699",
+            "SERAFINO SIMONE": "3511179101",
+            "SETOLA GIOACCHINO": "3931717192",
+            "SILVANO SIMONE": "3347103300",
+            "SILVESTRO FEDERICA": "3662967518",
+            "SILVESTRO  MATTEO": "3451061783",
+            "SINISCALCO CLAUDIO": "3397692962",
+            "SMIRAGLIA FEDERICO": "3452246857",
+            "SORRENTINO MICHELE": "3395793545",
+            "SPAGNOLETTI RAFFAELE": "3511932679",
+            "SPAVONE PIERFERDINANDO": "3286337259",
+            "SPERA EMANUELE LUCIANO": "3668100392",
+            "SPINA ANTONIO": "3516372992",
+            "SQUARCIO ANTONIO": "3319931228",
+            "STINGA GIUSEPPE": "3282793284",
+            "STIVALI ANDREA": "3518618932",
+            "TESTA VITTORIA": "3401944606",
+            "TREMATERRA LUIGI": "3387859247",
+            "TROJER LUCIANO": "3512239557",
+            "VALENTINO ANDREA": "3475728018",
+            "VARDARO DAVIDE": "3279104967",
+            "VARDARO EMANUELE": "3894531791",
+            "VENDITTO ALESSANDRA": "3925045674",
+            "VERDE FILIPPO": "3510087619",
+            "VETTONE RAFFAELE": "3240772147",
+            "VITIELLO DAVIDE": "3881526521",
+            "VUOTTO EVA": "3397463442",
+            "ZINNO EMANUELE": "3396608408",
+
+        };
+
+        const tessereValide = new Set([
+            "1614955e9180959486e612460eaad18cea820a4c78b12eec07e1bfed74da31b6",
+            "eccafeab5a39b80e893d7fc5e8393c1f45817f932a240576d630b48ef70fdb82",
+            "aed174d244e310cf3ee73d1fcc1377cd63fadb15aa0a27ea2ddc23e2b6fac6a3",
+            "b62940e8459dc23881b13f983c6eba9f7beaa21eaf9d3f5e875f6c900b28ef58",
+            "8b7333eb3f9b5e6484a726d1245e22d24e3da8e2dd60a08f430fe3e40273bf24",
+            "56ab0be59c1a9838145256e7baefc16f2eeb119f02ec9ef9a10649a3e4766a91",
+            "c67f4f05de84b590ec903f0f5723e7f71ad3541a5d917e7bec28590a20b8b5ac",
+            "356dafa139b371cf8537932abb93b8ff58bd3c38bfb01884154cb113bb158ed6",
+            "5fa3dc5a235f4855261e18f6bad3beb55ba7e510e4c174fba0d7f174efe425ec",
+            "5102a358673f3080ac2e0960d0e78de50ae0f6fe4d934fd721202d02d4d5af2f",
+            "66154e65527a411fa93542c582858e21e9ccd3a29fe130f579ecdde353dc8faf",
+            "61960b1ec03a067d2d6d0b7c59afd5f1a1f7ea41b3eb3a511826d7ddda923907",
+            "b77ea43dba33aab761546cc344913ceb8f33fa5f8de5180366d48f8d42eaa05f",
+            "8b7e2c209dd11b0cb70bc15ec5066fd9170ea16307c36dac536914619f942a92",
+            "ee16f33a8e4f718bb70ac1a2cad2607b3f732b6358cf89c421bef62557eac844",
+            "d791ae8718c564efd86a62b24c8a6a76bf7645b685b8bd9644a66610c2128be5",
+            "a2b79b216a47e18639206350530c3502dd1d6710967c6736cfe53ecfd9dcc814",
+            "3612f7e95f6ca55093ba3b7de6531d16c42088e5834b919497cf0b98f69edc4c",
+            "d41a0c45f3301d737413a80216e62644a9dbfa5e43bf991c43fbe7d77ba49cc8",
+            "9fc95c9f7020c0f6d10198d12f546ffb51735e4fd2faf6b0fd47076ceeb023e2",
+            "c9a320307dff3fc5ba3b5b926a9cea88f6e8d0ed91998d0eda43a5802f6e6f7b",
+            "de04c448234c32849c7302f8a058bf2a2f9918a72909efaf8d17d0a077e8cd41",
+            "84e6c837bdccd82deae03ff10664a9657b55e4116b8b57adcac6fa8d48f69efe",
+            "48681f8e7337a471c2a678d046724ee734d0e259fdca6c56c634e91b69a620ee",
+            "383b29f02f527e41b7c83418555123a82ed0e0bfbb10c49e40c56e6c2350717f",
+            "6a1638ffeeb3c0351be82d06e6d8360ec26e4353cb700b93ba32be75986d5b3d",
+            "dacef0710fc31206b0a85b805525776a0927a94898b3068dd71fbff293a60217",
+            "d86dd59b8917045de042dcc34d2d9b24b3a88d519e40cf4e69b1db02174e6c5f",
+            "27cb8a5e6ad8832f48c23771b737bfeb064c3338d2cf05ed990b30fea55b273a",
+            "0094845d9a8a385a98c86324018d2f484e70ec021a288c55bcb94b765d5311fc",
+            "e12c345a45c03b2144bba4fc36546b7ff7c68f02a8e0f9b9a1e957616260af99",
+            "87618629cf391103b9bfa05cfe9a87f2a89c711c21bb13945ceaba5a5998eb0f",
+            "857fe9d52c34bc5ee1dd68843c519a2ceafdbd4a52fa42cddca73a66d73b351b",
+            "f0ae163c0cfdf2f71c856a9d00905b3243f84b317ec9d00347faeb27d35be089",
+            "5e5f6c1363df55642c5fbdf7e28b713e25762fbdaed37fce274de7ecbf11b982",
+            "bd0431147ed3c7845a539d47fc7d25c953bf7b08900bc55b281eab68eedc1e92",
+            "75f3819e41b1636cab3fe1798fbe87cac85987b84ffcbeeef6e1e55c8eaab95d",
+            "8cdb8c54ccac98658270e957f001fa888b28f90a6d0a7947e7c25c89a979290a",
+            "2f5acd55c23aeb0744f632ed5987c69931637dfe7eb3b5513348a63bd12750eb",
+            "ed7099ec67b2b345f8fec96394387dee19c3164bc48a0f172a0779df5b558924",
+            "0ec92150cac29947861fa768ada439a4355439669053f0d94c2b79f7f76039e4",
+            "db4847bd254a68453772623c194f96a494ca7720668fb4475fbb038b51de282f",
+            "4a568f4ef228ebdfe905ed66256374d2e70b22c185734235387ec3329e2adcb6",
+            "71f9abd9c47cbf625c3f2da7c936c3091514e49d0aa68e6b0e0dd562772ff2be",
+            "9427839611b4ef3ef0f2309ac7e7174cb63bbba409108f239563b7a45d99e317",
+            "7962dda8c0c01409cf1a7c942828bb1645e4a3e571d33d41044157b2714257c9",
+            "7227437b5dd33f65d59370830589eb322b6690105618204f738a7411ebf33ff5",
+            "384aefa04f7c8cf9c8cece0b81fd18cc272377b855ffe65d5391393aa845e373",
+            "2a9be5cc981bb60c06ea5e3c6ad62ca23c7e5cfa1df0c11ab9039271ef33dd7d",
+            "cf6cb1a91719cfec5410667bc046f82283450ba6512564ee42ddd18f7ad13204",
+            "27f90aff76781e9ad4ee03c4c1c8360ae1bad4097665e59b7e70d771f894d3db",
+            "56f8018cfeb4679b55a52204cdd73a0b257e678ac78caf14c52d857666001bad",
+            "455c30b98ba87880f78ff44a77a553b7d3b29b320be446da585fa4e26ac5f4cd",
+            "ef58841d89066640c6eab0dcdc06d9a35aa3e5ad7ba1a6108b1bc6d639c35410",
+            "151669aee11086e207795e44864514abdaf950a4fc839c9cd84ce52a355c8cc6",
+            "a912b8f08bb270061ce9d25d36da7d05a351ce00edcad3050e35fd668c969b2d",
+            "f178998e5240524cf46467819e7d805c3ba52f65554ca54cd6fd98c52ca785ac",
+            "9c64e426bdfe919a261d2bc1b7f5d3915349e9c0ecbdf2170ba5a7bda764cc57",
+            "84b98f759206787f942fb52523eebceb13819975ca22e46a1306a2c77f1f399c",
+            "d6ec653dc32d37a45fc7923df47adabc478c2af3f315b1e4558b734ecc67321b",
+            "52efabb91fb343109f49c398cee7484f22edcd3446d14059ca3d75f368620718",
+            "6826bb5256df2183494d268f1c0fef82f58be22f01081ba3923e8f3ef6ea8ef3",
+            "42001fa0d94ce113847844473cb881cdc70906763850df514f0fe4fc2e509df4",
+            "54aff223e07d06c29d3e8a0c22967a92f7cd1cbd1e40a2a39ad0354f2abef8ba",
+            "919aa9fe95c3cceb9f4940cff7ce1aeca0ef577597b6542ab3af77cc42f8422f",
+            "679b2ed5c6e710cfa03b06541d03a05badc7d6b6023d3758ddc2f06c391a03e1",
+            "57de46cd6832a193793748f2eecaa18e7cf99beb68bdd3863d3e51b9d962eb8b",
+            "9bb80a5a01746e850048438a27f01f6b7a2b960143a893625bd70e66eb3482a2",
+            "0f212776667cd2b160b324564ad3c9c3ab71ef4429fd23f23d6479408f3a4c94",
+            "51a5c02d43bddba53b36ef90328367b3cbb0f9fbe4976bcfbade1e2b4b0e1213",
+            "a0c8eedfe3130e4dda71393531342a3c5375ceebf1f4ab394b00be3df2ae8f3a",
+            "fcf823abdfd3b5d5b23dafc1e1b7bc8ddbf2d7920f33c559db8aab5cb1c0775f",
+            "f328f22065e4cde228661f299057e576c7a3fa8bdb8c3c9be5e897c6c06d44c3",
+            "c6371a371182f9620d49be5dd755c17e76fcda8fe37517338a641643e6ca91ac",
+            "15dc7a710a40279ccbdbd8c8532f92abc39c74e4390706135fcf7c965b22b481",
+            "e01345c44ff9c982ed6e53e834a323c41707b1cbde5be2577d624067cdbee8be",
+            "ac4100c076db6a39ffcb53aee6972a028b3e29ec3fb4e5d83bde535068b0b452",
+            "fc2f60f939ee5ba1e12a793c0ac8977bdde9d2af5ce75ac1ea8a1f27d64a27ec",
+            "d532cb6d9fa3a8e87b6519b8f2c040e89b14f155e1bdad3fa3a09c6b5f96b599",
+            "f00257f6ba27f04f8ac9daf2c60f1f863150d6778e3814aac4b5e495dfa41e12",
+            "150546bc04a93bb2cbb0408f932d3960ca25927273448e9d124c37ca3b11fd7f",
+            "9a5674e13073a9842417a54e7dcd6057f20923933783a021bff8219ee35df469",
+            "6bb48c282ebdb3159fc59d84e01cc0344ae1dd65c133bcaecb1422f63ce4fa11",
+            "fd5737c6a20df12ce295e778f51b9d22116e824773c70e21fb11a6fd7215c7bf",
+            "1ceb765812b87d0f77cb1e1f21aacf663a6e338c2176fc4f8a78d7bd01c835f1",
+            "6e59b179a0c177e896a5183d06a59e65d93bc209d76fd8de1a3f5953e7fe319c",
+            "e774e1513cf78e1edbb22159f26b5c646281f60e73ab1712c42195852e0ebb46",
+            "efe3054391e7c34647100d3427270e9727579206c812afe413ebcad9d569c782",
+            "06e7b52ff7233fda342a72a0ef62a713f84f7f77a0381b7d1c663da84bb63026",
+            "21325e2faf1dc68a3cd14ff95483a1808d0aac8d18c24352c22888753197dea1",
+            "a9a23a048dfa8916edaae404be8bdea20788de9413b0e74713284e7b3a12f865",
+            "3af49f7a2f6d28224d3e8d8610f1bcabcd437edc4c3a0c888085199e28019c25",
+            "07d4be43ac35340e5d3ae9df0da322484b8e2ddad524a6ebc3187542217b1b54",
+            "1a50e7e1fb571bf154ce432a2886c35e6e1eb71d56d22885090bc0173f6f3ee8",
+            "2c09d1b0abfb94c56132c612b882efcd1ae3fa7bde4af021d05323b21c9fa718",
+            "deec5d4d024cc234b453965f1b533731055bae04d129f69402a7208b89b31580",
+            "55a6d57f4c003b607e5a2745c5edf68a5d9a818f8a91f75e233e5ec83c0b5f91",
+            "f1ad32df2a1b16a244e330e16a01a8030b87f3aed610d0ef35e86a4fcac217af",
+            "b8917f71fdb0aa1a2659b37446ba880a0bd0df5ae76c72f3880cb58f4bd2dd6d",
+            "ce57957d69ca6127f8fb39986879b0dd88918084ebc7d5228ec04e6ad900a18f",
+            "831a69f46a31403136279940410cad396532d499bae18fef726df580b453bfa2",
+            "98ef4d4c0e6c9cf347e7b6c259c229a37c92dbafe4072acefdeed225ff336d9d",
+            "0dde7ae48d1a6db916a85d7507be7466817346eabaae3b7fe2794035219ad966",
+            "45d74ff6f2650c456c64ca51b728625211d4943db0e95375e39101ec78260562",
+            "1185f258a818cee2f4e908fc8682b88a77a3f64f6e1b4344715812d796528d61",
+            "b51e60c48733a65baacf9eff2c664fa6b2b4db5a8d4fc01040da15a09731d9b4",
+            "854219910dae7f9c12d569ea8e8914e5d26c8f7b253c12d46f55ffcdf712e5f3",
+            "dc58858a614ab3d8e686e7ef574cd375c689a96246728532bf1ca4ce45b5b1c6",
+            "a8e2ec2441543775ed2b3d0baf85127f6b6a0f2c1c3d2c1b2f736242d02bdc4a",
+            "7c61f57e6a205f6d6880395f1b517fabb28d8308c0b1a798d1eff260d2eb9ca8",
+            "1e5630927fd65d3db87417c21a4b213afea07da8e3b6b3285d88dcd514f8fd99",
+            "22f23d581057182ba2d6a5b54406e857b2cf49fe2cc574255000bb4ccbd567af",
+            "d125abe917409aee95328eaa1b212affa919964f395fa0c1806fda48a9b8a611",
+            "c270398334cb4f28b886df733871ad78e998a07255f0ad7efe03bfc9f0cef2cd",
+            "0f49d1574007596497e6deae4cda1f0ec67ce0c19e505c0a3c337ec38e4b5230",
+            "977152fa0284b75897a0406cef6b1ec08c3ddc224a2b10edbad539b5a70d83e1",
+            "cb11f74d9c86521ab520fc56c189f4a5f696310dd46cc0f8ff8f0c8ea13c69ad",
+            "42d4864e66ffe7c79309d7b610f6433dd148e538fa42796217d8375de5f0eb01",
+            "789a814d96b7978c165a648990c30816fc89cd3d03dd551395837a1ef58ff020",
+            "183cbd5379785a598adee99bbaaf57d61caeee86ffe821463607eb3dcd8d34f2",
+            "2938e59b13e69ac4c858781eb13567eae945f407518a18032d85e5f6eadc7f8a",
+            "86583f0ecda43d88b6ff9102c38ae9c4674958898610afde2a577451297ad948",
+            "0c100272a7ea9ff5195afa2883dbce9da2ce5f907361dd415c816c444b771fc6",
+            "9abebd2c38d8611b656c43303f8ac99c71e9c792aebb8251122eed457ee1c670",
+            "cfa6e63e797604a2504b2fb2377b47abc77a99215565fbf9a838ec442c2f14c5",
+            "34d656b57e440d04ceaf79ddaec9eab7a28acb354bd588e70e0b2ffd5382b8a7",
+            "4e0d6fecea6614c2f1fe37b23c268ad5af184df74aab8416e31802148f70c8fb",
+            "c78b93120c7f7422ee70334831117674e3f54d80f1f308d9d62591400791a8e2",
+            "71bbc6ec87cb97ce233c267d37f523b5f1e1defa314cf6711bbf5edc5fe11bf7",
+            "27d09cc4ce9ffea892282d984b15727750b646fd1439ca7d222e72aaa36bb95e",
+            "11e899fcb192f9b06411479c26e1e1c23b9d76402be8ca0d7743fae4c9dc7185",
+            "05153234c624a2881bf1e3bb833134e5d8ce136e51271f59f6ce1756ae4920da",
+            "5299fb558c4ea2719e0cfed41ac2732bb6ce653140824df1c2ee619904aaf938",
+            "a5985e3bbac3f778938499f542164756e039cd4368ee634cb3035eacaaef7c77",
+            "e79410198a7272ee3117704f98c680c7559a0d327b54b8996a6dcf3a19948a27",
+            "7fad151e3c756dcc525fbfe791441f329891678af5e15f038db52c250eb3e1d5",
+            "9fb135b2df8b800f5d774a8e3149115a5cd9c1af7f60126f9d32ef652b7ae5f0",
+            "730fa2c95531073f174aef1841541a9dd920c632e20f6e15f24dbbb9dbd7e9d3",
+            "f3ca9d4bd1354688640537bb5a624074476a5a7d55f3e6e383b69853793c2e6e",
+            "2f0f4df22dc7646359cfe34feca43ea919d363909f7720dc0bb503af19bc6886",
+            "c91d0b8cb8bf2c08f3dcfdddb9aef731eb3f2e5916bb0a3ce4a2ac87d66b9b27",
+            "d1830bf0e8da32db5516fa75887fb4bb86153e6039dffa6c1c94448f5a94d0ff",
+            "1380056086d7c76f824ed9528203361e7a5858e0f4a289add128eef66a8c6bad",
+            "b2a5d59c87bdfadf72f5ae0d12959f6fddf8441fa07bb0e4821c30c49a0efc08",
+            "550e4a3afde16e3982e59ebace5fbd87a5e10562cf382d6af3092b6fbec7ed37",
+            "8431d428f425c99ceed63403bcaa91f5c44cf9eb3bf7b204e4d04523a8b8e2be",
+            "88ccd05130aca4c2dff9c4b403e77e3ba7de2095e6f597237ffcd86855e91d04",
+            "f5de34b4c9f68fbf373123df5ce47ba54f014b73529eb8b1f0b3f69160789ee3",
+            "0e5e0e38c9ecd8e77b228bd782596f102a9b3f5081e01d482cc60677a638f51e",
+            "88eed2a4c3ecb133af037fc17a4763d8ca0d60ac9ede252551d0079f5a1ec14b",
+            "7ef9451e5ea3c10bcb358fa6e69dd73f0b573a09c0a5bc30aeb5f2e921c8f67c",
+            "27f85a3761859204297ec89c0fc6df525de0ce2a4defb98b7a57db42395cc621",
+            "70482e810926c236da8271dd08dd15f2309e86ee43f0e0c9b45e7633d75094ad",
+            "19cc4acaf842a99860c56e970fd1eaccfe97cc03fd46c687ddf110d5dd2f2b77",
+            "fa9f2961d55aa1bf4b7a9610f6b5e4c61ea553e2cc7947df6b7debd54b5ee9a0",
+            "032ed9c0285ca06a899cd19de6b35f5b91beddfcae97a39493bd072b91dc93dd",
+            "2ad8f5825404c65c2b1b1342d12b42876d3985022a5937dc4ec98799b3f980dc",
+            "3e303ac8da1872b60d2990316234574887388ed7a35bf4f7218404d869a37bdc",
+            "3b04dd68f009e75d4a84bde6aa0bfeb8c7c37af5d9115bbb9c852ef8cde65612",
+            "0b95deb48ab2304b79bac4dc1ce6160f90504b989c5bf2bbcf1b7f9ab1d6a90c",
+            "1c10aa0cb50a72087bd06e03715fd3915a8c9ac7168bd26405d8215166c45e6f",
+            "11dbdf4a00c01b7773ad0c40b9f942bd4683e1ddee14b1fccc3eefc3b5f35a61",
+            "0343e3d81756f2f1e700ad8557da57020d7d22650ca76c9115bf4dfaaa95efe4",
+            "2fd9e988d49580e781731c73d4a5d18d993f3c38ee1864930eeab94ab7780eb3",
+            "54a1b93f7c97aa3d4458b8b5e96dd279efc49ebffc2aabe3c6dc06288ba48f28",
+            "a432b1c7c82f00e2021e4ef424ed07ccfe69a759d9631e58515d9d2265146650",
+            "4a7b5329f933cfd4f99ce17c50858af43d1731d3477821127212c0ede2fb716a",
+            "072aa57f6abe816d1f4ba6f5ea3ccbdc21fb2177d45905f2791d8d6d572f3f68",
+            "ebefbde9a0fb0e09b2ebdb476d184b290606b86f6e502d4587452b06facb5328",
+            "77c6d90a9e81f715e146cf44eeab451005da37f161790194d85ab899d50ae701",
+            "5d35f5bd1831954c106a847980fc32f0d293d2fdeb1952c30f6cb43f5be24472",
+            "cea9671d2fd46858756b9975b54f88e22c1aa1037f0b72748a1ed5d1cd827ec3",
+            "1d412bc698032ae4181483c6567dff9bd0a8c06f381248b0f2dd697bfbb7d321",
+            "6b26b0e4e9d8557b00bfc86c87455bc7a72aae40ee7b0de637f3fd734ad57828",
+            "5c20f3482c02d22471cfebf3d824e4802c706bacc0a21c48391ac5ea99845685",
+            "e5dc1fd244cf891a6ac5ec7f191c78bba1e7560656edea799f03d2edbd9237db",
+            "5d4092f8c60aa33de1c92465d915c19cceba73a25d43cf69416d743f4776a599",
+            "703a8763d94ffc0341a78786291087df944acad02a588858b0148e162037691c",
+            "1db9ba6c7479b5ab3b84336efc765de2d9c23ad9a7ce8a9da2226e9a7dae1eb6",
+            "34216420ab42fd83652074bf2122017c7d5c3e5c989946f3fbb661156aebfbd1",
+            "c9c4ad9dac56a4498b0e865401c92fe865b15d5954ab35efcdb72732b5853615",
+            "ea2f5ae084567bb905f60a8d7c84bc0aba183a45b87550c9d161ec785c1043ba",
+            "923f9002a205a20dfcffbc2710cb329552bb3e4b1ceded31b59c4805153fbb43",
+            "2c73ca90801f225f7959b788a38fd7952e39d6a45ad9b9e57f56909cb4a60212",
+            "9597f7a96db22f7e78f89eb8b02d27900a060a2fe12ae487eb2185cac1965d06",
+            "0535959f4585d6416f1efc890f363a2ae6eb6fca67b35dd38b59e7e7abf89891",
+            "d1829207f0501aa2ee5a64320ba7f4e1d86e813743dfdd8391a7c766014aeb24",
+            "f8e32df9eea5df4d62c8ca1b5010a666046db1fd6c951f62977c4685a2b1aa20",
+            "772f97e1413031112f65fe19013c9dadfa72ff4326968041d174448b0454dce9",
+            "ea2ac0f995e9d3bca91fe0bc3aa282aeeba4e319faa9d98e9053e6e0673bed6b",
+            "8fb7809ac7425c48c53b2482176607701baf65715ef186369ea18e5eec559d02",
+            "ba2694546700889d37bd526fd674093de50ea0e163e7b400d74aab592de9f766",
+            "e185939047067be6dacfb9b0069511e1551102b1ece1f61018a240ebe2d1325a",
+            "4bc9d82414671789a467fe5d758449a169008bc7a2843578c7227c0266f1aae1",
+            "d1dd6cad1cee43ae03f8021d07667befad3bd6c8d18397e70c62a869168a502b",
+            "e587d8f147260f02b5eb381d3e25d6fcc2a37253daac7a3350358928a1d08b34",
+            "b1f7a7a0574bb4b7ac5764b011dbe526681d00e75e9a74b97ba274b40c5a7681",
+            "547f38fce491af96cdd2b44b327ad830a62e5b6c121abece276f0bad223bef8e",
+            "294ba84a0c33e42136b33008d69e846bea70f167e9b85886aaf1e88e7264b1d0",
+            "c1bb3cd20c646577da67c1d9fb02d1acdf4841fee69d62c35bc7783ec382c09b",
+            "ed9275d195999ea66ad30d0e00513f66aa17c2f9477701484d331c8ee65b8677",
+            "17486c26a598745d4a8af974184a31b9a45c5623a2d145ec98b019e6c854b303",
+            "21dc511f5afeb7d5aa76a2351067def179e07e5e027cf7271f2949b048da1ae1",
+            "cfd2bbd14a89c4b7517e44fbabe25ceff5ceb578f82e4a48b74128bed083cb5f",
+            "9bbe6feb00120da8cfb5abeed83c600a726e1e1c01f20d479b2131dc9981a840",
+            "57a2ee2c2dd88c200d54a838f54be0cb54f5c5f80e0fc026ba5f08658bcbe257",
+            "9c7d54aee4c049c9dbb0c894e53c52a872d21743f3f89ac0936bce39f283a5c2",
+            "a4928325b038d950d2ed62c23208f8470df72a4f029461637a3b116ec6b35367",
+            "79bf842b67e7af97d744c337525c771f9267b9bbc89544a53cd68e8599de155d",
+            "6a94f83156d421594552824065d274be18724ec0a99c7501ac945a544b9c0384",
+            "5ffd7e2c3a1a818c4c8e93e1a612ee1b32a886d5fdd8b44871f2524315f5561c",
+            "f9f6d158384c4647b3a799545b780bec7de4a6b9add34026705baacb16724da6",
+            "9a9fb0aa4c1f8cda41de06bdd9ad9e49f9610460f6b45a3e6a63f0d8aa8ed968",
+            "c57649a00754ee7578418ceb7de1a3073ffd3324c03eece2c43bcd5e86600cdd",
+            "e3e209100c48fd9505f7bc65a7f1e0fdec50956874090ff5d95d79771a3a2504",
+            "55b85501969a35d0e7d110f0763a37dfd372753cdbb9a6b14db3b33b15c03fd5",
+            "4bc904df6244941afaa55f77b799df605ffe4a96544b7602e7a3d22c62188d64",
+            "8faa0d2b307e02409a7e284e38429da058da474c1d669bbcbe60aabd3bbb7f4b",
+            "703fe814639c8783fc376d392197fb8493060a412a9f4dd3e370820a3c20f7ab",
+            "cef6baec9bd1c1d1c825e550c00f99869882d0f8074a7fd7060d2db6fffc9008",
+            "d23e3b2caf1a37630c15c687ed06521bab1cfd57fff4c3384c783e72ad82305c",
+            "36bfa82817ba72ae4f938bc3cdd8f8db120dcf227268843e2243076ffd0790bd",
+            "372427b832c2ef1f2c0b86d2eb2f56af11f3327d2e5f41fd9373a15a383b079d",
+            "c525a16b320d3d3699177e9d8e4d8c731056c8e9db00c470bae05dd52eedf2c9",
+            "b566fdfee4e39b67a484c8a36c40461304877d5e369576dbaa81903d2dab688e",
+            "3d9be72ed53cd76f53366d6e214c7f4158220ccfdd5f12bdc3c31fbe254479c7",
+            "e5487aa88994b8b263b3c4c4395613ae9cd2edca8e63f0713e7371b8669c7ca3",
+            "c07f529937feb80d662a82c102f1aef23f9fcdd2e9825901e58c14f23966aa0a",
+            "817df3fcccf4d25b764f4d211c9b3160387556fd53a0f6ba5cad18e5ccf0dd8b",
+            "4c92b6483caf285cd05c5e976dfab0ee207fb0f8d19f54a2ae99d6bde2938b58",
+            "2d02747fa7fca9b83fd62659a90d3d49942df2585f0fe45d269204a6c4fac0df",
+            "70f3511da0c95c061dc8bdb89b03771fa8a6d8462edddcd631e32762d8ed7459",
+            "1a5c023d1cb67a9694f5ef953898a497f82c5e4546eb82efcb1e33205a35fa4b",
+            "c28546c2882b632194b278018341f36cd2459225744f1e5e6ad2d841d0f2d09f",
+            "67aba4f9656a0d57773ddc8292c1893092130d01b88e6a988eadb874197cad49",
+            "3e6b7b1742587d18512d0c88f68d3614db09bbe76880fd8bb84528cd97c53eb8",
+            "a4f9f5d1af06970465fe29f65f914e2e616ba20362a43cb30c8bc96d5a81b108",
+            "f0909023c714de21c13e48b4294de67f6943daf2070deff691061c348984b546",
+            "64275504db3ffb2d613bee8ca2614b61c0d776d31a7bda34c6f24ea1c3477b7b",
+            "3760eb461aa7deaf55c511cb99f73e70525e48e2a9397f4d9259715809d6238b",
+            "fc459c57633a794706705e9288c20cd3525eaf4f2fce1d211e28e28096ea64f9",
+            "b3e64f7853c707c85e8199aaa2f2205e104f35469133e0bf17bdedb97e3e5070",
+            "10b6604d623006939f1865307ae5611d28e5afead3fcdb99a59769edebd6830b",
+            "3cddd75dcf2ac044ab8d42782b015b04b14873cecfd475e91e9c187c3549a604",
+            "3835700ea4532a19c82013d9807ed6fc0c8e929b9c3975161bc822c804e7b3e2",
+            "7a9f2cedfcc6198771d035ad354763d800097e2cabc848c2660ef0379519e2b9",
+            "b8386668e623275333ed6b023f05f9a1ea520a06f797f731b6aceecc59b40671",
+            "9318cb40d310e8ac8688226f9da69de25a96ffdf107c29bca3b3c1b92a8d90a6",
+            "1931b3ddc77abe9649c68fb14175a404080fe309e363b685ccdf38a864c3db27",
+            "7f767db86baca68e6b0e30db9f13a867fd78643abe15395015ff57945719f766",
+            "efccee29093bb0df81906106a6fbbd0fce297db6cb01403ee43ba6373175fe10",
+            "0aacedae91930999f96c4e7f4d3b23acfc5f213cf64a2aedbd6a1762781ec6b1",
+            "22e373dd2f28c33c41a9e5922db8c7881f8309dd1abe575abfba0f9b518d3c63",
+            "adf9bdb4abd6a2f857ecf6541d007705454b3c8cc482a9cdcb4982b0f77171bb",
+            "8030e9bda74bdb780f2205d7114862b08ca928f842ef654833fe60c575644da2",
+            "439453783d19f687f96157592702c72a9f49c297b60942675a633c0aa5eead0a",
+            "cab2f96793a09d6bf9c0d627c9b95e43970a2e743efb570e2034b5eb8b5c5fee",
+            "9538512a5c904f3b061eaf44bd5ce428c90dd52daf44d75180b4498a0fe9ac55",
+            "0f4495d4ee249b66db314d88c90e75811974b8d8e582c8cf68afb2f60a080cc7",
+            "b79f62199d638c40587ebde813f4e5f40630f1e924eb207916df38fb542622b3",
+            "9d49ad6375b2ac1ab960386453fe108901194ae59bd56518ce1fafc9a789e835",
+            "e575237dafbf172710bee119e3d728c9ce9c37ed5f4c516c6743d4e2b42a4ebb",
+            "c6a6986d3ab4daf0000216c352f1bf9d35561d19c1201b38898f28f8e1b4695d",
+            "1c4c31c22d6d71326cb4e630d02c82e0d90dc87cf49e0333aaebcf924d259d0b",
+            "db90d1fea38e7ce31ad163a1042ff1bdf6a780f9f538ab677022b59147495594",
+            "c1a5d1d2a030be15e2d91a1fc14c6a1a59ed7f40489f5f624fcaaf1e3dadd6de",
+            "722fcf35b9e5ca0f320f2d1cf94f904cf4d0cb54a8bb1a1b9de638212d0fe33b",
+            "ddb1c5c87c6df2f9cbe6d38cb309fc1a317674b373a40b35021542783003c07c",
+            "69e0de9d1f21efbb2f952f664b5578fe568c07e849abefd9f132ae4743e2340a",
+            "437340d1a5b672c1d8403ac6fdbdb09f8c99f46747a4aaece25c21cf4ab80a7d",
+            "e43b76dbe100fdbf13926ad1fdb672cdaf98dcf23074699500ef4bd917938557",
+            "db0a51169410bd7be11d9d0c828bc9d15177092c8e13234a74202e804eea24c0",
+            "179e54c96d8d696acd3a059369c8c6f71bf6466c542280898259299e3892ab4f",
+            "ec1ae851588ae1e8eba50b6655815cb69f87f2165497d877f548025019665ca6",
+            "972bfec093a31da4175ff5d84dabc15ee59ddc67c66d5ea07955191d161937a7",
+            "c87f2d0885a3ad267b00ea258db1b03b6e2c3784b5ea0ce222e657d68b2b4097",
+            "61b2fbf01baaff0913d63b9f48dbebe1a74892dcf4f38db2789a192155571dce",
+            "dd163a0fbfa6115777cb3a81f6428d6548e7b52192c1fdb506473fa1a66ce13f",
+            "ac97c2dce2ee83595c0e496d6969310d322d11b05015e3cdd3ad6b635c18bf7c",
+            "650600494bdeb059d58ecf23685c5ae5a18f172e7d1441e966d9e927d2393d92",
+            "cc75393237e9ad1d7ed484ef3eb8e70a6866768aae7816a24306e7f0a043a892",
+            "d4196143e4f2d63c544c6028d4508300ba6f9175a31bcc4d2e0536689b24b024",
+            "5aa8421631467f729cbf6321e0617b92126854b83b02042081829e75028a776e",
+            "f775409e9978049ef65a4ac85881860108b6d1cf4217f5045742a880bbcf9f46",
+            "6c66c86b6fa8c01aca45048edd4e2029cfd906a692f99d275fb75f6616492b90",
+            "f160da81b8239a49e35fa43fbfaf8fe9cb379f20922f66a48d3fd6372f15bb6f",
+            "cb7aad50b06faa8e76e9370f474da07fecc12e72fd5c74c2461562279d161323",
+            "d0a379c5fa74a8b8860a78a7496fb04582dc9fad7d0fde89cc39364e293a3694",
+            "63499d3bc1f028d83e1de62462f39a6d3cb837a4ce7da88a75874c835b7f121c",
+            "fb520c7c45bb81f9c5a4632d7544dbbef9bd898d2740f70a40a27fb1371a4a5d",
+            "1d4edf2cb931a756fb1b370a5b320b894b8a55568a7051f775a30003a6af2584",
+            "7ec0fe9143535f309a7a6e842b380fb4a5042ab56d9c7876f018a322265de973",
+            "eb59bd75964b0cca96dedac07de7c96fa3fda7c659ce1d13229587491466f5fe",
+            "f808960f22b32d133414b2e95f0d3c540f54eb6bc4ac841b2d8c7092758a3410",
+            "4c304af2a3fde4cbdae10ef6ece957082bfc36b5ec27bbf4b094c4fb2087fe6b",
+            "d3e4c94bb3942223d0f8d79191052ec5c758b0345ff4241efd704a9e1969784f",
+            "d98d07ffca50c4c5129c48ca4167dd607320631b91d89469303f153f209da4c0",
+            "8365a3440627cc114a6a83e16556dcf2a319334c836fea362bbda3ba632600dc",
+            "021b214c332cde1bc07f27782f805753007137dc5302af4a44f56d1e0373daae",
+            "f69e3fb6505b619b0d61f76d8a9f9777b85fc799794a68cd122886bcbb0a1a2e",
+            "809cb5577921f455ece62ce1074ad6ced2c71eac9264d7fdfc5a00a1960fad6e",
+            "5466688ce6020d98c1d9a345bdc0a566237b25dcb2981aeff1904ac0d8d2b738",
+            "0603cadd2ac38d6f856a7989ea5ab5641c7f6eaae9076036a1cc90017e1d59a1",
+            "2392ae62c6a7cd3b809b17f0fa7851396e8531d4d1153675f08653428db562b0",
+            "789b42e192ea6fb0f991c1c9b7a43083c6c90c8129b99699887e42b0ce29cac7",
+            "71f20eccf7548133a01c807204064b8d47cc40bef213a446cb1f2ac11847a848",
+            "dbd0e009754d0ac6e8d85b95d5a6897ac501a2049e95592eb8a00eebbd0b4166",
+            "1739792a977108e4a1986cbbe8d88bf5d1e61e3a0e08ae3c791ee8ee6c138512",
+            "aec5b7fa8dd08da1f6b7f87d5ffa78077a4519752864ab736e96c904b4f959cd",
+            "75ff0c48cee6c2d0115774c9753feb2b9760ce4f0a528cfeb5f27d4405d0ff0b",
+            "abef4d500a1a6a371c7cee26adfa67a975562f8e03bd4200e7ad3e738e1fc860",
+            "2c0faa00aacd4abbfeb4229bfb06dda8bd08ef145861bfee18dbdf3c8b9f2eeb",
+            "cb99edd6132ea32bb794cc3c7e749a341748fa32847ec11729148f7348124625",
+            "a0b3c4d63de830fe2f944b20cd0f784fe285899b90dd90276fc98de298d09aa8",
+            "c7955e304812ccee88e9d675223f87b93ad8d9d29e118dad3aeaa71801bf180e",
+            "220f87985d0495a87dee752fac70b5929b79de2a34757b610c8fe9b44f868b7d",
+            "c04af2c7ac0bbc8b07905085ff54dfebc2bb65c3f5b9d2e5bde494e89599682f",
+            "c1da16e10bfbfabfd21701e49c74fa70b8d1bc4e755668b002486fef7f27c317",
+            "3cd789f71bfafeae874636b03933d540a3c43be92f4ef1aea11786036be49fa4",
+            "e278ddc877f06d420732338242440c8ce15f776e7a05d8d93407d052c983b64f",
+            "560aebdcc2cf28bdb75f0267611eedc2fa6d523ce458089acb64aa37e5700cf2",
+            "e0268b9226b297ac25bd9b453328cdbbe342a05397a6e93d74ff535fc45b139f",
+            "9a684420f7e565d79335abc9b9489f89175087b163bd4aaa59a260b200256708",
+            "3653e04708e3b5b580a3463a95de139744415411d67e38dc5cf8a63daf6bbb8a",
+            "e46aaa1384037e5ae3c7d0a9efd1f69908215bf0c325b139fa0f69fcdb3c69c4",
+            "927f43f646f0076231316e68b8eb09267986f37c52d12df1dbe88dd8c00bebbd",
+            "3350a335d7247c7123d2ed5e3e7ac7a6277f5862826e376116ede279a0cf2e2d",
+            "81e700cf4fb121588e140faa5f986b294c3f28f015c2980874fbbc5c35388b0e",
+            "e6e4220671f658cd461d4eec475b92729b6a9115dba9c2dc53c02a99b350074d",
+            "2e17347b93f8b9a8e273046243785b006cda957804fa52728c6026ffe5fd99f6",
+            "9f78dbf106f472ca4ce667faa39cfbc512b7da012af28c46c4744bdeee25d85e",
+            "88f9a2cb2de3fd9c007c16a4e4ecec6a45bcf93e17e1c9c8b2dcf7b18f5abd93",
+            "2cc1dbb30f4d68c8cf99266d5bb7d837f7708bd702f8923659398d3d7ffb00d4",
+            "c7525253beb5c3d2cbcc94348d8a885eca1539530f292115366cf30e3bb01e94",
+            "4b4d07e9da141300ebcd4b65f3b14bec194b2809c3ae22294e7bd8015dce9553",
+            "baa620890f8b0854c1f74397847a27f7cea35e6810c9449997e8597b56e4a7a4",
+            "332d37d1b6382249c4019c9a6743e42293b73629a6d5c793547ac232d019a9c5",
+            "86957f8064c61062fa85bec1838917d2025e58e43d6dc78fa92f2bcc5fea4ebe",
+            "7ca92b37d340ce93dda4f8e40f7051e306b477c0c440dbff9c9d782067854f0e",
+            "36ca247a563e5c6699ebc15f7abbd08bd137742b8d192acbef76fcc9986684f0",
+            "0b6b2ee7491d38fbf77003d6d6fa388838161edede6bf3065c2d292de06d4760",
+            "d0e0bdd39f813eaffcb843b6fc3b97eea0fa13cc977a8b84fa9b834f80fa2678",
+            "fa16d41e0910341caeebd189b2a235411e7d0c2d92989afb4e8dc05903d24578",
+            "5fd5a9bdb1e29900a5fb7f9cc992e27296bff878cba04f2a30a5cf1cccc6a72e",
+            "66f746c93bc1f1d8a5a4fab085cc70ab5b18ac560ecb3a90d8c715c7f84c55d0",
+            "80ea3583ffae85e974305ba7bcbb9bff65856d35554b87ab505d2322b42d87f8",
+            "f1b3ceaec4b84f0115112ce9f618f62faf083214b05f8033f68fd005cf6fe2a0",
+            "e6b51ba5e32f0ed6f85beadde0200ad68514b82a848e9d900d985910531bcd27",
+            "cdce2ed0fcd1e01d8af599fe07fdbcc2d51f47a724ecdc5a7821e064b30a3f30",
+            "4271f3ea4e67bfc8a863061c82141422ef8c2b13ddf2a939091de453179c5b14",
+            "7d9075f7e44c67d89f9ceea44463276d390faabad52159ac6fdb3ccaaf4d80e7",
+            "c9469533119d9ac6040a7138ce380574d07e64d2b1279af9d4289ce9e89cfea9",
+            "9b31b8426319fc1bea4c482777af468a4d7f77014dfc50460373067ca8224a5d",
+            "25fcc7125cdced01e636cf7f3684ab08400ce03e9b670eb33cba65b7ed5ff0e5",
+            "32c92b4762d619e0cc49cf0465a035b9e2e7d2b49163cbf23fdeb1489867e1e9",
+            "461eb95da2a67ec6f6ba312646546681421ef1dcfefbea3567f5649507ca31be",
+            "1dd83f66ca39bdca30a00fcf7f4ee765c87e555d9c12e1801ce8a3d768bfb65a",
+            "46a0d1883e1908e416313dfd21841bbd740b072efbaf91462cbc76a74d039e49",
+            "9846b9ecb09e67fff0cbf6b6399afad017273c866cf7a4f8899e125d9c73fad1",
+            "a2443253add75002256bfd4ff4bf7a90ee4df1cdeb2ae16f5636c8bfc5bca0f8",
+            "b8f22640c4ba29b38f7669577fa7a8f86eb391af0c6610411e440c62213d2c52",
+            "67d96d1b02f80287ad449739dc28280c5f40b56177ed0cafc2ec63834f44dc0f",
+            "213ddfc9135eb4a29e290c634265c32bd8204aa95d0311148d890fafe64d65de",
+            "99d5073eb0006ca62bd179271f5cc6b949ff4d98ff1668650572b6afe268be11",
+            "f94755de7687a12939a153e886b0727b70ff20647d8fccf07aa72d1c91d80e4d",
+            "3f9a080d455d316804aeaa9d7df865a832e847e79128996c9ca2ed47358ca18e",
+            "66909a60ce7ccc2953513e3fb99bd6785e3063b45ec1574f69ff9ffed8733476",
+            "6020de3a49974ba530933d27a978b5faedfc28b44c40617df5d984343a32ffbf",
+            "bdf259f36fad829e8dfc07abba28f2716fd28b703bb5ccc661a189b6763f7c2d",
+            "b522cd3ea6e0115a735408969fdc2a5700f181ce83b1dc4094221726ee5f06c6",
+            "d55cc496540c9959f9a4eb347b65a31472a4e5a4558545f60b2fc73235f91768",
+            "0ef596452cae90d81a75ce5e63e9a051614d0054e5aeef7446c46f8b773d44b1",
+            "c9ab187dc9a3366dd148631ef1b508d55f37f98e15d33801d65fcedc76ff865b",
+            "176860f2d8f1396ba4116d80fdb7e89d3171515e4b0c704dae27882da6b2f17f",
+            "1f09f456e62bab47e0f8f09b9255b48b607b06a4c78d9dd9da9ae637b894ab1a",
+            "b2e2b5ac291169ac35fb970e5a3505a23c6845995e12311e1e0be1c8af211338",
+            "2904f2d55d848428b2e4eae91da05741ec402ed24b6bce30b3bfdc776fecaeb9",
+            "6bca103c0a903763d1002aca0eda4da8a8febd44e0b9505acc230c7d67e60a4c",
+            "a1fcbb2e8ac8243fa8fcd2204b8975eadfa9758ba149c229e1325b2e1a1cc2bb",
+            "41695cc33a05fc4ce6381b779cbfc8935b4b01ab2c4866edaab88b979b8f8d02",
+            "cef21cee04c4b8c4ef4a9474deb05cd5c0cb1c27d91ab9b16166f98ecc38452e",
+            "3b98262dda657b0a0fa2c52514dfd7ae700f8ab879498e96bd0a2e4d435f1290",
+            "db055971ba428778651d2397a57eea19de29351da84f6e23afb51f4a3fcbe1cb",
+            "137a9cf71b349444428242359ed7fb65c3e2d30a6ee9accbb73e5701caa26e98",
+            "6f60cf8f5f9acbd98de8b6eadb0242f82da85b2e1736616be4c74b243bace793",
+            "3a998478f92afbd9c42a5d21c8a072847f94998c01569412fdb62d9ecd08d11b",
+            "ebcf1f665adb72e175109d3ca94a00bec67687e315607aa25abb25e35b6572a0",
+            "45ee7d270da095001d5d905b0d1fcc06c3bbfaea54a72317f02baa115d51d1fe",
+            "67715939baedd17320a87ae9b6571fb5850a9dac762f9e62ab6206efa2c04841",
+            "fb4c9eb54068810d0a5fef079d87b7d83b72365d352b4dd91dee1f0768ef75ac",
+            "faf0a6eb64deac9b4e3ee758f20a7f97bd0a29942555f4ec6186c04fbfeec11c",
+            "daa560ffd2e1da9ca81b95e7bc2dc38f20b5f4401f29afbfc64fe0efe4fb5bb6",
+            "e782196087756fb0f47914a2ea132d6328fd951115a212587e681e2f1a415264",
+            "a17641d5c2fa17e69079fb50c94567dac08413ba01fb163d3cbfb5808285743e",
+            "f248242484a6af73e19f4ea4f005358f12ce304c3b991a87009dae7f51d675c9",
+            "7e193096bd2b728e8adc68fa916da25bc807581578756c545d7e3bdcba9f77b7",
+            "388b7bdda0510ddd366aa2d7e4d1d06e798beb8543f8a479adad369b95895144",
+            "a162250a2087617bd7b6a62b39b6aa3864442799812a42674a6477e3c3ee7421",
+            "9b075ecea7e43c71e0a5eab9d5af95e32136224fd9dc27ba7a1f8a85a694fcca",
+            "0a00696d680f6637ca0d3570c89dcc826a4bf368b1f55d3ca84c95e1c1f2ffae",
+            "3e29add94e5fa692796c8b71b986c5633d1bdefed2d8f607277fb5d66d57a290",
+            "6345b9d568f24f50b4f27577959f292d9a0a8a7a28176d6387bf142c2cb13958",
+            "d56bd164de07bb4b271c8a99aa5933da034da2f09fce8be863e1079d2f6f4711",
+            "26fcc5d648739c0e3af2a3a1183c4946970d30f771b28710eea9a66346a19d77",
+            "124a16815520d19f6971e0cdf4bbd7391c00522a8354b37dd0d4d8b1ad8d8745",
+            "e3e35dc0f7a103e11aebd0c4113be23c0435fc1d83f3d74c22d2489c9f757b29",
+            "94e3214874bd01e4b50b63ec0056bc878b542832b6ef42941aa2aca056581675",
+            "ef1612ab63af0f93f335cd78a47d4fdc00b4534d4937958edde4c1871e00f174",
+            "fa9e19c46c305a2e41d7d8b65ab5f88685505d92ffce38a9a3e80c41944eb022",
+            "b813f7122db4675995e85348e7c392d78a28095e7ce6c404069838fae312a67e",
+            "9612f6aa407bce2c8b2b59968996c9d1ea5e236790aa58c84be2c67f82693b6f",
+            "d5005fc1deb7272ca4c37ee0a26f74ca9391efd3cd26370263a8830b8081124f",
+            "aee30e63f8130536905c92299d9043619cfd634aed043a87dcdbe4e6dfae6ca7",
+            "29bf8cd76285e79eda64823e20492b46a3646c6e5a11ceb362b28d63d7e01f38",
+            "400f3f4117d63c36d58c5bf06a1be54ad955b0fd6a25a6731939e8a4f780e24e",
+            "b0fb6f7344e31b71c870019c3836548a14489897aa09f517b61de4af005804a7",
+            "f93e666b9ec06c8512cd6fde0821880a62bc41d2bde74b57067d0e9602a32bd1",
+            "31c94effc590d0c708d4af00ee006deff929150f81af5b3fd865411bc5021728",
+            "c31a3709aefe97da642d0995d9fe6ca6f5f0cf22a2b877cd009533932b9b7998",
+            "0a8c9bd2acb541a936b5194eee36d1f5c6fda775326caac763daeea905855249",
+            "9cde6620a20e84a5c5bed8b93189806772b5d4f3661d162c5944e93968eedee2",
+            "e468375387e3258b02a946b69f962f97c1fc7c50ad77c31e584c79982c498723",
+            "81baf593afa1be71c88a9f5c0ee677b48c3ee6bc76d701a49e18e211b632a3e4",
+            "8d5f7b3b0372931ca9d63c73733cede32622d659ed1b34034e59ada8b5442bee",
+            "d0d2d5983e14a2c7b8675488f436ca9417bc362f10f45cf199904b56bdb4ff44",
+            "b20293d96a48b614c5cf89821ff745c2af7b0c80ce0d4ae8ea848c2572ebb340",
+            "82f0b6e472d9d627b55fcab536df637eb851579cd9924ad2109a0cab80086f47",
+            "9e051c97808a9d0bb532823cf653bf40bb4a1f49b358d0be59cac89569bd296c",
+            "9556ee9332e28384607c0fb03bc6361fda636a67ca1954540cb4cfc0150c2ba5",
+            "da091b117825a512e91796bece111feb8054da38e605598ba69d09ed802b4359",
+            "05538105ad71e0375f70ac8cdae3c723c4905b7ffd12b138e2f951aa07ea801d",
+            "4028e159fac519b5a28beb25df69f82e9f0c0ac3668b432b8f0fd58e62e4273c",
+            "45b84c17ee7ef1442734dcf45bc54850c5658c8528cdc21b4f9321e1a2bb1248",
+            "f7cfb737f47d97fa39e40cbb83ce2b15bb264436fe03a6f7098fd87269f51e20",
+            "4243ee1a857fd52166a8b57ff70981881f1279453dd9eca2efbb32aa19e601b5",
+            "8812441845771ce1910a758353efd5d0fb36918b8903f5204a3fedae334055e5",
+            "c8f198f9644c7a533dc829ac15c1fda5a63c1d5ec252c6f1c2a49845b42bd9b9",
+            "89a929fc64fe4a95215c9439bb16ab75fac2b4e9aff638d9bb69fa1c8fc58442",
+            "85bed0ee03c13a9afed3628eeaadf43b605aadb73758775c1c8e667ea6d45787",
+            "41587d991dc3e77abf34085ed9129dd8dab990f8688838f76a8c3ad6657da030",
+            "be1382c5ac765518411969c54162ed6cef17cd55f23f671c64f365576d77bdeb",
+            "d220ab301fea12bbb7f45dd4c73a98de514ac9c4cac5d726c913d2d4b39f73a3",
+            "4686171ee75d6653ce74f9000d0be117593e2145edb2d381cddacb6881220ae0",
+            "c0bc43f01781ff23e1a2022b191c3ca3906134f9d77bd33515280ce9de36f5ec",
+            "7facff9cac54d7d3467891181d120d32f66f15632779ea0dde2f62004eefbd8e",
+            "8150686073ffea89d3380c87c2d9090d06e8c5df7ff473fcecc9b6be2ebb55db",
+
+        ]);
+
+        const tessereNomi = {
+            "41695cc33a05fc4ce6381b779cbfc8935b4b01ab2c4866edaab88b979b8f8d02": "AFFINITO TOMMASO",
+            "4686171ee75d6653ce74f9000d0be117593e2145edb2d381cddacb6881220ae0": "AFFINITO TOMMASO",
+            "0f4495d4ee249b66db314d88c90e75811974b8d8e582c8cf68afb2f60a080cc7": "AGNESE VINCENZO",
+            "0535959f4585d6416f1efc890f363a2ae6eb6fca67b35dd38b59e7e7abf89891": "AGNESE VINCENZO",
+            "f248242484a6af73e19f4ea4f005358f12ce304c3b991a87009dae7f51d675c9": "ALFANO FRANCESCO",
+            "42001fa0d94ce113847844473cb881cdc70906763850df514f0fe4fc2e509df4": "ALFANO FRANCESCO",
+            "650600494bdeb059d58ecf23685c5ae5a18f172e7d1441e966d9e927d2393d92": "ALLOCCA ANTONELLA",
+            "de04c448234c32849c7302f8a058bf2a2f9918a72909efaf8d17d0a077e8cd41": "ALLOCCA ANTONELLA",
+            "67715939baedd17320a87ae9b6571fb5850a9dac762f9e62ab6206efa2c04841": "ANNUNZIATA ARCANGELO",
+            "2e17347b93f8b9a8e273046243785b006cda957804fa52728c6026ffe5fd99f6": "ANNUNZIATA ARCANGELO",
+            "56f8018cfeb4679b55a52204cdd73a0b257e678ac78caf14c52d857666001bad": "ANNUNZIATA SALVATORE",
+            "88f9a2cb2de3fd9c007c16a4e4ecec6a45bcf93e17e1c9c8b2dcf7b18f5abd93": "ANNUNZIATA SALVATORE",
+            "34216420ab42fd83652074bf2122017c7d5c3e5c989946f3fbb661156aebfbd1": "ANNUNZIATO MICHELE",
+            "85bed0ee03c13a9afed3628eeaadf43b605aadb73758775c1c8e667ea6d45787": "ANNUNZIATO MICHELE",
+            "71f20eccf7548133a01c807204064b8d47cc40bef213a446cb1f2ac11847a848": "ANTINORI ANNA",
+            "2f5acd55c23aeb0744f632ed5987c69931637dfe7eb3b5513348a63bd12750eb": "ANTINORI ANNA",
+            "2904f2d55d848428b2e4eae91da05741ec402ed24b6bce30b3bfdc776fecaeb9": "APREA  MARCO",
+            "e12c345a45c03b2144bba4fc36546b7ff7c68f02a8e0f9b9a1e957616260af99": "APREA  MARCO",
+            "7e193096bd2b728e8adc68fa916da25bc807581578756c545d7e3bdcba9f77b7": "ARCIELLO ALBERTO",
+            "ee16f33a8e4f718bb70ac1a2cad2607b3f732b6358cf89c421bef62557eac844": "ARCIELLO ALBERTO",
+            "88ccd05130aca4c2dff9c4b403e77e3ba7de2095e6f597237ffcd86855e91d04": "ARNONE FULVIO",
+            "e782196087756fb0f47914a2ea132d6328fd951115a212587e681e2f1a415264": "ARNONE FULVIO",
+            "972bfec093a31da4175ff5d84dabc15ee59ddc67c66d5ea07955191d161937a7": "ASTUTO MARCO",
+            "294ba84a0c33e42136b33008d69e846bea70f167e9b85886aaf1e88e7264b1d0": "ASTUTO MARCO",
+            "f00257f6ba27f04f8ac9daf2c60f1f863150d6778e3814aac4b5e495dfa41e12": "BACIO TERRACINO ANTONIO",
+            "5102a358673f3080ac2e0960d0e78de50ae0f6fe4d934fd721202d02d4d5af2f": "BACIO TERRACINO ANTONIO",
+            "48681f8e7337a471c2a678d046724ee734d0e259fdca6c56c634e91b69a620ee": "BARONE LAURA",
+            "0603cadd2ac38d6f856a7989ea5ab5641c7f6eaae9076036a1cc90017e1d59a1": "BARONE LAURA",
+            "41587d991dc3e77abf34085ed9129dd8dab990f8688838f76a8c3ad6657da030": "BARRA RAFFAELE",
+            "cb99edd6132ea32bb794cc3c7e749a341748fa32847ec11729148f7348124625": "BARRA RAFFAELE",
+            "b79f62199d638c40587ebde813f4e5f40630f1e924eb207916df38fb542622b3": "BEN ABBES ASIA",
+            "3612f7e95f6ca55093ba3b7de6531d16c42088e5834b919497cf0b98f69edc4c": "BEN ABBES ASIA",
+            "2392ae62c6a7cd3b809b17f0fa7851396e8531d4d1153675f08653428db562b0": "BETTEGHELLA SARA",
+            "b8f22640c4ba29b38f7669577fa7a8f86eb391af0c6610411e440c62213d2c52": "BETTEGHELLA SARA",
+            "cb11f74d9c86521ab520fc56c189f4a5f696310dd46cc0f8ff8f0c8ea13c69ad": "BIANCO RAFFAELE",
+            "a0c8eedfe3130e4dda71393531342a3c5375ceebf1f4ab394b00be3df2ae8f3a": "BIANCO RAFFAELE",
+            "f775409e9978049ef65a4ac85881860108b6d1cf4217f5045742a880bbcf9f46": "BOMBACE EMANUELE",
+            "3e6b7b1742587d18512d0c88f68d3614db09bbe76880fd8bb84528cd97c53eb8": "BOMBACE EMANUELE",
+            "deec5d4d024cc234b453965f1b533731055bae04d129f69402a7208b89b31580": "BORRIELLO ROSA",
+            "5fd5a9bdb1e29900a5fb7f9cc992e27296bff878cba04f2a30a5cf1cccc6a72e": "BORRIELLO ROSA",
+            "d4196143e4f2d63c544c6028d4508300ba6f9175a31bcc4d2e0536689b24b024": "BOVA FRANCESCO",
+            "0e5e0e38c9ecd8e77b228bd782596f102a9b3f5081e01d482cc60677a638f51e": "BOVA FRANCESCO",
+            "faf0a6eb64deac9b4e3ee758f20a7f97bd0a29942555f4ec6186c04fbfeec11c": "BRAGANTINI FRANCESCO",
+            "b1f7a7a0574bb4b7ac5764b011dbe526681d00e75e9a74b97ba274b40c5a7681": "BRAGANTINI FRANCESCO",
+            "3b04dd68f009e75d4a84bde6aa0bfeb8c7c37af5d9115bbb9c852ef8cde65612": "BRONTOLONE ELISA",
+            "eccafeab5a39b80e893d7fc5e8393c1f45817f932a240576d630b48ef70fdb82": "BRONTOLONE ELISA",
+            "c78b93120c7f7422ee70334831117674e3f54d80f1f308d9d62591400791a8e2": "BUONFINO ANTONIO",
+            "854219910dae7f9c12d569ea8e8914e5d26c8f7b253c12d46f55ffcdf712e5f3": "BUONFINO ANTONIO",
+            "e587d8f147260f02b5eb381d3e25d6fcc2a37253daac7a3350358928a1d08b34": "BUONO ALESSIA",
+            "b2a5d59c87bdfadf72f5ae0d12959f6fddf8441fa07bb0e4821c30c49a0efc08": "BUONO ALESSIA",
+            "3af49f7a2f6d28224d3e8d8610f1bcabcd437edc4c3a0c888085199e28019c25": "BUONOMO MAURO",
+            "80ea3583ffae85e974305ba7bcbb9bff65856d35554b87ab505d2322b42d87f8": "BUONOMO MAURO",
+            "817df3fcccf4d25b764f4d211c9b3160387556fd53a0f6ba5cad18e5ccf0dd8b": "BUSIELLO GIUSEPPE",
+            "d791ae8718c564efd86a62b24c8a6a76bf7645b685b8bd9644a66610c2128be5": "BUSIELLO GIUSEPPE",
+            "b813f7122db4675995e85348e7c392d78a28095e7ce6c404069838fae312a67e": "CACCIATORE STEFANO",
+            "aed174d244e310cf3ee73d1fcc1377cd63fadb15aa0a27ea2ddc23e2b6fac6a3": "CACCIATORE STEFANO",
+            "89a929fc64fe4a95215c9439bb16ab75fac2b4e9aff638d9bb69fa1c8fc58442": "CAFARO THOMAS",
+            "0c100272a7ea9ff5195afa2883dbce9da2ce5f907361dd415c816c444b771fc6": "CAFARO THOMAS",
+            "b2e2b5ac291169ac35fb970e5a3505a23c6845995e12311e1e0be1c8af211338": "CAPONE GIULIO",
+            "4bc9d82414671789a467fe5d758449a169008bc7a2843578c7227c0266f1aae1": "CAPONE GIULIO",
+            "4a7b5329f933cfd4f99ce17c50858af43d1731d3477821127212c0ede2fb716a": "CAPOZZOLI EMANUELE",
+            "5e5f6c1363df55642c5fbdf7e28b713e25762fbdaed37fce274de7ecbf11b982": "CAPOZZOLI EMANUELE",
+            "183cbd5379785a598adee99bbaaf57d61caeee86ffe821463607eb3dcd8d34f2": "CAPPIELLO GIOVANNI",
+            "e5487aa88994b8b263b3c4c4395613ae9cd2edca8e63f0713e7371b8669c7ca3": "CAPPIELLO GIOVANNI",
+            "22f23d581057182ba2d6a5b54406e857b2cf49fe2cc574255000bb4ccbd567af": "CARACCIOLO GIUSEPPINA",
+            "3835700ea4532a19c82013d9807ed6fc0c8e929b9c3975161bc822c804e7b3e2": "CARACCIOLO GIUSEPPINA",
+            "71f9abd9c47cbf625c3f2da7c936c3091514e49d0aa68e6b0e0dd562772ff2be": "CARIELLO LOREDANA",
+            "ea2ac0f995e9d3bca91fe0bc3aa282aeeba4e319faa9d98e9053e6e0673bed6b": "CARIELLO LOREDANA",
+            "e3e209100c48fd9505f7bc65a7f1e0fdec50956874090ff5d95d79771a3a2504": "CAROTENUTO PAOLO",
+            "6a94f83156d421594552824065d274be18724ec0a99c7501ac945a544b9c0384": "CAROTENUTO PAOLO",
+            "42d4864e66ffe7c79309d7b610f6433dd148e538fa42796217d8375de5f0eb01": "CAROZZI CARLO",
+            "06e7b52ff7233fda342a72a0ef62a713f84f7f77a0381b7d1c663da84bb63026": "CAROZZI CARLO",
+            "372427b832c2ef1f2c0b86d2eb2f56af11f3327d2e5f41fd9373a15a383b079d": "CARRELLA EMANUELE",
+            "388b7bdda0510ddd366aa2d7e4d1d06e798beb8543f8a479adad369b95895144": "CARRELLA EMANUELE",
+            "9cde6620a20e84a5c5bed8b93189806772b5d4f3661d162c5944e93968eedee2": "CASTAGLIUOLO CINZIA",
+            "9fb135b2df8b800f5d774a8e3149115a5cd9c1af7f60126f9d32ef652b7ae5f0": "CASTAGLIUOLO CINZIA",
+            "9597f7a96db22f7e78f89eb8b02d27900a060a2fe12ae487eb2185cac1965d06": "CASTALDI ANNA",
+            "f93e666b9ec06c8512cd6fde0821880a62bc41d2bde74b57067d0e9602a32bd1": "CASTALDI ANNA",
+            "71bbc6ec87cb97ce233c267d37f523b5f1e1defa314cf6711bbf5edc5fe11bf7": "ESPOSITO ABATE FORTUNATO",
+            "55a6d57f4c003b607e5a2745c5edf68a5d9a818f8a91f75e233e5ec83c0b5f91": "ESPOSITO ABATE FORTUNATO",
+            "547f38fce491af96cdd2b44b327ad830a62e5b6c121abece276f0bad223bef8e": "CASTALDO ROBERTA",
+            "db055971ba428778651d2397a57eea19de29351da84f6e23afb51f4a3fcbe1cb": "CASTALDO ROBERTA",
+            "cc75393237e9ad1d7ed484ef3eb8e70a6866768aae7816a24306e7f0a043a892": "CASTELLANO DANIELE",
+            "a9a23a048dfa8916edaae404be8bdea20788de9413b0e74713284e7b3a12f865": "CASTELLANO DANIELE",
+            "f160da81b8239a49e35fa43fbfaf8fe9cb379f20922f66a48d3fd6372f15bb6f": "CELIENTO ADELE",
+            "7fad151e3c756dcc525fbfe791441f329891678af5e15f038db52c250eb3e1d5": "CELIENTO ADELE",
+            "dc58858a614ab3d8e686e7ef574cd375c689a96246728532bf1ca4ce45b5b1c6": "CERIELLO UMBERTO",
+            "7227437b5dd33f65d59370830589eb322b6690105618204f738a7411ebf33ff5": "CERIELLO UMBERTO",
+            "f7cfb737f47d97fa39e40cbb83ce2b15bb264436fe03a6f7098fd87269f51e20": "CERULLO MARCO",
+            "d5005fc1deb7272ca4c37ee0a26f74ca9391efd3cd26370263a8830b8081124f": "CERULLO MARCO",
+            "124a16815520d19f6971e0cdf4bbd7391c00522a8354b37dd0d4d8b1ad8d8745": "CIGLIANO GIANLUCA",
+            "0dde7ae48d1a6db916a85d7507be7466817346eabaae3b7fe2794035219ad966": "CIGLIANO GIANLUCA",
+            "1c10aa0cb50a72087bd06e03715fd3915a8c9ac7168bd26405d8215166c45e6f": "CIMMINIELLO IMMACOLATA",
+            "fc2f60f939ee5ba1e12a793c0ac8977bdde9d2af5ce75ac1ea8a1f27d64a27ec": "CIMMINIELLO IMMACOLATA",
+            "bd0431147ed3c7845a539d47fc7d25c953bf7b08900bc55b281eab68eedc1e92": "CIPULLO GENNARO",
+            "dbd0e009754d0ac6e8d85b95d5a6897ac501a2049e95592eb8a00eebbd0b4166": "CIPULLO GENNARO",
+            "19cc4acaf842a99860c56e970fd1eaccfe97cc03fd46c687ddf110d5dd2f2b77": "CIPULLO IDA",
+            "cea9671d2fd46858756b9975b54f88e22c1aa1037f0b72748a1ed5d1cd827ec3": "CIPULLO IDA",
+            "7a9f2cedfcc6198771d035ad354763d800097e2cabc848c2660ef0379519e2b9": "COLIMORO LUCA",
+            "f178998e5240524cf46467819e7d805c3ba52f65554ca54cd6fd98c52ca785ac": "COLIMORO LUCA",
+            "22e373dd2f28c33c41a9e5922db8c7881f8309dd1abe575abfba0f9b518d3c63": "COPPOLA VITTORIO",
+            "cdce2ed0fcd1e01d8af599fe07fdbcc2d51f47a724ecdc5a7821e064b30a3f30": "COPPOLA VITTORIO",
+            "6345b9d568f24f50b4f27577959f292d9a0a8a7a28176d6387bf142c2cb13958": "COPPOLA MARIA",
+            "45b84c17ee7ef1442734dcf45bc54850c5658c8528cdc21b4f9321e1a2bb1248": "COPPOLA MARIA",
+            "2c09d1b0abfb94c56132c612b882efcd1ae3fa7bde4af021d05323b21c9fa718": "CORTESE CARMEN",
+            "52efabb91fb343109f49c398cee7484f22edcd3446d14059ca3d75f368620718": "CORTESE CARMEN",
+            "d1829207f0501aa2ee5a64320ba7f4e1d86e813743dfdd8391a7c766014aeb24": "COSTABILE  MICHELE",
+            "3f9a080d455d316804aeaa9d7df865a832e847e79128996c9ca2ed47358ca18e": "COSTABILE  MICHELE",
+            "c1da16e10bfbfabfd21701e49c74fa70b8d1bc4e755668b002486fef7f27c317": "CRISPO MARIACRISTINA",
+            "c07f529937feb80d662a82c102f1aef23f9fcdd2e9825901e58c14f23966aa0a": "CRISPO MARIACRISTINA",
+            "8365a3440627cc114a6a83e16556dcf2a319334c836fea362bbda3ba632600dc": "CRISTIANO MICHELE",
+            "dacef0710fc31206b0a85b805525776a0927a94898b3068dd71fbff293a60217": "CRISTIANO MICHELE",
+            "db0a51169410bd7be11d9d0c828bc9d15177092c8e13234a74202e804eea24c0": "CUCCIOLITO FRANCESCO VINCENZO",
+            "10b6604d623006939f1865307ae5611d28e5afead3fcdb99a59769edebd6830b": "CUCCIOLITO FRANCESCO VINCENZO",
+            "679b2ed5c6e710cfa03b06541d03a05badc7d6b6023d3758ddc2f06c391a03e1": "D'AMBROSIO FRANCESCO",
+            "4bc904df6244941afaa55f77b799df605ffe4a96544b7602e7a3d22c62188d64": "D'AMBROSIO FRANCESCO",
+            "a912b8f08bb270061ce9d25d36da7d05a351ce00edcad3050e35fd668c969b2d": "D'AMICO VALERIO",
+            "5299fb558c4ea2719e0cfed41ac2732bb6ce653140824df1c2ee619904aaf938": "D'AMICO VALERIO",
+            "4271f3ea4e67bfc8a863061c82141422ef8c2b13ddf2a939091de453179c5b14": "D'AMORE RACHELE",
+            "db4847bd254a68453772623c194f96a494ca7720668fb4475fbb038b51de282f": "D'AMORE RACHELE",
+            "8b7333eb3f9b5e6484a726d1245e22d24e3da8e2dd60a08f430fe3e40273bf24": "D'ANGELO ALESSIO",
+            "2a9be5cc981bb60c06ea5e3c6ad62ca23c7e5cfa1df0c11ab9039271ef33dd7d": "D'ANGELO ALESSIO",
+            "560aebdcc2cf28bdb75f0267611eedc2fa6d523ce458089acb64aa37e5700cf2": "DE RISI EDUARDO",
+            "a5985e3bbac3f778938499f542164756e039cd4368ee634cb3035eacaaef7c77": "DE RISI EDUARDO",
+            "fa9e19c46c305a2e41d7d8b65ab5f88685505d92ffce38a9a3e80c41944eb022": "DE ROSA  ANNA",
+            "4c92b6483caf285cd05c5e976dfab0ee207fb0f8d19f54a2ae99d6bde2938b58": "DE ROSA  ANNA",
+            "aee30e63f8130536905c92299d9043619cfd634aed043a87dcdbe4e6dfae6ca7": "DE SIMONE MARIO",
+            "3653e04708e3b5b580a3463a95de139744415411d67e38dc5cf8a63daf6bbb8a": "DE SIMONE MARIO",
+            "c9a320307dff3fc5ba3b5b926a9cea88f6e8d0ed91998d0eda43a5802f6e6f7b": "DE TOMMASO GIOVANNI",
+            "fa16d41e0910341caeebd189b2a235411e7d0c2d92989afb4e8dc05903d24578": "DE TOMMASO GIOVANNI",
+            "67d96d1b02f80287ad449739dc28280c5f40b56177ed0cafc2ec63834f44dc0f": "DE VITA CHIARA",
+            "a432b1c7c82f00e2021e4ef424ed07ccfe69a759d9631e58515d9d2265146650": "DE VITA CHIARA",
+            "34d656b57e440d04ceaf79ddaec9eab7a28acb354bd588e70e0b2ffd5382b8a7": "DEL GAUDIO ARIANNA",
+            "d86dd59b8917045de042dcc34d2d9b24b3a88d519e40cf4e69b1db02174e6c5f": "DEL GAUDIO ARIANNA",
+            "8030e9bda74bdb780f2205d7114862b08ca928f842ef654833fe60c575644da2": "DEL GAUDIO MARCELLO GERARDO",
+            "0b95deb48ab2304b79bac4dc1ce6160f90504b989c5bf2bbcf1b7f9ab1d6a90c": "DEL GAUDIO MARCELLO GERARDO",
+            "21dc511f5afeb7d5aa76a2351067def179e07e5e027cf7271f2949b048da1ae1": "DEL GIACINTO GIUSEPPE",
+            "9d49ad6375b2ac1ab960386453fe108901194ae59bd56518ce1fafc9a789e835": "DEL GIACINTO GIUSEPPE",
+            "356dafa139b371cf8537932abb93b8ff58bd3c38bfb01884154cb113bb158ed6": "DEL GIUDICE ANNA",
+            "79bf842b67e7af97d744c337525c771f9267b9bbc89544a53cd68e8599de155d": "DEL GIUDICE ANNA",
+            "e3e35dc0f7a103e11aebd0c4113be23c0435fc1d83f3d74c22d2489c9f757b29": "DI CARO ALESSANDRO",
+            "c67f4f05de84b590ec903f0f5723e7f71ad3541a5d917e7bec28590a20b8b5ac": "DI CARO ALESSANDRO",
+            "abef4d500a1a6a371c7cee26adfa67a975562f8e03bd4200e7ad3e738e1fc860": "DI COSTANZO DIEGO",
+            "831a69f46a31403136279940410cad396532d499bae18fef726df580b453bfa2": "DI COSTANZO DIEGO",
+            "9a684420f7e565d79335abc9b9489f89175087b163bd4aaa59a260b200256708": "DI DOMENICO MATTIA",
+            "f0ae163c0cfdf2f71c856a9d00905b3243f84b317ec9d00347faeb27d35be089": "DI DOMENICO MATTIA",
+            "66154e65527a411fa93542c582858e21e9ccd3a29fe130f579ecdde353dc8faf": "DI DONATO MIRKO",
+            "3760eb461aa7deaf55c511cb99f73e70525e48e2a9397f4d9259715809d6238b": "DI DONATO MIRKO",
+            "a17641d5c2fa17e69079fb50c94567dac08413ba01fb163d3cbfb5808285743e": "DI GIACOMO LUIGI",
+            "d0a379c5fa74a8b8860a78a7496fb04582dc9fad7d0fde89cc39364e293a3694": "DI GIACOMO LUIGI",
+            "ac4100c076db6a39ffcb53aee6972a028b3e29ec3fb4e5d83bde535068b0b452": "DI GIACOMO ROBERTA",
+            "5d4092f8c60aa33de1c92465d915c19cceba73a25d43cf69416d743f4776a599": "DI GIACOMO ROBERTA",
+            "6c66c86b6fa8c01aca45048edd4e2029cfd906a692f99d275fb75f6616492b90": "DI GUIDA DANILO",
+            "c8f198f9644c7a533dc829ac15c1fda5a63c1d5ec252c6f1c2a49845b42bd9b9": "DI GUIDA DANILO",
+            "7f767db86baca68e6b0e30db9f13a867fd78643abe15395015ff57945719f766": "DI LEVA PAOLO",
+            "e5dc1fd244cf891a6ac5ec7f191c78bba1e7560656edea799f03d2edbd9237db": "DI LEVA PAOLO",
+            "7962dda8c0c01409cf1a7c942828bb1645e4a3e571d33d41044157b2714257c9": "DI MAIO PAOLO",
+            "809cb5577921f455ece62ce1074ad6ced2c71eac9264d7fdfc5a00a1960fad6e": "DI MAIO PAOLO",
+            "919aa9fe95c3cceb9f4940cff7ce1aeca0ef577597b6542ab3af77cc42f8422f": "DI MARCO FRANCESCO",
+            "ec1ae851588ae1e8eba50b6655815cb69f87f2165497d877f548025019665ca6": "DI MARCO FRANCESCO",
+            "88eed2a4c3ecb133af037fc17a4763d8ca0d60ac9ede252551d0079f5a1ec14b": "DI MARTINO VINCENZO",
+            "c87f2d0885a3ad267b00ea258db1b03b6e2c3784b5ea0ce222e657d68b2b4097": "DI MARTINO VINCENZO",
+            "9c64e426bdfe919a261d2bc1b7f5d3915349e9c0ecbdf2170ba5a7bda764cc57": "DI MAURO GIUSEPPE",
+            "cef6baec9bd1c1d1c825e550c00f99869882d0f8074a7fd7060d2db6fffc9008": "DI MAURO GIUSEPPE",
+            "d23e3b2caf1a37630c15c687ed06521bab1cfd57fff4c3384c783e72ad82305c": "DI PALMA ADRIANO",
+            "a1fcbb2e8ac8243fa8fcd2204b8975eadfa9758ba149c229e1325b2e1a1cc2bb": "DI PALMA ADRIANO",
+            "150546bc04a93bb2cbb0408f932d3960ca25927273448e9d124c37ca3b11fd7f": "DI SOMMA DOMENICO PIO",
+            "1ceb765812b87d0f77cb1e1f21aacf663a6e338c2176fc4f8a78d7bd01c835f1": "DI SOMMA DOMENICO PIO",
+            "54a1b93f7c97aa3d4458b8b5e96dd279efc49ebffc2aabe3c6dc06288ba48f28": "DI SOMMA GIUSEPPE",
+            "46a0d1883e1908e416313dfd21841bbd740b072efbaf91462cbc76a74d039e49": "DI SOMMA GIUSEPPE",
+            "3cd789f71bfafeae874636b03933d540a3c43be92f4ef1aea11786036be49fa4": "DI SOMMA MATTIA",
+            "98ef4d4c0e6c9cf347e7b6c259c229a37c92dbafe4072acefdeed225ff336d9d": "DI SOMMA MATTIA",
+            "730fa2c95531073f174aef1841541a9dd920c632e20f6e15f24dbbb9dbd7e9d3": "DINESSI EMILIO",
+            "66f746c93bc1f1d8a5a4fab085cc70ab5b18ac560ecb3a90d8c715c7f84c55d0": "DINESSI EMILIO",
+            "0f212776667cd2b160b324564ad3c9c3ab71ef4429fd23f23d6479408f3a4c94": "DUTKA NINA",
+            "8cdb8c54ccac98658270e957f001fa888b28f90a6d0a7947e7c25c89a979290a": "DUTKA NINA",
+            "e46aaa1384037e5ae3c7d0a9efd1f69908215bf0c325b139fa0f69fcdb3c69c4": "ESPOSITO EMANUELE",
+            "a4928325b038d950d2ed62c23208f8470df72a4f029461637a3b116ec6b35367": "ESPOSITO EMANUELE",
+            "a2b79b216a47e18639206350530c3502dd1d6710967c6736cfe53ecfd9dcc814": "ESPOSITO ELIA",
+            "7ec0fe9143535f309a7a6e842b380fb4a5042ab56d9c7876f018a322265de973": "ESPOSITO ELIA",
+            "4e0d6fecea6614c2f1fe37b23c268ad5af184df74aab8416e31802148f70c8fb": "ESPOSITO ABATE GIUSEPPE",
+            "da091b117825a512e91796bece111feb8054da38e605598ba69d09ed802b4359": "ESPOSITO ABATE GIUSEPPE",
+            "baa620890f8b0854c1f74397847a27f7cea35e6810c9449997e8597b56e4a7a4": "FACCIOLLI LUCIA",
+            "51a5c02d43bddba53b36ef90328367b3cbb0f9fbe4976bcfbade1e2b4b0e1213": "FACCIOLLI LUCIA",
+            "e278ddc877f06d420732338242440c8ce15f776e7a05d8d93407d052c983b64f": "FALANGA RAFFAELE",
+            "4028e159fac519b5a28beb25df69f82e9f0c0ac3668b432b8f0fd58e62e4273c": "FALANGA RAFFAELE",
+            "3350a335d7247c7123d2ed5e3e7ac7a6277f5862826e376116ede279a0cf2e2d": "FALASCONI RAOUL",
+            "1614955e9180959486e612460eaad18cea820a4c78b12eec07e1bfed74da31b6": "FALASCONI RAOUL",
+            "05538105ad71e0375f70ac8cdae3c723c4905b7ffd12b138e2f951aa07ea801d": "FIORDORO FRANCESCO",
+            "70f3511da0c95c061dc8bdb89b03771fa8a6d8462edddcd631e32762d8ed7459": "FIORDORO FRANCESCO",
+            "7c61f57e6a205f6d6880395f1b517fabb28d8308c0b1a798d1eff260d2eb9ca8": "FIORE ADRIANO",
+            "4243ee1a857fd52166a8b57ff70981881f1279453dd9eca2efbb32aa19e601b5": "FIORE ADRIANO",
+            "4a568f4ef228ebdfe905ed66256374d2e70b22c185734235387ec3329e2adcb6": "FIORENZA GENNARO",
+            "54aff223e07d06c29d3e8a0c22967a92f7cd1cbd1e40a2a39ad0354f2abef8ba": "FIORENZA GENNARO",
+            "1739792a977108e4a1986cbbe8d88bf5d1e61e3a0e08ae3c791ee8ee6c138512": "FIORITO ALESSANDRO",
+            "3a998478f92afbd9c42a5d21c8a072847f94998c01569412fdb62d9ecd08d11b": "FIORITO ALESSANDRO",
+            "c9469533119d9ac6040a7138ce380574d07e64d2b1279af9d4289ce9e89cfea9": "FRASCOGNA GIOVANNI",
+            "45d74ff6f2650c456c64ca51b728625211d4943db0e95375e39101ec78260562": "FRASCOGNA GIOVANNI",
+            "05153234c624a2881bf1e3bb833134e5d8ce136e51271f59f6ce1756ae4920da": "FUSCO MICHELE",
+            "b20293d96a48b614c5cf89821ff745c2af7b0c80ce0d4ae8ea848c2572ebb340": "FUSCO MICHELE",
+            "0ec92150cac29947861fa768ada439a4355439669053f0d94c2b79f7f76039e4": "GAGLIANO GIAN MARCO",
+            "9a5674e13073a9842417a54e7dcd6057f20923933783a021bff8219ee35df469": "GAGLIANO GIAN MARCO",
+            "e0268b9226b297ac25bd9b453328cdbbe342a05397a6e93d74ff535fc45b139f": "GAGLIARDI SALVATORE",
+            "1d412bc698032ae4181483c6567dff9bd0a8c06f381248b0f2dd697bfbb7d321": "GAGLIARDI SALVATORE",
+            "9b31b8426319fc1bea4c482777af468a4d7f77014dfc50460373067ca8224a5d": "GAGLIARDI FRANCESCO",
+            "c04af2c7ac0bbc8b07905085ff54dfebc2bb65c3f5b9d2e5bde494e89599682f": "GAGLIARDI FRANCESCO",
+            "d1dd6cad1cee43ae03f8021d07667befad3bd6c8d18397e70c62a869168a502b": "GAGLIARDI RINO",
+            "8fb7809ac7425c48c53b2482176607701baf65715ef186369ea18e5eec559d02": "GAGLIARDI RINO",
+            "384aefa04f7c8cf9c8cece0b81fd18cc272377b855ffe65d5391393aa845e373": "GEMMI PIERGAETANO",
+            "e774e1513cf78e1edbb22159f26b5c646281f60e73ab1712c42195852e0ebb46": "GEMMI PIERGAETANO",
+            "455c30b98ba87880f78ff44a77a553b7d3b29b320be446da585fa4e26ac5f4cd": "GENSINI MORGANA",
+            "f3ca9d4bd1354688640537bb5a624074476a5a7d55f3e6e383b69853793c2e6e": "GENSINI MORGANA",
+            "69e0de9d1f21efbb2f952f664b5578fe568c07e849abefd9f132ae4743e2340a": "GENSINI VERDIANA",
+            "cb7aad50b06faa8e76e9370f474da07fecc12e72fd5c74c2461562279d161323": "GENSINI VERDIANA",
+            "0f49d1574007596497e6deae4cda1f0ec67ce0c19e505c0a3c337ec38e4b5230": "GRAGNANO LORENZO",
+            "fb520c7c45bb81f9c5a4632d7544dbbef9bd898d2740f70a40a27fb1371a4a5d": "GRAGNANO LORENZO",
+            "0a00696d680f6637ca0d3570c89dcc826a4bf368b1f55d3ca84c95e1c1f2ffae": "GUADAGNO FRANCESCO",
+            "8faa0d2b307e02409a7e284e38429da058da474c1d669bbcbe60aabd3bbb7f4b": "GUADAGNO FRANCESCO",
+            "b62940e8459dc23881b13f983c6eba9f7beaa21eaf9d3f5e875f6c900b28ef58": "GUARINO VINCENZO",
+            "213ddfc9135eb4a29e290c634265c32bd8204aa95d0311148d890fafe64d65de": "GUARINO VINCENZO",
+            "2938e59b13e69ac4c858781eb13567eae945f407518a18032d85e5f6eadc7f8a": "IAPIGIA ANDREA",
+            "7ca92b37d340ce93dda4f8e40f7051e306b477c0c440dbff9c9d782067854f0e": "IAPIGIA ANDREA",
+            "137a9cf71b349444428242359ed7fb65c3e2d30a6ee9accbb73e5701caa26e98": "IAVARONE GIOVANNI",
+            "25fcc7125cdced01e636cf7f3684ab08400ce03e9b670eb33cba65b7ed5ff0e5": "IAVARONE GIOVANNI",
+            "4c304af2a3fde4cbdae10ef6ece957082bfc36b5ec27bbf4b094c4fb2087fe6b": "IMPERATO SALVATORE",
+            "1185f258a818cee2f4e908fc8682b88a77a3f64f6e1b4344715812d796528d61": "IMPERATO SALVATORE",
+            "fc459c57633a794706705e9288c20cd3525eaf4f2fce1d211e28e28096ea64f9": "IORIO ANDREA",
+            "d1830bf0e8da32db5516fa75887fb4bb86153e6039dffa6c1c94448f5a94d0ff": "IORIO ANDREA",
+            "d220ab301fea12bbb7f45dd4c73a98de514ac9c4cac5d726c913d2d4b39f73a3": "IZZO GIOVANNI",
+            "32c92b4762d619e0cc49cf0465a035b9e2e7d2b49163cbf23fdeb1489867e1e9": "IZZO GIOVANNI",
+            "1380056086d7c76f824ed9528203361e7a5858e0f4a289add128eef66a8c6bad": "LANGELLA CHRISTIAN",
+            "eb59bd75964b0cca96dedac07de7c96fa3fda7c659ce1d13229587491466f5fe": "LANGELLA CHRISTIAN",
+            "032ed9c0285ca06a899cd19de6b35f5b91beddfcae97a39493bd072b91dc93dd": "LAUDATI ALFONSO",
+            "cab2f96793a09d6bf9c0d627c9b95e43970a2e743efb570e2034b5eb8b5c5fee": "LAUDATI ALFONSO",
+            "11e899fcb192f9b06411479c26e1e1c23b9d76402be8ca0d7743fae4c9dc7185": "LEPORE MARIO",
+            "cfd2bbd14a89c4b7517e44fbabe25ceff5ceb578f82e4a48b74128bed083cb5f": "LEPORE MARIO",
+            "d0e0bdd39f813eaffcb843b6fc3b97eea0fa13cc977a8b84fa9b834f80fa2678": "LICCIARDO ALESSANDRO",
+            "7facff9cac54d7d3467891181d120d32f66f15632779ea0dde2f62004eefbd8e": "LICCIARDO ALESSANDRO",
+            "439453783d19f687f96157592702c72a9f49c297b60942675a633c0aa5eead0a": "LUBRANO RAFFAELE",
+            "f808960f22b32d133414b2e95f0d3c540f54eb6bc4ac841b2d8c7092758a3410": "LUBRANO RAFFAELE",
+            "220f87985d0495a87dee752fac70b5929b79de2a34757b610c8fe9b44f868b7d": "MAGRI DANIELE",
+            "55b85501969a35d0e7d110f0763a37dfd372753cdbb9a6b14db3b33b15c03fd5": "MAGRI DANIELE",
+            "81e700cf4fb121588e140faa5f986b294c3f28f015c2980874fbbc5c35388b0e": "MAIELLO GENNARO PIO",
+            "437340d1a5b672c1d8403ac6fdbdb09f8c99f46747a4aaece25c21cf4ab80a7d": "MAIELLO GENNARO PIO",
+            "9bb80a5a01746e850048438a27f01f6b7a2b960143a893625bd70e66eb3482a2": "MAMMOLITI FRANCESCO MATTIA",
+            "67aba4f9656a0d57773ddc8292c1893092130d01b88e6a988eadb874197cad49": "MAMMOLITI FRANCESCO MATTIA",
+            "d3e4c94bb3942223d0f8d79191052ec5c758b0345ff4241efd704a9e1969784f": "MANCINI GENNARO",
+            "021b214c332cde1bc07f27782f805753007137dc5302af4a44f56d1e0373daae": "MANCINI GENNARO",
+            "36ca247a563e5c6699ebc15f7abbd08bd137742b8d192acbef76fcc9986684f0": "MANCO MARCELLO",
+            "6e59b179a0c177e896a5183d06a59e65d93bc209d76fd8de1a3f5953e7fe319c": "MANCO MARCELLO",
+            "daa560ffd2e1da9ca81b95e7bc2dc38f20b5f4401f29afbfc64fe0efe4fb5bb6": "MANNA ALESSANDRO",
+            "2d02747fa7fca9b83fd62659a90d3d49942df2585f0fe45d269204a6c4fac0df": "MANNA ALESSANDRO",
+            "6f60cf8f5f9acbd98de8b6eadb0242f82da85b2e1736616be4c74b243bace793": "MANNA FRANCESCO",
+            "21325e2faf1dc68a3cd14ff95483a1808d0aac8d18c24352c22888753197dea1": "MANNA FRANCESCO",
+            "77c6d90a9e81f715e146cf44eeab451005da37f161790194d85ab899d50ae701": "MANNA GIUSEPPE",
+            "1d4edf2cb931a756fb1b370a5b320b894b8a55568a7051f775a30003a6af2584": "MANNA GIUSEPPE",
+            "6020de3a49974ba530933d27a978b5faedfc28b44c40617df5d984343a32ffbf": "MARANO CARMINE",
+            "6826bb5256df2183494d268f1c0fef82f58be22f01081ba3923e8f3ef6ea8ef3": "MARANO CARMINE",
+            "e575237dafbf172710bee119e3d728c9ce9c37ed5f4c516c6743d4e2b42a4ebb": "MARTINELLI FRANCESCO",
+            "dd163a0fbfa6115777cb3a81f6428d6548e7b52192c1fdb506473fa1a66ce13f": "MARTINELLI FRANCESCO",
+            "8812441845771ce1910a758353efd5d0fb36918b8903f5204a3fedae334055e5": "MARTINELLI DOMENICO",
+            "ba2694546700889d37bd526fd674093de50ea0e163e7b400d74aab592de9f766": "MARTINELLI DOMENICO",
+            "b77ea43dba33aab761546cc344913ceb8f33fa5f8de5180366d48f8d42eaa05f": "MASSA LORENZO",
+            "a2443253add75002256bfd4ff4bf7a90ee4df1cdeb2ae16f5636c8bfc5bca0f8": "MASSA LORENZO",
+            "27f85a3761859204297ec89c0fc6df525de0ce2a4defb98b7a57db42395cc621": "MATTEI ALESSIA",
+            "57de46cd6832a193793748f2eecaa18e7cf99beb68bdd3863d3e51b9d962eb8b": "MATTEI ALESSIA",
+            "c31a3709aefe97da642d0995d9fe6ca6f5f0cf22a2b877cd009533932b9b7998": "MATTERA VINCENZO",
+            "f9f6d158384c4647b3a799545b780bec7de4a6b9add34026705baacb16724da6": "MATTERA VINCENZO",
+            "db90d1fea38e7ce31ad163a1042ff1bdf6a780f9f538ab677022b59147495594": "MAZZONE DANIELE",
+            "9b075ecea7e43c71e0a5eab9d5af95e32136224fd9dc27ba7a1f8a85a694fcca": "MAZZONE DANIELE",
+            "400f3f4117d63c36d58c5bf06a1be54ad955b0fd6a25a6731939e8a4f780e24e": "MELCHIORRE JOSHUA",
+            "64275504db3ffb2d613bee8ca2614b61c0d776d31a7bda34c6f24ea1c3477b7b": "MELCHIORRE JOSHUA",
+            "a4f9f5d1af06970465fe29f65f914e2e616ba20362a43cb30c8bc96d5a81b108": "MICERA PAOLO",
+            "ebcf1f665adb72e175109d3ca94a00bec67687e315607aa25abb25e35b6572a0": "MICERA PAOLO",
+            "7d9075f7e44c67d89f9ceea44463276d390faabad52159ac6fdb3ccaaf4d80e7": "MICERA DARIO",
+            "179e54c96d8d696acd3a059369c8c6f71bf6466c542280898259299e3892ab4f": "MICERA DARIO",
+            "383b29f02f527e41b7c83418555123a82ed0e0bfbb10c49e40c56e6c2350717f": "MORRA MATTEO",
+            "94e3214874bd01e4b50b63ec0056bc878b542832b6ef42941aa2aca056581675": "MORRA MATTEO",
+            "07d4be43ac35340e5d3ae9df0da322484b8e2ddad524a6ebc3187542217b1b54": "MUSCERINO SAMUELE",
+            "176860f2d8f1396ba4116d80fdb7e89d3171515e4b0c704dae27882da6b2f17f": "MUSCERINO SAMUELE",
+            "d98d07ffca50c4c5129c48ca4167dd607320631b91d89469303f153f209da4c0": "NAPOLITANO GIORGIO",
+            "f8e32df9eea5df4d62c8ca1b5010a666046db1fd6c951f62977c4685a2b1aa20": "NAPOLITANO GIORGIO",
+            "c270398334cb4f28b886df733871ad78e998a07255f0ad7efe03bfc9f0cef2cd": "NASTO ALDO",
+            "f328f22065e4cde228661f299057e576c7a3fa8bdb8c3c9be5e897c6c06d44c3": "NASTO ALDO",
+            "3cddd75dcf2ac044ab8d42782b015b04b14873cecfd475e91e9c187c3549a604": "NEGRI SABRINA",
+            "c9c4ad9dac56a4498b0e865401c92fe865b15d5954ab35efcdb72732b5853615": "NEGRI SABRINA",
+            "1931b3ddc77abe9649c68fb14175a404080fe309e363b685ccdf38a864c3db27": "NESPOLINO STEFANO",
+            "2f0f4df22dc7646359cfe34feca43ea919d363909f7720dc0bb503af19bc6886": "NESPOLINO STEFANO",
+            "a162250a2087617bd7b6a62b39b6aa3864442799812a42674a6477e3c3ee7421": "NILO MAURO",
+            "82f0b6e472d9d627b55fcab536df637eb851579cd9924ad2109a0cab80086f47": "NILO MAURO",
+            "0343e3d81756f2f1e700ad8557da57020d7d22650ca76c9115bf4dfaaa95efe4": "OTTIERI RAFFAELE",
+            "99d5073eb0006ca62bd179271f5cc6b949ff4d98ff1668650572b6afe268be11": "OTTIERI RAFFAELE",
+            "c28546c2882b632194b278018341f36cd2459225744f1e5e6ad2d841d0f2d09f": "PAGANO CARMELA",
+            "fcf823abdfd3b5d5b23dafc1e1b7bc8ddbf2d7920f33c559db8aab5cb1c0775f": "PAGANO CARMELA",
+            "adf9bdb4abd6a2f857ecf6541d007705454b3c8cc482a9cdcb4982b0f77171bb": "PALMA FRANCESCO",
+            "b522cd3ea6e0115a735408969fdc2a5700f181ce83b1dc4094221726ee5f06c6": "PALMA FRANCESCO",
+            "550e4a3afde16e3982e59ebace5fbd87a5e10562cf382d6af3092b6fbec7ed37": "PALMA  CRISTIAN",
+            "e185939047067be6dacfb9b0069511e1551102b1ece1f61018a240ebe2d1325a": "PALMA  CRISTIAN",
+            "c91d0b8cb8bf2c08f3dcfdddb9aef731eb3f2e5916bb0a3ce4a2ac87d66b9b27": "PALMA  BIAGIO",
+            "b3e64f7853c707c85e8199aaa2f2205e104f35469133e0bf17bdedb97e3e5070": "PALMA  BIAGIO",
+            "86583f0ecda43d88b6ff9102c38ae9c4674958898610afde2a577451297ad948": "PALUMBO RAFFAELE",
+            "1c4c31c22d6d71326cb4e630d02c82e0d90dc87cf49e0333aaebcf924d259d0b": "PALUMBO RAFFAELE",
+            "c9ab187dc9a3366dd148631ef1b508d55f37f98e15d33801d65fcedc76ff865b": "PANICO PACKY",
+            "56ab0be59c1a9838145256e7baefc16f2eeb119f02ec9ef9a10649a3e4766a91": "PANICO PACKY",
+            "1e5630927fd65d3db87417c21a4b213afea07da8e3b6b3285d88dcd514f8fd99": "PANICO VALERIA",
+            "b8386668e623275333ed6b023f05f9a1ea520a06f797f731b6aceecc59b40671": "PANICO VALERIA",
+            "4b4d07e9da141300ebcd4b65f3b14bec194b2809c3ae22294e7bd8015dce9553": "PASTORE GIULIO",
+            "461eb95da2a67ec6f6ba312646546681421ef1dcfefbea3567f5649507ca31be": "PASTORE GIULIO",
+            "b51e60c48733a65baacf9eff2c664fa6b2b4db5a8d4fc01040da15a09731d9b4": "PELLECCHIA MATTEO",
+            "ef58841d89066640c6eab0dcdc06d9a35aa3e5ad7ba1a6108b1bc6d639c35410": "PELLECCHIA MATTEO",
+            "9612f6aa407bce2c8b2b59968996c9d1ea5e236790aa58c84be2c67f82693b6f": "PELLECCHIA CRISTIAN",
+            "9556ee9332e28384607c0fb03bc6361fda636a67ca1954540cb4cfc0150c2ba5": "PELLECCHIA CRISTIAN",
+            "1db9ba6c7479b5ab3b84336efc765de2d9c23ad9a7ce8a9da2226e9a7dae1eb6": "PELLEGRINO DANIELE",
+            "f0909023c714de21c13e48b4294de67f6943daf2070deff691061c348984b546": "PELLEGRINO DANIELE",
+            "36bfa82817ba72ae4f938bc3cdd8f8db120dcf227268843e2243076ffd0790bd": "PEPE MASSIMO",
+            "c1bb3cd20c646577da67c1d9fb02d1acdf4841fee69d62c35bc7783ec382c09b": "PEPE MASSIMO",
+            "f5de34b4c9f68fbf373123df5ce47ba54f014b73529eb8b1f0b3f69160789ee3": "PERNA GIOVANNI",
+            "332d37d1b6382249c4019c9a6743e42293b73629a6d5c793547ac232d019a9c5": "PERNA GIOVANNI",
+            "5fa3dc5a235f4855261e18f6bad3beb55ba7e510e4c174fba0d7f174efe425ec": "PERREON PAOLA",
+            "d56bd164de07bb4b271c8a99aa5933da034da2f09fce8be863e1079d2f6f4711": "PERREON PAOLA",
+            "703a8763d94ffc0341a78786291087df944acad02a588858b0148e162037691c": "PERREON VALERIA",
+            "5466688ce6020d98c1d9a345bdc0a566237b25dcb2981aeff1904ac0d8d2b738": "PERREON VALERIA",
+            "923f9002a205a20dfcffbc2710cb329552bb3e4b1ceded31b59c4805153fbb43": "PERRETTI FRANCESCO",
+            "e6b51ba5e32f0ed6f85beadde0200ad68514b82a848e9d900d985910531bcd27": "PERRETTI FRANCESCO",
+            "fd5737c6a20df12ce295e778f51b9d22116e824773c70e21fb11a6fd7215c7bf": "PESCE CHRISTIAN",
+            "ea2f5ae084567bb905f60a8d7c84bc0aba183a45b87550c9d161ec785c1043ba": "PESCE CHRISTIAN",
+            "cfa6e63e797604a2504b2fb2377b47abc77a99215565fbf9a838ec442c2f14c5": "PETRILLO RITA",
+            "722fcf35b9e5ca0f320f2d1cf94f904cf4d0cb54a8bb1a1b9de638212d0fe33b": "PETRILLO RITA",
+            "61b2fbf01baaff0913d63b9f48dbebe1a74892dcf4f38db2789a192155571dce": "PEZZELLA STEFANO",
+            "5aa8421631467f729cbf6321e0617b92126854b83b02042081829e75028a776e": "PEZZELLA STEFANO",
+            "c6371a371182f9620d49be5dd755c17e76fcda8fe37517338a641643e6ca91ac": "PICCIRILLO DARIO",
+            "5d35f5bd1831954c106a847980fc32f0d293d2fdeb1952c30f6cb43f5be24472": "PICCIRILLO DARIO",
+            "aec5b7fa8dd08da1f6b7f87d5ffa78077a4519752864ab736e96c904b4f959cd": "PICCOLO CARMINE",
+            "d532cb6d9fa3a8e87b6519b8f2c040e89b14f155e1bdad3fa3a09c6b5f96b599": "PICCOLO CARMINE",
+            "8d5f7b3b0372931ca9d63c73733cede32622d659ed1b34034e59ada8b5442bee": "POLITO MARCO",
+            "e43b76dbe100fdbf13926ad1fdb672cdaf98dcf23074699500ef4bd917938557": "POLITO MARCO",
+            "9fc95c9f7020c0f6d10198d12f546ffb51735e4fd2faf6b0fd47076ceeb023e2": "POLLIOSO ROSSELLA",
+            "27cb8a5e6ad8832f48c23771b737bfeb064c3338d2cf05ed990b30fea55b273a": "POLLIOSO ROSSELLA",
+            "9abebd2c38d8611b656c43303f8ac99c71e9c792aebb8251122eed457ee1c670": "PREZIOSI EMILIO",
+            "c0bc43f01781ff23e1a2022b191c3ca3906134f9d77bd33515280ce9de36f5ec": "PREZIOSI EMILIO",
+            "9a9fb0aa4c1f8cda41de06bdd9ad9e49f9610460f6b45a3e6a63f0d8aa8ed968": "RAGUCCI EMANUELA",
+            "9e051c97808a9d0bb532823cf653bf40bb4a1f49b358d0be59cac89569bd296c": "RAGUCCI EMANUELA",
+            "0a8c9bd2acb541a936b5194eee36d1f5c6fda775326caac763daeea905855249": "RAIOLA VINCENZO",
+            "5c20f3482c02d22471cfebf3d824e4802c706bacc0a21c48391ac5ea99845685": "RAIOLA VINCENZO",
+            "cef21cee04c4b8c4ef4a9474deb05cd5c0cb1c27d91ab9b16166f98ecc38452e": "RICCARDI CHIARA",
+            "ce57957d69ca6127f8fb39986879b0dd88918084ebc7d5228ec04e6ad900a18f": "RICCARDI CHIARA",
+            "d0d2d5983e14a2c7b8675488f436ca9417bc362f10f45cf199904b56bdb4ff44": "RIPPA IRENE",
+            "857fe9d52c34bc5ee1dd68843c519a2ceafdbd4a52fa42cddca73a66d73b351b": "RIPPA IRENE",
+            "8431d428f425c99ceed63403bcaa91f5c44cf9eb3bf7b204e4d04523a8b8e2be": "ROBERTI EUGENIO",
+            "3e29add94e5fa692796c8b71b986c5633d1bdefed2d8f607277fb5d66d57a290": "ROBERTI EUGENIO",
+            "8b7e2c209dd11b0cb70bc15ec5066fd9170ea16307c36dac536914619f942a92": "ROCCO SERENA",
+            "cf6cb1a91719cfec5410667bc046f82283450ba6512564ee42ddd18f7ad13204": "ROCCO SERENA",
+            "70482e810926c236da8271dd08dd15f2309e86ee43f0e0c9b45e7633d75094ad": "RODIO LUIGI PIO",
+            "63499d3bc1f028d83e1de62462f39a6d3cb837a4ce7da88a75874c835b7f121c": "RODIO LUIGI PIO",
+            "29bf8cd76285e79eda64823e20492b46a3646c6e5a11ceb362b28d63d7e01f38": "ROSSI DANIELE",
+            "9c7d54aee4c049c9dbb0c894e53c52a872d21743f3f89ac0936bce39f283a5c2": "ROSSI DANIELE",
+            "0b6b2ee7491d38fbf77003d6d6fa388838161edede6bf3065c2d292de06d4760": "RUGGIERO DAVIDE",
+            "be1382c5ac765518411969c54162ed6cef17cd55f23f671c64f365576d77bdeb": "RUGGIERO DAVIDE",
+            "3d9be72ed53cd76f53366d6e214c7f4158220ccfdd5f12bdc3c31fbe254479c7": "RUSSO REBECCA",
+            "ed7099ec67b2b345f8fec96394387dee19c3164bc48a0f172a0779df5b558924": "RUSSO REBECCA",
+            "2ad8f5825404c65c2b1b1342d12b42876d3985022a5937dc4ec98799b3f980dc": "RUSSO ALDO",
+            "e79410198a7272ee3117704f98c680c7559a0d327b54b8996a6dcf3a19948a27": "RUSSO ALDO",
+            "87618629cf391103b9bfa05cfe9a87f2a89c711c21bb13945ceaba5a5998eb0f": "SABBATINO FABRIZIO",
+            "efccee29093bb0df81906106a6fbbd0fce297db6cb01403ee43ba6373175fe10": "SABBATINO FABRIZIO",
+            "7ef9451e5ea3c10bcb358fa6e69dd73f0b573a09c0a5bc30aeb5f2e921c8f67c": "SABBATINO IVANO",
+            "703fe814639c8783fc376d392197fb8493060a412a9f4dd3e370820a3c20f7ab": "SABBATINO IVANO",
+            "84e6c837bdccd82deae03ff10664a9657b55e4116b8b57adcac6fa8d48f69efe": "SABBATINO FRANCESCO",
+            "c7525253beb5c3d2cbcc94348d8a885eca1539530f292115366cf30e3bb01e94": "SABBATINO FRANCESCO",
+            "e6e4220671f658cd461d4eec475b92729b6a9115dba9c2dc53c02a99b350074d": "SAGGIOMO FLORIANA",
+            "2c0faa00aacd4abbfeb4229bfb06dda8bd08ef145861bfee18dbdf3c8b9f2eeb": "SAGGIOMO FLORIANA",
+            "0ef596452cae90d81a75ce5e63e9a051614d0054e5aeef7446c46f8b773d44b1": "SANNINO MICHELE",
+            "11dbdf4a00c01b7773ad0c40b9f942bd4683e1ddee14b1fccc3eefc3b5f35a61": "SANNINO MICHELE",
+            "c57649a00754ee7578418ceb7de1a3073ffd3324c03eece2c43bcd5e86600cdd": "SANTONICOLA IRENE",
+            "2c73ca90801f225f7959b788a38fd7952e39d6a45ad9b9e57f56909cb4a60212": "SANTONICOLA IRENE",
+            "9427839611b4ef3ef0f2309ac7e7174cb63bbba409108f239563b7a45d99e317": "SARINI PIETRO",
+            "a0b3c4d63de830fe2f944b20cd0f784fe285899b90dd90276fc98de298d09aa8": "SARINI PIETRO",
+            "bdf259f36fad829e8dfc07abba28f2716fd28b703bb5ccc661a189b6763f7c2d": "SAVARESE ANTONIO",
+            "d55cc496540c9959f9a4eb347b65a31472a4e5a4558545f60b2fc73235f91768": "SAVARESE ANTONIO",
+            "66909a60ce7ccc2953513e3fb99bd6785e3063b45ec1574f69ff9ffed8733476": "SAVIO GIOVANNI",
+            "84b98f759206787f942fb52523eebceb13819975ca22e46a1306a2c77f1f399c": "SAVIO GIOVANNI",
+            "b0fb6f7344e31b71c870019c3836548a14489897aa09f517b61de4af005804a7": "SCHIORCH GABRIELE",
+            "9846b9ecb09e67fff0cbf6b6399afad017273c866cf7a4f8899e125d9c73fad1": "SCHIORCH GABRIELE",
+            "fa9f2961d55aa1bf4b7a9610f6b5e4c61ea553e2cc7947df6b7debd54b5ee9a0": "SCIOPERO PAOLO",
+            "31c94effc590d0c708d4af00ee006deff929150f81af5b3fd865411bc5021728": "SCIOPERO PAOLO",
+            "1a50e7e1fb571bf154ce432a2886c35e6e1eb71d56d22885090bc0173f6f3ee8": "SCOTTO DI MINICO SAMUEL JASON",
+            "ddb1c5c87c6df2f9cbe6d38cb309fc1a317674b373a40b35021542783003c07c": "SCOTTO DI MINICO SAMUEL JASON",
+            "26fcc5d648739c0e3af2a3a1183c4946970d30f771b28710eea9a66346a19d77": "SCOTTO LAVINA DAVIDE",
+            "efe3054391e7c34647100d3427270e9727579206c812afe413ebcad9d569c782": "SCOTTO LAVINA DAVIDE",
+            "f94755de7687a12939a153e886b0727b70ff20647d8fccf07aa72d1c91d80e4d": "SELLAROLI EMANUEL",
+            "3e303ac8da1872b60d2990316234574887388ed7a35bf4f7218404d869a37bdc": "SELLAROLI EMANUEL",
+            "d6ec653dc32d37a45fc7923df47adabc478c2af3f315b1e4558b734ecc67321b": "SENESE BRUNO",
+            "ebefbde9a0fb0e09b2ebdb476d184b290606b86f6e502d4587452b06facb5328": "SENESE BRUNO",
+            "789a814d96b7978c165a648990c30816fc89cd3d03dd551395837a1ef58ff020": "SERAFINO SIMONE",
+            "27f90aff76781e9ad4ee03c4c1c8360ae1bad4097665e59b7e70d771f894d3db": "SERAFINO SIMONE",
+            "e01345c44ff9c982ed6e53e834a323c41707b1cbde5be2577d624067cdbee8be": "SETOLA GIOACCHINO",
+            "f69e3fb6505b619b0d61f76d8a9f9777b85fc799794a68cd122886bcbb0a1a2e": "SETOLA GIOACCHINO",
+            "3b98262dda657b0a0fa2c52514dfd7ae700f8ab879498e96bd0a2e4d435f1290": "SILVANO SIMONE",
+            "61960b1ec03a067d2d6d0b7c59afd5f1a1f7ea41b3eb3a511826d7ddda923907": "SILVANO SIMONE",
+            "81baf593afa1be71c88a9f5c0ee677b48c3ee6bc76d701a49e18e211b632a3e4": "SILVESTRO FEDERICA",
+            "27d09cc4ce9ffea892282d984b15727750b646fd1439ca7d222e72aaa36bb95e": "SILVESTRO FEDERICA",
+            "75f3819e41b1636cab3fe1798fbe87cac85987b84ffcbeeef6e1e55c8eaab95d": "SILVESTRO  MATTEO",
+            "75ff0c48cee6c2d0115774c9753feb2b9760ce4f0a528cfeb5f27d4405d0ff0b": "SILVESTRO  MATTEO",
+            "2cc1dbb30f4d68c8cf99266d5bb7d837f7708bd702f8923659398d3d7ffb00d4": "SINISCALCO CLAUDIO",
+            "f1b3ceaec4b84f0115112ce9f618f62faf083214b05f8033f68fd005cf6fe2a0": "SINISCALCO CLAUDIO",
+            "d125abe917409aee95328eaa1b212affa919964f395fa0c1806fda48a9b8a611": "SMIRAGLIA FEDERICO",
+            "9538512a5c904f3b061eaf44bd5ce428c90dd52daf44d75180b4498a0fe9ac55": "SMIRAGLIA FEDERICO",
+            "c1a5d1d2a030be15e2d91a1fc14c6a1a59ed7f40489f5f624fcaaf1e3dadd6de": "SORRENTINO MICHELE",
+            "9bbe6feb00120da8cfb5abeed83c600a726e1e1c01f20d479b2131dc9981a840": "SORRENTINO MICHELE",
+            "c6a6986d3ab4daf0000216c352f1bf9d35561d19c1201b38898f28f8e1b4695d": "SPAGNOLETTI RAFFAELE",
+            "6bb48c282ebdb3159fc59d84e01cc0344ae1dd65c133bcaecb1422f63ce4fa11": "SPAGNOLETTI RAFFAELE",
+            "6a1638ffeeb3c0351be82d06e6d8360ec26e4353cb700b93ba32be75986d5b3d": "SPAVONE PIERFERDINANDO",
+            "ed9275d195999ea66ad30d0e00513f66aa17c2f9477701484d331c8ee65b8677": "SPAVONE PIERFERDINANDO",
+            "072aa57f6abe816d1f4ba6f5ea3ccbdc21fb2177d45905f2791d8d6d572f3f68": "SPERA EMANUELE LUCIANO",
+            "8150686073ffea89d3380c87c2d9090d06e8c5df7ff473fcecc9b6be2ebb55db": "SPERA EMANUELE LUCIANO",
+            "1a5c023d1cb67a9694f5ef953898a497f82c5e4546eb82efcb1e33205a35fa4b": "SPINA ANTONIO",
+            "b566fdfee4e39b67a484c8a36c40461304877d5e369576dbaa81903d2dab688e": "SPINA ANTONIO",
+            "57a2ee2c2dd88c200d54a838f54be0cb54f5c5f80e0fc026ba5f08658bcbe257": "SQUARCIO ANTONIO",
+            "1dd83f66ca39bdca30a00fcf7f4ee765c87e555d9c12e1801ce8a3d768bfb65a": "SQUARCIO ANTONIO",
+            "0aacedae91930999f96c4e7f4d3b23acfc5f213cf64a2aedbd6a1762781ec6b1": "STINGA GIUSEPPE",
+            "6bca103c0a903763d1002aca0eda4da8a8febd44e0b9505acc230c7d67e60a4c": "STINGA GIUSEPPE",
+            "e468375387e3258b02a946b69f962f97c1fc7c50ad77c31e584c79982c498723": "STIVALI ANDREA",
+            "772f97e1413031112f65fe19013c9dadfa72ff4326968041d174448b0454dce9": "STIVALI ANDREA",
+            "2fd9e988d49580e781731c73d4a5d18d993f3c38ee1864930eeab94ab7780eb3": "TESTA VITTORIA",
+            "c7955e304812ccee88e9d675223f87b93ad8d9d29e118dad3aeaa71801bf180e": "TESTA VITTORIA",
+            "6b26b0e4e9d8557b00bfc86c87455bc7a72aae40ee7b0de637f3fd734ad57828": "TREMATERRA LUIGI",
+            "f1ad32df2a1b16a244e330e16a01a8030b87f3aed610d0ef35e86a4fcac217af": "TREMATERRA LUIGI",
+            "ac97c2dce2ee83595c0e496d6969310d322d11b05015e3cdd3ad6b635c18bf7c": "TROJER LUCIANO",
+            "17486c26a598745d4a8af974184a31b9a45c5623a2d145ec98b019e6c854b303": "TROJER LUCIANO",
+            "9f78dbf106f472ca4ce667faa39cfbc512b7da012af28c46c4744bdeee25d85e": "VALENTINO ANDREA",
+            "927f43f646f0076231316e68b8eb09267986f37c52d12df1dbe88dd8c00bebbd": "VALENTINO ANDREA",
+            "151669aee11086e207795e44864514abdaf950a4fc839c9cd84ce52a355c8cc6": "VARDARO DAVIDE",
+            "ef1612ab63af0f93f335cd78a47d4fdc00b4534d4937958edde4c1871e00f174": "VARDARO DAVIDE",
+            "15dc7a710a40279ccbdbd8c8532f92abc39c74e4390706135fcf7c965b22b481": "VARDARO EMANUELE",
+            "fb4c9eb54068810d0a5fef079d87b7d83b72365d352b4dd91dee1f0768ef75ac": "VARDARO EMANUELE",
+            "c525a16b320d3d3699177e9d8e4d8c731056c8e9db00c470bae05dd52eedf2c9": "VENDITTO ALESSANDRA",
+            "1f09f456e62bab47e0f8f09b9255b48b607b06a4c78d9dd9da9ae637b894ab1a": "VENDITTO ALESSANDRA",
+            "b8917f71fdb0aa1a2659b37446ba880a0bd0df5ae76c72f3880cb58f4bd2dd6d": "VERDE FILIPPO",
+            "0094845d9a8a385a98c86324018d2f484e70ec021a288c55bcb94b765d5311fc": "VERDE FILIPPO",
+            "a8e2ec2441543775ed2b3d0baf85127f6b6a0f2c1c3d2c1b2f736242d02bdc4a": "VETTONE RAFFAELE",
+            "5ffd7e2c3a1a818c4c8e93e1a612ee1b32a886d5fdd8b44871f2524315f5561c": "VETTONE RAFFAELE",
+            "977152fa0284b75897a0406cef6b1ec08c3ddc224a2b10edbad539b5a70d83e1": "VITIELLO DAVIDE",
+            "86957f8064c61062fa85bec1838917d2025e58e43d6dc78fa92f2bcc5fea4ebe": "VITIELLO DAVIDE",
+            "d41a0c45f3301d737413a80216e62644a9dbfa5e43bf991c43fbe7d77ba49cc8": "VUOTTO EVA",
+            "9318cb40d310e8ac8688226f9da69de25a96ffdf107c29bca3b3c1b92a8d90a6": "VUOTTO EVA",
+            "789b42e192ea6fb0f991c1c9b7a43083c6c90c8129b99699887e42b0ce29cac7": "ZINNO EMANUELE",
+            "45ee7d270da095001d5d905b0d1fcc06c3bbfaea54a72317f02baa115d51d1fe": "ZINNO EMANUELE",
+
+        };
+
+        async function verificaTessera() {
+            const tesseraInput = document.getElementById('tesseraInput').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+            const loginWrapper = document.getElementById('loginWrapper');
+            const mainWrapper = document.getElementById('mainWrapper');
+
+            if (!tesseraInput) {
+                errorMessage.textContent = "Inserisci il numero di tessera";
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            try {
+                let hashTessera = await sha256(tesseraInput);
+
+                if (!tessereValide.has(hashTessera) && !tesseraInput.toUpperCase().startsWith('A0')) {
+                    hashTessera = await sha256('A0' + tesseraInput);
+                }
+
+                if (tessereValide.has(hashTessera)) {
+                    loginWrapper.classList.add('fade-out');
+                    setTimeout(() => {
+                        loginWrapper.style.display = 'none';
+                        mainWrapper.style.display = 'flex';
+                        mainWrapper.classList.add('show');
+                        // Scroll to top per mobile
+                        window.scrollTo(0, 0);
+                        document.getElementById('searchInput').focus();
+                        mostraNotifica('Accesso consentito! Benvenuto ' + (tessereNomi[hashTessera] || 'Utente'));
+                    }, 400);
+                } else {
+                    errorMessage.textContent = "Numero di tessera non valido. Riprova.";
+                    errorMessage.style.display = 'block';
+                    document.getElementById('tesseraInput').value = '';
+                    document.getElementById('tesseraInput').focus();
+                }
+            } catch (error) {
+                errorMessage.textContent = "Errore durante la verifica. Riprova.";
+                errorMessage.style.display = 'block';
+            }
+        }
+
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        function controllaAccesso() {
+            document.getElementById('loginWrapper').style.display = 'flex';
+            document.getElementById('mainWrapper').style.display = 'none';
+            document.getElementById('tesseraInput').focus();
+            // Scroll to top per mobile
+            window.scrollTo(0, 0);
+        }
+
+        function normalizzaNumeroWhatsApp(numero) {
+            if (!numero) return '';
+            let numeroPulito = numero.toString().replace(/[^\d+]/g, '');
+            if (numeroPulito.startsWith('+39')) return numeroPulito;
+            if (numeroPulito.startsWith('39') && numeroPulito.length === 11) return '+' + numeroPulito;
+            if (numeroPulito.length === 10 && !numeroPulito.startsWith('39')) return '+39' + numeroPulito;
+            return numeroPulito;
+        }
+
+        function generaLinkWhatsApp(numero) {
+            return `https://wa.me/${normalizzaNumeroWhatsApp(numero).replace('+', '')}`;
+        }
+
+        function generaVCard(nome, numero) {
+            const numeroPulito = numero.toString().replace(/[^\d+]/g, '');
+            return `BEGIN:VCARD
+VERSION:3.0
+FN:${nome}
+TEL;TYPE=CELL:${numeroPulito}
+END:VCARD`;
+        }
+
+        function pulisciTelefono(telefono) {
+            return telefono.toString().replace(/[^0-9]/g, '');
+        }
+
+        function mostraNotifica(messaggio, isError = false) {
+            const notificheEsistenti = document.querySelectorAll('.notification');
+            notificheEsistenti.forEach(notifica => notifica.remove());
+
+            const notifica = document.createElement('div');
+            notifica.className = `notification ${isError ? 'error' : ''}`;
+            notifica.innerHTML = messaggio;
+            document.body.appendChild(notifica);
+
+            setTimeout(() => notifica.classList.add('show'), 50);
+            setTimeout(() => {
+                notifica.classList.remove('show');
+                setTimeout(() => notifica.remove(), 300);
+            }, 2500);
+        }
+
+        function copiaNumero(telefono) {
+            const telefonoPulito = pulisciTelefono(telefono);
+            navigator.clipboard.writeText(telefonoPulito).then(() => {
+                mostraNotifica('Numero copiato: <strong>' + telefonoPulito + '</strong>');
+            }).catch(() => {
+                mostraNotifica('Errore nella copia del numero', true);
+            });
+        }
+
+        function salvaContatto(nome, telefono) {
+            const vcardContent = generaVCard(nome, telefono);
+            const blob = new Blob([vcardContent], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+
+            const downloadLink = document.getElementById('vcardDownload');
+            downloadLink.href = url;
+            downloadLink.download = `${nome.replace(/[^a-zA-Z0-9]/g, '_')}.vcf`;
+            downloadLink.click();
+
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+            mostraNotifica('Scarica il file .vcf per salvare il contatto');
+        }
+
+        // FUNZIONE DI RICERCA COMPLETA E CORRETTA
+        function cercaTelefono() {
+            const input = document.getElementById('searchInput').value.trim();
+            const resultDiv = document.getElementById('result');
+            const risultati = [];
+
+            for (const nomeCompleto in rubrica) {
+                const nomeCompletoLower = nomeCompleto.toLowerCase();
+                const inputLower = input.toLowerCase();
+
+                // Corrispondenza esatta
+                const corrispondeEsatto = nomeCompletoLower === inputLower;
+
+                // Contiene l'input
+                const contieneInput = nomeCompletoLower.includes(inputLower);
+
+                // Dividi nome e cognome
+                const partiNome = nomeCompletoLower.split(' ');
+                const cognome = partiNome[0];
+                const nome = partiNome[1] || '';
+
+                // Corrispondenza con cognome esatto
+                const corrispondeCognome = cognome === inputLower;
+
+                // Corrispondenza con nome esatto
+                const corrispondeNome = nome === inputLower;
+
+                // Contiene nel cognome
+                const contieneCognome = cognome.includes(inputLower);
+
+                // Contiene nel nome
+                const contieneNome = nome.includes(inputLower);
+
+                // Ricerca inversa (cognome nome -> nome cognome)
+                const inputParti = inputLower.split(' ');
+                let corrispondeInverso = false;
+                if (inputParti.length === 2) {
+                    const inverso = inputParti[1] + ' ' + inputParti[0];
+                    corrispondeInverso = nomeCompletoLower === inverso;
+                }
+
+                // Tutte le parole corrispondono (ricerca multipla)
+                let tutteLeParoleCorrispondono = true;
+                for (const parola of inputParti) {
+                    if (!nomeCompletoLower.includes(parola)) {
+                        tutteLeParoleCorrispondono = false;
+                        break;
+                    }
+                }
+
+                // Se una qualsiasi delle condizioni è vera, aggiungi ai risultati
+                if (corrispondeEsatto || corrispondeInverso || contieneInput || 
+                    corrispondeCognome || corrispondeNome || contieneCognome || 
+                    contieneNome || tutteLeParoleCorrispondono) {
+
+                    // Evita duplicati
+                    if (!risultati.some(r => r.nome === nomeCompleto)) {
+                        risultati.push({ 
+                            nome: nomeCompleto, 
+                            telefono: rubrica[nomeCompleto] 
+                        });
+                    }
+                }
+            }
+
+            if (risultati.length > 0) {
+                // Ordina i risultati alfabeticamente
+                risultati.sort((a, b) => a.nome.localeCompare(b.nome));
+
+                let messaggioRisultati;
+                if (risultati.length === 1) {
+                    messaggioRisultati = "Trovato 1 risultato";
+                } else {
+                    messaggioRisultati = `Trovati ${risultati.length} risultati`;
+                }
+
+                resultDiv.innerHTML = `
+                    <div class="result-count">${messaggioRisultati}</div>
+                    ${risultati.map((item, index) => {
+                        const telefonoPulito = pulisciTelefono(item.telefono);
+                        const whatsappUrl = generaLinkWhatsApp(item.telefono);
+                        return `
+                        <div class="result-item fade-in" style="animation-delay: ${index * 0.1}s">
+                            <div class="contact-info">
+                                <div class="contact-details">
+                                    <strong>${item.nome}</strong>
+                                    <span>${item.telefono}</span>
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="copy-button" onclick="copiaNumero('${item.telefono}')">
+                                        <svg class="icon" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                                        Copia
+                                    </button>
+                                    <button class="save-button" onclick="salvaContatto('${item.nome.replace(/'/g, "\'")}', '${item.telefono}')">
+                                        <svg class="icon" viewBox="0 0 24 24"><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>
+                                        Salva
+                                    </button>
+                                    <a href="${whatsappUrl}" target="_blank" class="whatsapp-button">
+                                        <svg class="icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893c0-3.189-1.248-6.189-3.515-8.464"/></svg>
+                                        WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `}).join('')}
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="no-results fade-in">
+                        Nessun risultato trovato per "${input}"<br>
+                        <small>Prova con un nome o cognome diverso</small>
+                    </div>
+                `;
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') cercaTelefono();
+        });
+
+        document.getElementById('tesseraInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') verificaTessera();
+        });
+
+        // Previene lo zoom su iOS quando si fa focus sull'input
+        document.getElementById('searchInput')?.addEventListener('touchstart', function(e) {
+            this.style.fontSize = '16px';
+        });
+
+        document.getElementById('tesseraInput')?.addEventListener('touchstart', function(e) {
+            this.style.fontSize = '16px';
+        });
+
+        document.addEventListener('DOMContentLoaded', controllaAccesso);
+    </script>
+</body>
+</html>
