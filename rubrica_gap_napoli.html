@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Rubrica Telefonica GAP Napoli</title>
+    <link rel="icon" type="image/x-icon" href="ChatGPT Image 18 ott 2025, 11_50_58.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="ChatGPT Image 18 ott 2025, 11_50_58.png">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXQRQFFDLL"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NXQRQFFDLL');
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+    /* ── TEMA ───────────────────────────────────────────────────────────── */
+    :root {
+        --bg-grad-start: #002d72;
+        --bg-grad-end:   #001f4d;
+        --surface:       rgba(255,255,255,0.10);
+        --surface-hover: rgba(255,255,255,0.16);
+        --border:        rgba(255,255,255,0.15);
+        --text:          #ffffff;
+        --text-muted:    rgba(255,255,255,0.65);
+        --input-bg:      rgba(255,255,255,0.12);
+        --input-border:  rgba(255,255,255,0.25);
+        --btn-bg:        #ffffff;
+        --btn-text:      #002d72;
+        --btn-hover:     #f0f4ff;
+        --wa-green:      #25D366;
+        --wa-hover:      #128C7E;
+        --call-bg:       rgba(52,199,89,0.55);
+        --call-hover:    rgba(52,199,89,0.75);
+        --save-bg:       rgba(0,86,179,0.60);
+        --save-hover:    rgba(0,86,179,0.80);
+        --copy-bg:       rgba(255,255,255,0.20);
+        --copy-hover:    rgba(255,255,255,0.32);
+        --error:         #ff6b6b;
+        --warn:          #ffcc00;
+        --notif-border:  #25D366;
+        --toggle-icon:   '☀️';
+    }
+
+    [data-theme="light"] {
+        --bg-grad-start: #e8f0fe;
+        --bg-grad-end:   #c7d8f8;
+        --surface:       rgba(255,255,255,0.75);
+        --surface-hover: rgba(255,255,255,0.92);
+        --border:        rgba(0,45,114,0.20);
+        --text:          #002d72;
+        --text-muted:    rgba(0,45,114,0.55);
+        --input-bg:      rgba(255,255,255,0.80);
+        --input-border:  rgba(0,45,114,0.35);
+        --btn-bg:        #002d72;
+        --btn-text:      #ffffff;
+        --btn-hover:     #003d99;
+        /* Bottoni azione — solidi e leggibili in light mode */
+        --copy-bg:       #4a6fa5;
+        --copy-hover:    #3a5a8f;
+        --call-bg:       #28a745;
+        --call-hover:    #1e8035;
+        --save-bg:       #0056b3;
+        --save-hover:    #004494;
+        --wa-green:      #1da851;
+        --wa-hover:      #157a3c;
+        --error:         #c0392b;
+        --warn:          #b7860b;
+        --notif-border:  #002d72;
+        --toggle-icon:   '🌙';
+    }
+
+    /* ── RESET / BASE ───────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html, body { height: 100%; overflow-x: hidden; }
+
+    /* Sfondo su html garantisce copertura totale su iOS Safari */
+    html {
+        min-height: 100%;
+        background: linear-gradient(135deg, #002d72 0%, #001f4d 100%);
+    }
+    [data-theme="light"] html,
+    html[data-theme="light"] {
+        background: linear-gradient(135deg, #e8f0fe 0%, #c7d8f8 100%);
+    }
+
+    body {
+        font-family: 'Montserrat', Arial, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--text);
+        transition: color .3s;
+        background: transparent;
+    }
+
+    #bg { display: none; }
+
+    /* ── LAYOUT ─────────────────────────────────────────────────────────── */
+    .page-container {
+        width: 100%; max-width: 100%;
+        display: flex; flex-direction: column; align-items: center;
+        padding: 20px 15px; min-height: 100vh;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* ── TOGGLE TEMA ────────────────────────────────────────────────────── */
+    .theme-toggle {
+        position: fixed; top: 14px; right: 14px; z-index: 200;
+        background: var(--surface); border: 1px solid var(--border);
+        border-radius: 50%; width: 40px; height: 40px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 18px; cursor: pointer;
+        backdrop-filter: blur(8px);
+        transition: background .25s, transform .2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    }
+    .theme-toggle:hover { transform: scale(1.1); background: var(--surface-hover); }
+
+    /* ── LOGIN ──────────────────────────────────────────────────────────── */
+    .login-wrapper {
+        width: 100%; max-width: 400px;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        flex: 1; padding: 20px 0;
+        transition: opacity .4s ease, transform .4s ease;
+    }
+    .login-wrapper.fade-out {
+        opacity: 0; transform: translateY(-20px);
+        pointer-events: none; height: 0; overflow: hidden; padding: 0; margin: 0;
+    }
+
+    .logo-container {
+        display: flex; justify-content: center; align-items: center;
+        gap: 20px; margin-bottom: 30px; flex-wrap: wrap;
+    }
+    .logo-left img  { max-width: 100px; height: auto; }
+    .logo-right img { max-width: 130px; height: auto; }
+
+    .login-title {
+        color: var(--text); margin-bottom: 25px;
+        font-size: 28px; font-weight: 700;
+        text-shadow: 1px 1px 6px rgba(0,0,0,.25);
+    }
+
+    .login-form { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+    @media (min-width: 480px) { .login-form { flex-direction: row; gap: 10px; } }
+    .input-group  { flex: 1; display: flex; flex-direction: column; }
+    .button-group { display: flex; width: 100%; }
+    .button-group .login-button { width: 100%; }
+    @media (min-width: 480px) {
+        .button-group { width: auto; }
+        .button-group .login-button { width: auto; }
+    }
+
+    input[type="text"], input[type="password"] {
+        padding: 14px 16px; font-size: 16px;
+        font-family: 'Montserrat', Arial, sans-serif;
+        border: 2px solid var(--input-border); border-radius: 8px;
+        background: var(--input-bg); color: var(--text);
+        backdrop-filter: blur(8px);
+        transition: border-color .25s, background .25s, box-shadow .25s;
+        width: 100%; -webkit-appearance: none;
+    }
+    input::placeholder { color: var(--text-muted); }
+    input:focus {
+        border-color: var(--text); background: var(--surface-hover);
+        outline: none; box-shadow: 0 0 0 3px rgba(255,255,255,.1);
+    }
+    [data-theme="light"] input:focus { box-shadow: 0 0 0 3px rgba(0,45,114,.12); }
+
+    .login-button {
+        padding: 14px 24px; font-size: 16px;
+        font-family: 'Montserrat', Arial, sans-serif; font-weight: 600;
+        background: var(--btn-bg); color: var(--btn-text);
+        border: none; border-radius: 8px; cursor: pointer;
+        transition: background .25s, transform .2s, box-shadow .2s;
+        min-height: 50px; white-space: nowrap; -webkit-appearance: none;
+    }
+    .login-button:hover { background: var(--btn-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.15); }
+    .login-button:disabled { opacity: .65; cursor: not-allowed; transform: none; }
+
+    .spinner {
+        display: none; width: 18px; height: 18px; margin: 0 auto;
+        border: 2px solid var(--btn-text); border-top-color: transparent;
+        border-radius: 50%; animation: spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .error-message   { color: var(--error);  margin-top: 12px; font-weight: 500; display: none; }
+    .lockout-timer   { color: var(--warn);   margin-top:  8px; font-size: 14px; display: none; }
+
+    /* ── MAIN ───────────────────────────────────────────────────────────── */
+    .main-wrapper {
+        width: 100%; max-width: 600px;
+        display: none; opacity: 0; transform: translateY(10px);
+        transition: opacity .6s ease, transform .6s ease; flex: 1;
+    }
+    .main-wrapper.show { display: flex; flex-direction: column; opacity: 1; transform: translateY(0); }
+
+    .title-section { text-align: center; margin-bottom: 22px; width: 100%; }
+    .main-title { font-size: clamp(24px,5vw,32px); font-weight: 700; margin-bottom: 5px; text-shadow: 1px 1px 6px rgba(0,0,0,.2); }
+    .sub-title  { font-size: clamp(15px,3.5vw,19px); font-weight: 500; opacity: .9; }
+
+    /* ── BARRA RICERCA ──────────────────────────────────────────────────── */
+    .search-container { margin-bottom: 16px; width: 100%; }
+    .search-row {
+        display: flex; gap: 8px; width: 100%; align-items: center;
+    }
+    .search-wrapper { position: relative; flex: 1; }
+    #searchInput { padding-right: 38px; width: 100%; }
+
+    .clear-btn {
+        position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+        background: none; border: none; color: var(--text-muted);
+        font-size: 17px; cursor: pointer; padding: 4px;
+        display: none; min-height: auto !important; width: auto !important;
+        line-height: 1; transition: color .2s;
+    }
+    .clear-btn:hover { color: var(--text); background: none; box-shadow: none; transform: translateY(-50%) scale(1.15); }
+
+    .search-actions {
+        display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;
+    }
+
+    /* ── PULSANTI GENERICI ──────────────────────────────────────────────── */
+    button {
+        padding: 12px 18px; font-size: 15px;
+        font-family: 'Montserrat', Arial, sans-serif; font-weight: 600;
+        background: var(--btn-bg); color: var(--btn-text);
+        border: none; border-radius: 8px; cursor: pointer;
+        transition: background .25s, transform .2s, box-shadow .2s;
+        min-height: 48px; -webkit-appearance: none;
+    }
+    button:hover { background: var(--btn-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.13); }
+
+    .btn-secondary {
+        background: var(--surface); color: var(--text);
+        border: 1px solid var(--border); flex: 1;
+        display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .btn-secondary:hover { background: var(--surface-hover); }
+
+    .btn-voice {
+        background: var(--surface); color: var(--text);
+        border: 1px solid var(--border);
+        display: flex; align-items: center; justify-content: center; gap: 6px;
+        flex: 1;
+    }
+    .btn-voice.recording {
+        background: rgba(220,53,69,.25);
+        border-color: rgba(220,53,69,.6);
+        animation: pulse-border 1s infinite;
+    }
+    @keyframes pulse-border {
+        0%,100% { box-shadow: 0 0 0 0 rgba(220,53,69,.4); }
+        50%      { box-shadow: 0 0 0 6px rgba(220,53,69,0); }
+    }
+
+    /* ── RISULTATI ──────────────────────────────────────────────────────── */
+    #result { width: 100%; flex: 1; }
+
+    .result-count {
+        text-align: center; margin-bottom: 14px;
+        font-size: 15px; font-weight: 500;
+    }
+
+    .result-item {
+        background: var(--surface); border: 1px solid var(--border);
+        border-radius: 10px; padding: 16px; margin-bottom: 10px;
+        backdrop-filter: blur(8px); transition: transform .2s, background .2s;
+        width: 100%;
+    }
+    .result-item:hover { transform: translateY(-1px); background: var(--surface-hover); box-shadow: 0 4px 14px rgba(0,0,0,.1); }
+
+    .no-results {
+        text-align: center; padding: 28px 20px;
+        background: var(--surface); border: 1px solid var(--border);
+        border-radius: 10px; backdrop-filter: blur(8px);
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: 10px; }
+    @media (min-width: 480px) { .contact-info { flex-direction: row; justify-content: space-between; align-items: center; } }
+
+    .contact-details { flex: 1; min-width: 0; }
+    .contact-details strong { display: block; margin-bottom: 4px; font-size: 15px; }
+    .contact-details span   { font-size: 13px; color: var(--text-muted); }
+    .no-phone { font-style: italic; }
+
+    .action-buttons { display: flex; gap: 6px; flex-wrap: wrap; }
+    @media (min-width: 480px) { .action-buttons { flex-wrap: nowrap; } }
+
+    .action-buttons button,
+    .action-buttons a {
+        display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+        padding: 9px 11px; font-weight: 600; font-size: 12px; border-radius: 6px;
+        text-decoration: none; border: none; cursor: pointer;
+        transition: background .2s, transform .15s; flex: 1; min-width: 0;
+        min-height: 36px !important;
+    }
+
+    .copy-button      { background: var(--copy-bg);  color: #fff; border: 1px solid transparent !important; }
+    .copy-button:hover{ background: var(--copy-hover); transform: none; box-shadow: none; }
+    .call-button      { background: var(--call-bg);  color: #fff; border: 1px solid transparent !important; }
+    .call-button:hover{ background: var(--call-hover); transform: none; box-shadow: none; }
+    .save-button      { background: var(--save-bg);  color: #fff; border: 1px solid transparent !important; }
+    .save-button:hover{ background: var(--save-hover); transform: none; box-shadow: none; }
+    .whatsapp-button      { background: var(--wa-green); color: #fff; border: 1px solid transparent !important; }
+    .whatsapp-button:hover{ background: var(--wa-hover); transform: none; box-shadow: none; }
+
+    .action-buttons svg {
+        width: 15px !important; height: 15px !important;
+        flex-shrink: 0; display: inline-block !important;
+    }
+    .copy-button svg { filter: brightness(0) invert({1 if True else 0}); }
+    .call-button svg, .save-button svg, .whatsapp-button svg { filter: brightness(0) invert(1); }
+    [data-theme="light"] .copy-button svg { filter: brightness(0) invert(1); }
+
+    /* ── CARICA ALTRI ───────────────────────────────────────────────────── */
+    .load-more-wrap { text-align: center; margin-top: 8px; margin-bottom: 16px; }
+    .load-more-btn  { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; }
+
+    /* ── NOTIFICA TOAST ─────────────────────────────────────────────────── */
+    .notification {
+        position: fixed; top: 16px; right: 16px;
+        background: var(--btn-bg); color: var(--btn-text);
+        padding: 13px 17px; border-radius: 8px;
+        box-shadow: 0 6px 20px rgba(0,0,0,.18); font-weight: 600;
+        z-index: 1000; transform: translateX(120%); transition: transform .3s ease;
+        border-left: 4px solid var(--notif-border); max-width: 300px;
+    }
+    .notification.show  { transform: translateX(0); }
+    .notification.error { border-left-color: var(--error); }
+
+    .hidden { display: none; }
+
+    @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    .fade-in { animation: fadeIn .3s ease both; }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────────────── */
+    @media (max-width: 480px) {
+        .page-container { padding: 14px 11px; }
+        .login-wrapper  { padding: 10px 0; }
+        .logo-left img  { max-width: 88px; }
+        .logo-right img { max-width: 115px; }
+        input, .login-button, button { min-height: 46px; }
+    }
+    @media (max-width: 360px) {
+        .logo-container { flex-direction: column; gap: 10px; }
+        .action-buttons { flex-direction: column; }
+        .login-title    { font-size: 22px; }
+    }
+    @media (min-width: 768px) { .main-wrapper { max-width: 720px; } }
+    @media (min-width: 1025px) { .main-wrapper { max-width: 820px; } .page-container { padding: 36px 28px; } }
+    @media (max-height: 500px) and (orientation: landscape) {
+        .logo-left img { max-width: 65px; } .logo-right img { max-width: 95px; }
+        .login-title { font-size: 20px; margin-bottom: 12px; }
+        .logo-container { margin-bottom: 12px; }
+    }
+    @supports (padding: max(0px)) {
+        .page-container {
+            padding-left: max(15px, env(safe-area-inset-left));
+            padding-right: max(15px, env(safe-area-inset-right));
+        }
+    }
+    </style>
+</head>
+<body>
+
+<div id="bg"></div>
+<button class="theme-toggle" id="themeToggle" title="Cambia tema">🌙</button>
+
+<div class="page-container">
+
+    <!-- LOGIN -->
+    <div class="login-wrapper" id="loginWrapper">
+        <div class="logo-container">
+            <div class="logo-left"><img src="ChatGPT Image 18 ott 2025, 11_50_58.png" alt="GAP Napoli"></div>
+            <div class="logo-right"><img id="logoFipLogin" src="2.png" alt="FIP CIA Campania"></div>
+        </div>
+        <div style="width:100%;text-align:center;">
+            <div class="login-title">🔐 Accesso Rubrica</div>
+            <div class="login-form">
+                <div class="input-group">
+                    <input type="password" id="tesseraInput" placeholder="Numero di Tessera FIP" autocomplete="off">
+                </div>
+                <div class="button-group">
+                    <button class="login-button" id="loginBtn" onclick="verificaTessera()">
+                        <span id="loginBtnText">Accedi</span>
+                        <div class="spinner" id="loginSpinner"></div>
+                    </button>
+                </div>
+            </div>
+            <div class="error-message" id="errorMessage"></div>
+            <div class="lockout-timer" id="lockoutTimer"></div>
+        </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main-wrapper" id="mainWrapper">
+        <div class="logo-container">
+            <div class="logo-left"><img src="ChatGPT Image 18 ott 2025, 11_50_58.png" alt="GAP Napoli"></div>
+            <div class="logo-right"><img id="logoFipMain" src="2.png" alt="FIP CIA Campania"></div>
+        </div>
+        <div class="title-section">
+            <div class="main-title">🏀 GAP NAPOLI 🏀</div>
+            <div class="sub-title">📞 Rubrica Telefonica 📞</div>
+        </div>
+
+        <div class="search-container">
+            <div class="search-row">
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" placeholder="Cerca per nome o cognome..." autocomplete="off">
+                    <button class="clear-btn" id="clearBtn" onclick="svuotaRicerca()" title="Cancella">✕</button>
+                </div>
+                <button onclick="eseguiRicerca()" style="flex-shrink:0;padding:12px 18px;">🔍 Cerca</button>
+            </div>
+            <div class="search-actions">
+                <button class="btn-secondary" onclick="mostraTutti()">📋 Mostra tutti</button>
+                <button class="btn-voice" id="voiceBtn" onclick="avviaVoce()" title="Ricerca vocale">🎙️ Voce</button>
+            </div>
+        </div>
+
+        <div id="result"></div>
+    </div>
+</div>
+
+<a id="vcardDownload" class="hidden" download="contatto.vcf"></a>
+
+<script>
+// ── DATI CIFRATI ─────────────────────────────────────────────────────────────
+const RUBRICA_CIFRATA   = {"nonce": "EF9uBxn4bsTj2e4e", "ct": "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"};
+const PACCHETTI_TESSERE = {"4686171ee75d6653ce74f9000d0be117593e2145edb2d381cddacb6881220ae0": {"salt": "IwOeA8tKB27peIuHgCp/UQ==", "nonce": "CXjfx+1vWpicRpKt", "ct": "kk/RHm/Z9sxjPUhiqPVYDf6MXuKuNhexhspMWV/9mbM0YwX4pMcIHnignO0cMzmC", "nome": "AFFINITO TOMMASO"}, "41695cc33a05fc4ce6381b779cbfc8935b4b01ab2c4866edaab88b979b8f8d02": {"salt": "MC6ZMr+CZcqXrL1FJWVexw==", "nonce": "27Fbf0tWkzyAkluU", "ct": "PSJfTDKmkTSS2d+rBomTzAQmEqX3CtgRVwHa7sbCg5pMhMMxh52DVo0URS975v4a", "nome": "AFFINITO TOMMASO"}, "0535959f4585d6416f1efc890f363a2ae6eb6fca67b35dd38b59e7e7abf89891": {"salt": "9YeZ7YwggFD14Pqlr+UR7A==", "nonce": "DAc3Y6fUZo3DVoot", "ct": "Jhy/TlxPUxm7P10bVn4G4Z+jetvIdOox1GeC13APyOk/aUmc+F5hDczwczVY6JKA", "nome": "AGNESE VINCENZO"}, "0f4495d4ee249b66db314d88c90e75811974b8d8e582c8cf68afb2f60a080cc7": {"salt": "CNhaTpSCcwq/da1qR7G5fQ==", "nonce": "HcH4KzsmsPyWQ4IJ", "ct": "24ZSfGquR6AovCmoBbvHtbOilTq8XyjAoobf+sdXzs3PO7oI+tpzpVSOlpWqpY7K", "nome": "AGNESE VINCENZO"}, "42001fa0d94ce113847844473cb881cdc70906763850df514f0fe4fc2e509df4": {"salt": "F9bzRB81FGhThQ4L+q2iIQ==", "nonce": "8cNjsCLZTX2rf1q6", "ct": "5Jvb3HzIwMLYcdOsyZAKoTjMyppD6Ns1KWLbgfHy2AjN0Q9cpOPW0/fDAngbYfUY", "nome": "ALFANO FRANCESCO"}, "f248242484a6af73e19f4ea4f005358f12ce304c3b991a87009dae7f51d675c9": {"salt": "WvqR6sWQuNOlLE3IUy0uDA==", "nonce": "E14sBVIdol7UmZEV", "ct": "A9Z+cgVFXfaWcaD8eQ6DZ/DDeNJHdUgc8emWLw0iQcAU5qXGfU3SYLBAmGN2Hyal", "nome": "ALFANO FRANCESCO"}, "de04c448234c32849c7302f8a058bf2a2f9918a72909efaf8d17d0a077e8cd41": {"salt": "WnPjJuFoMbwIDNoengoWmA==", "nonce": "uPi3jwyub/8E6bXq", "ct": "07GY+HjhdcbVtAPo0YFpZZFdHTn8XNxAgEA5QtDeTwmVjzGQAP5kdtTrT7MzjYGu", "nome": "ALLOCCA ANTONELLA"}, "650600494bdeb059d58ecf23685c5ae5a18f172e7d1441e966d9e927d2393d92": {"salt": "7vbpXFg13gPbIhwJzsrcsQ==", "nonce": "DiAb9BKF9qKGj7u0", "ct": "GpBv2UD0eQktdE6d8Zj+vcdw4LxUlKAXpxyWtLwAisC8/xcDuDwLVsuwZxC7H/ro", "nome": "ALLOCCA ANTONELLA"}, "2e17347b93f8b9a8e273046243785b006cda957804fa52728c6026ffe5fd99f6": {"salt": "WDVggwspF9dBj829IOnD5Q==", "nonce": "2iUoqdRjEMhJEBgr", "ct": "41wpLJoh/Z38QjUC//mRo8QXpAWhB3dxoF+om2wMXmFEW5o9mErACICf2joHNYNU", "nome": "ANNUNZIATA ARCANGELO"}, "67715939baedd17320a87ae9b6571fb5850a9dac762f9e62ab6206efa2c04841": {"salt": "j/b9Ltdis6vPkFAlz7L6MQ==", "nonce": "++pyQaPTZoIT+Psz", "ct": "4WR5WIarryThjnyjo6KA8TzLklS23lM87yRSgTFXob/QFRwa8dxjl5uYtrhBsQYN", "nome": "ANNUNZIATA ARCANGELO"}, "88f9a2cb2de3fd9c007c16a4e4ecec6a45bcf93e17e1c9c8b2dcf7b18f5abd93": {"salt": "pvrNzjvxtLD1LJGu/sP/Pg==", "nonce": "mU33KylHqUJ3zk2i", "ct": "WReebRJiKuykGC0y86eCWZMhzAx+WKUBs96u1TwVq/AZ9QdBOzNNpwyYtxuOzmjB", "nome": "ANNUNZIATA SALVATORE"}, "56f8018cfeb4679b55a52204cdd73a0b257e678ac78caf14c52d857666001bad": {"salt": "KOoC7rDO9GZofWuAd0HANg==", "nonce": "Qlq/0KoAfeE3ClvO", "ct": "/cchZPZpDX+80Ht/BBrTrAO3W2sa6c5N+z1dag2vG55FKMN0Dzos6iB2Kf0WI2pG", "nome": "ANNUNZIATA SALVATORE"}, "85bed0ee03c13a9afed3628eeaadf43b605aadb73758775c1c8e667ea6d45787": {"salt": "osoY8p6mnUGLZc2x+qqjdw==", "nonce": "fTTpfSEp0GpwBZNs", "ct": "hGlkM9Rt/Cs2JpGadEBkOwtYICD8BeqToyLOZtiTZoULzsaaipVmPYjnpCM3rU9E", "nome": "ANNUNZIATO MICHELE"}, "34216420ab42fd83652074bf2122017c7d5c3e5c989946f3fbb661156aebfbd1": {"salt": "iS5DZCNPzCeDinWQoDcIdA==", "nonce": "VWi9TrLHaBaQIroD", "ct": "ImT+59mB9rSMZD+/AyCQP+UPSh2UON70SszJtLJLosD1VW9Pp4ekBnzwz4QRJPVc", "nome": "ANNUNZIATO MICHELE"}, "2f5acd55c23aeb0744f632ed5987c69931637dfe7eb3b5513348a63bd12750eb": {"salt": "h4R+jHQtJfDKG7kE2BeChg==", "nonce": "/IFFSZL+5itMUQDM", "ct": "Ryo7yyrJBKjMaMrabS+lfiUP6xjmt698qze371f4iSr9mD7eHQfPNeHGjjVsCi99", "nome": "ANTINORI ANNA"}, "71f20eccf7548133a01c807204064b8d47cc40bef213a446cb1f2ac11847a848": {"salt": "fLpWjEhpc6vlZ/3IOCLFzw==", "nonce": "4FXtQeETFMAOYEBz", "ct": "Qs97ZFA16jNYtU4vWlY44CVeRkslh96JB1hfTqVzOM9X27W8vb532ZQGh19k/wgx", "nome": "ANTINORI ANNA"}, "e12c345a45c03b2144bba4fc36546b7ff7c68f02a8e0f9b9a1e957616260af99": {"salt": "x8HW8gXT1VLbjwwowJgfHA==", "nonce": "AECCrdxRh2dfiV39", "ct": "RElwOO7xHMvA72OPpmMHoa4Sfs96cGvrIMgfAoqAM8mnnxSglV1LacOQCKZlKNIy", "nome": "APREA MARCO"}, "2904f2d55d848428b2e4eae91da05741ec402ed24b6bce30b3bfdc776fecaeb9": {"salt": "o+31fJLyFVJJEq2CSNl32A==", "nonce": "lmzUUK8T+aldzP5s", "ct": "EIU7/0p37vLIfI2ABgjyJmMGqUDGOANO/z7NXKTjrlLSZH9bgiV4EOYaA1TlNDiE", "nome": "APREA MARCO"}, "ee16f33a8e4f718bb70ac1a2cad2607b3f732b6358cf89c421bef62557eac844": {"salt": "h+cng1uDX2AGoawrjXE4jg==", "nonce": "/zXRcsRqP5/7u7N4", "ct": "ksIzW1GR81DBbF/QRqal81uWiXb6CA0Jlxh5ClL3UyU97sY/Fr1KM1UNcMpcyEq9", "nome": "ARCIELLO ALBERTO"}, "7e193096bd2b728e8adc68fa916da25bc807581578756c545d7e3bdcba9f77b7": {"salt": "Uz3P8SBIjDPAKOMqNEbh3g==", "nonce": "r+LnW9dZFR4dP9f6", "ct": "iXo5y015PosqTl7F21OpfmTsBnPcBpn15Kr88kZNcyyTL7wHmpbSsVgtTBQrE7Yo", "nome": "ARCIELLO ALBERTO"}, "e782196087756fb0f47914a2ea132d6328fd951115a212587e681e2f1a415264": {"salt": "7q9Qvid+JadXQos74Cxh3w==", "nonce": "VQ5c1Py9RzRYHuem", "ct": "msi61e65uziX8vBErULlBuz0z9G9Xdo7TkcKLJUBoc2JwIcXPRDOWTOlEeRIMhb6", "nome": "ARNONE FULVIO"}, "88ccd05130aca4c2dff9c4b403e77e3ba7de2095e6f597237ffcd86855e91d04": {"salt": "IVWIAze5hee3kPLaAQNcrQ==", "nonce": "g4vUmlrTMJm6nVhW", "ct": "aWB2cYqR/UekqhAZz74rAzYEn14OK+K580pz+9J8BMrkdTNg/qMQizergjE2MM+P", "nome": "ARNONE FULVIO"}, "294ba84a0c33e42136b33008d69e846bea70f167e9b85886aaf1e88e7264b1d0": {"salt": "8U7b3NlU8+qk+IPOw1Mv1A==", "nonce": "uVmKQvmOEroGbX5E", "ct": "ashMr3eXvQhPOXvNuQWI2DZwPLIw/tz1oCulpSi82/GNbcZaTVZiwelkQPPtsy5A", "nome": "ASTUTO MARCO"}, "972bfec093a31da4175ff5d84dabc15ee59ddc67c66d5ea07955191d161937a7": {"salt": "Z49IrAVX+QM4vVD3RxWIcw==", "nonce": "+/VVIuFhYukEbdAL", "ct": "F74zMr2EJ6ApU4yIJ9yzURjFXOOw7YazL4TBTcrwUywnsJuGHbtr6JijcknCFTJe", "nome": "ASTUTO MARCO"}, "5102a358673f3080ac2e0960d0e78de50ae0f6fe4d934fd721202d02d4d5af2f": {"salt": "9j4j8nM7j6ZJTV/ux0p23A==", "nonce": "9gjD2CtaTO00xjon", "ct": "dQ37VqiC1PuD3Sp1ARYf78PhkLbWWDuqNVjJpv69cC4/wBCOXVdwCl9fDwKdRPhj", "nome": "BACIO TERRACINO ANTONIO"}, "f00257f6ba27f04f8ac9daf2c60f1f863150d6778e3814aac4b5e495dfa41e12": {"salt": "/+9l2gASu60wTC8L1a7gjA==", "nonce": "OvwNmAMFRlsbUWTr", "ct": "Em2/of+1LFGDXccVoX0eysZOcLosDxKG5zohXKz1b8drVTZ9Zj6qiCS4ZSlHWlJ8", "nome": "BACIO TERRACINO ANTONIO"}, "0603cadd2ac38d6f856a7989ea5ab5641c7f6eaae9076036a1cc90017e1d59a1": {"salt": "w4VQOxBXMAt/PGqseOtVXg==", "nonce": "i7wkDgePkntVzq73", "ct": "DzkuAi8tNJbbO1M3+171TLSuD1SMRPeNTDpi/daTCYOBPhlaM4Me/VnX6+U+mwN4", "nome": "BARONE LAURA"}, "48681f8e7337a471c2a678d046724ee734d0e259fdca6c56c634e91b69a620ee": {"salt": "/zMvd469cN+YLFyvgfhBSw==", "nonce": "9N7YskUZr5Kat2uE", "ct": "BxtjO0r8JPK+rb1wcLdRBzea9whs8jcVGL3FnZXbUpSSYDuTwXfSZvO1PPDTIF/2", "nome": "BARONE LAURA"}, "8be1a95547a786e5d68314353f4dbec1b6f9d6f6e30b7c7394de633d6d2d0820": {"salt": "uwIwRdCF1rlQ3AlZxkGEmg==", "nonce": "B2Ma7JKjJsop3Np/", "ct": "+N4VSbniKH9SsAwHoKF/Bim9sKiROmLrmFzOy0KRxLjPZtHi+c7aCba6t9mE6qG8", "nome": "BARRA RAFFAELE"}, "8165ea3d4e64730dc31691d8e0bc906d846d6c8840dc72f145f82f9c5f9f2c04": {"salt": "oAmRmSvux+fTYnKH8b6OWg==", "nonce": "A8kimk4UpX0JUxYt", "ct": "qlvjjhrWH+iaaAKsg+OZAKFQPNFTbD8TuevGNh53ZFoPp8GywEzKmY34r9ioK8mY", "nome": "BARRA RAFFAELE"}, "b8f22640c4ba29b38f7669577fa7a8f86eb391af0c6610411e440c62213d2c52": {"salt": "RCEWVLWwcUJ73K+M5IJXww==", "nonce": "xAlhkHkYeMkKXJ2R", "ct": "YC05OZfCA6qstGKmPi8wiKblSiAXfGy3urLISQrPqGFkwU5R8rkE4a4GvusyHS6C", "nome": "BETTEGHELLA SARA"}, "2392ae62c6a7cd3b809b17f0fa7851396e8531d4d1153675f08653428db562b0": {"salt": "4fyCmqNB5Uh6UcsdYiTQRQ==", "nonce": "LqQiIW5cIioETpkn", "ct": "x7JBuxOLwIVJTFUy8q13R0AOeHLZQBnFtnpz4oBXQBPo+n8/TImBSKjFHWTcfGwE", "nome": "BETTEGHELLA SARA"}, "a0c8eedfe3130e4dda71393531342a3c5375ceebf1f4ab394b00be3df2ae8f3a": {"salt": "H+zPRH79mpFyoTUhqb3RXA==", "nonce": "BlkKPdhkrUV86YW0", "ct": "k/5/Un9Pi2LKlX9wofOJKaCGFto8yj6fbDpcWOv0Nicw7tvBT/+zuwMA3+Kf+WOh", "nome": "BIANCO RAFFAELE"}, "cb11f74d9c86521ab520fc56c189f4a5f696310dd46cc0f8ff8f0c8ea13c69ad": {"salt": "5ZLmMKstIbauHZKGo5pZvA==", "nonce": "NKyqNrorjEXGPxX+", "ct": "LySFxp+KGm7VS9TlXEOn0JMTtTGOIPwS5EcaJnTesJixlfidLK6SguPWwjQY1Dsx", "nome": "BIANCO RAFFAELE"}, "3e6b7b1742587d18512d0c88f68d3614db09bbe76880fd8bb84528cd97c53eb8": {"salt": "kwGUxHBuGr2Ryj2CCuoESg==", "nonce": "Y0HYaA4YIfQ6EsFe", "ct": "KMjQ9mW1+PLBeQ08ji55ldxJGfRWyhbcCLDt8FgD82AoN1ZOoXU+CmlgKoG1RJ3D", "nome": "BOMBACE EMANUELE"}, "f775409e9978049ef65a4ac85881860108b6d1cf4217f5045742a880bbcf9f46": {"salt": "6wTB8CUwkqTUc1sCFPCdpg==", "nonce": "a2nBn7mAwJjPoElN", "ct": "T34YBft3g1mQ7NRPbixsfTnLHlcmvdQr+jTNPnUK5Xf6bK7R7vyXJFeCa+/9e/wR", "nome": "BOMBACE EMANUELE"}, "5fd5a9bdb1e29900a5fb7f9cc992e27296bff878cba04f2a30a5cf1cccc6a72e": {"salt": "VVw51WQT+V5o0deAT9o7Cw==", "nonce": "ZTQ29SZiiZ27DPN+", "ct": "efekKjEyy4ejNWBA3XONJP5sFSR0FSL6PO/1T/7NJgLwgUwLaNafXEeDe8Z3SnXi", "nome": "BORRIELLO ROSA"}, "deec5d4d024cc234b453965f1b533731055bae04d129f69402a7208b89b31580": {"salt": "km74mYLdCOrlh/ZMH83qlQ==", "nonce": "r5zeyatk1TogbEAD", "ct": "aaHRcRTy0Hn0Y29ScqaUK0/aZ+Q3J83tDiCvYYheangkXKpOvRukV4kcsY3M0Vd+", "nome": "BORRIELLO ROSA"}, "0e5e0e38c9ecd8e77b228bd782596f102a9b3f5081e01d482cc60677a638f51e": {"salt": "OKRqZXM9qH1nyNRCNZ6VMw==", "nonce": "ml4PIJrRSQnQw/FJ", "ct": "V4VdWWlCgee+xmTK6zLRyi7nr0KmfCNMKk7btWatpfs14Zljw/Yw1CXqTvrpEQiw", "nome": "BOVA FRANCESCO"}, "d4196143e4f2d63c544c6028d4508300ba6f9175a31bcc4d2e0536689b24b024": {"salt": "QjG4VBM7pP2Uk3h45R/mcQ==", "nonce": "HQpftEhC/l7E2cMI", "ct": "TJra+8q6w+We5g+EKFBzfLTPlCt8Cu9Y1g5F8SzivqQ37fulFe4teBJUr70dD0Q1", "nome": "BOVA FRANCESCO"}, "b1f7a7a0574bb4b7ac5764b011dbe526681d00e75e9a74b97ba274b40c5a7681": {"salt": "/REoaURhqfJMsyoF4FrMmg==", "nonce": "GBQ7GXBRcmlLigMS", "ct": "ISHeEGHNyrBu8JuHPu5oLh4gxHjXU9my7iZu08TAebUzMO5tpBdrkduP3MZ3naO2", "nome": "BRAGANTINI FRANCESCO"}, "faf0a6eb64deac9b4e3ee758f20a7f97bd0a29942555f4ec6186c04fbfeec11c": {"salt": "vsmVlwQoYoUAzjN3F9bKog==", "nonce": "ZWNBniBRiJZ6cJPb", "ct": "BbkmJvxzcue6fswku81f/sD353kQd6OW2gVT/HdAT1JqjmIhhvKRbDYE8wpdf/Jo", "nome": "BRAGANTINI FRANCESCO"}, "eccafeab5a39b80e893d7fc5e8393c1f45817f932a240576d630b48ef70fdb82": {"salt": "ZXyY8elvyYqGvZ8nKNFixQ==", "nonce": "N2cELd8SET2Fmo/G", "ct": "XKKOP+Aa31r6vlO/X/aR440Xa5NKFt74j+1PUotEAu1vqYGgE8nm7yg1/aLlmVCy", "nome": "BRONTOLONE ELISA"}, "3b04dd68f009e75d4a84bde6aa0bfeb8c7c37af5d9115bbb9c852ef8cde65612": {"salt": "HFxwAD5cDpbgO8ivyKU7YA==", "nonce": "bmOMMIQr//KusnX4", "ct": "/QB1HrYdurMlaJDKZcxHnZ3VxVQmriGy1NCPGYUfZMO+j6UNr7zttaVwaDeKlTkL", "nome": "BRONTOLONE ELISA"}, "b2a5d59c87bdfadf72f5ae0d12959f6fddf8441fa07bb0e4821c30c49a0efc08": {"salt": "U8xa+bM36j9SIOFuBxvRpQ==", "nonce": "NDVDIaHdyRu6Nrqv", "ct": "XGIslm9gFfFYIRGBwS+W1wVdsy92dUZrAiypWPQ2PpXtD2wmN9VfDAHfr78zvbaD", "nome": "BUONO ALESSIA"}, "e587d8f147260f02b5eb381d3e25d6fcc2a37253daac7a3350358928a1d08b34": {"salt": "TXHYP8v/apMzmeT46rRYDQ==", "nonce": "KYCTVRhOjKTsAL4g", "ct": "7cPk2aRm9GVvOF9jf8J8EC+X5PpF9gtUqa+L0j9sFv2VJZhgXcQ1vsNt84oD87xz", "nome": "BUONO ALESSIA"}, "80ea3583ffae85e974305ba7bcbb9bff65856d35554b87ab505d2322b42d87f8": {"salt": "5taEOCCvNa9/vpIvi2jk6A==", "nonce": "RK4kcR5hDaa1dENz", "ct": "8R7cujuvzV1+9YB8P+lwyQyU7NdLLJcc3ntweFpXScicWxXR3pr15ee24fyBHr8X", "nome": "BUONOMO MAURO"}, "3af49f7a2f6d28224d3e8d8610f1bcabcd437edc4c3a0c888085199e28019c25": {"salt": "PK5IL2BCAuEVS3zgDskfAw==", "nonce": "xMsaMKoLG2aYxsV6", "ct": "iVD8GG0dBo5XcBMPZpVjy/NZ3b2wojbi5ZqI6GmNkMqLip6/8ZdoCT3OL5qnH1b1", "nome": "BUONOMO MAURO"}, "d791ae8718c564efd86a62b24c8a6a76bf7645b685b8bd9644a66610c2128be5": {"salt": "4ZivnwCYMl5ObSXweWM72A==", "nonce": "rimKxxXOn0q2Q2q0", "ct": "gWXMprzW1HrRgtT8iKYWoxVVdbvDarsUgEbIG0QN8X7LKpYxuQSGDKdJf6GjHqOy", "nome": "BUSIELLO GIUSEPPE"}, "817df3fcccf4d25b764f4d211c9b3160387556fd53a0f6ba5cad18e5ccf0dd8b": {"salt": "tbFeNA0MYZYHAl3dczu+rA==", "nonce": "joVc2dgkAVgmV+f0", "ct": "O5eQamQQvi5tuMferrr9JihfdylSKiHwkE6CBQEW64uiCwRcwqDXnsZGh0dOdnz9", "nome": "BUSIELLO GIUSEPPE"}, "aed174d244e310cf3ee73d1fcc1377cd63fadb15aa0a27ea2ddc23e2b6fac6a3": {"salt": "T/8wh8Zj1x0Z8uj1uT7PQw==", "nonce": "nCYo74KffJL7Ki7j", "ct": "RGeTWGDsbffhYg4zpW6d9H5Rg9CzMIgPuIdjU383FvtBlTsWYNrCYdwbPQ+1Li9l", "nome": "CACCIATORE STEFANO"}, "b813f7122db4675995e85348e7c392d78a28095e7ce6c404069838fae312a67e": {"salt": "DQ+/k5XQ3CxxLKOwqYH7QQ==", "nonce": "cbYKX6SLeYzS0vzq", "ct": "opDBpx3E5pTdIQ8LIi/CjMzrpjEbyKnxFS5PXI3nGD0+U3Ie79mbPzopD3aJmeHP", "nome": "CACCIATORE STEFANO"}, "0c100272a7ea9ff5195afa2883dbce9da2ce5f907361dd415c816c444b771fc6": {"salt": "kCmxGdWnrQTRRGA35XOT7w==", "nonce": "EGX6HyBzlpdBg3nk", "ct": "1xXoGyJYXuq//RYpKnE1gY+TK79pjjIqWQk+DXBXyZZCn2KOTuQ4akfrnNpNzzF2", "nome": "CAFARO THOMAS"}, "89a929fc64fe4a95215c9439bb16ab75fac2b4e9aff638d9bb69fa1c8fc58442": {"salt": "qBEA3Xr95qsKQEUqEcPRgQ==", "nonce": "VOuCmlGvgBwYtr9v", "ct": "I3BpoBeZXD0TzedtvCOyFRJMksU28T6NILqMipjDGMRVzde0Fc7IBBVZfY6lFEIa", "nome": "CAFARO THOMAS"}, "e2080319c4ed451b0c6f92574c612be8707faa429f3f5fbd1a80555e6b255f28": {"salt": "zoiShWLMm5a3Jzqg+tWX1Q==", "nonce": "hnahSigoqpx8yWEY", "ct": "xO4NcCl/OfUR70fKuDnaNq6zNcHnyCQnmHQoGxi8xb47bsoh5Vi5pUniRPW4CWFg", "nome": "CAMPAGNA ALFREDO"}, "c66890ea0d5c449a05670c4d8cd3ab1e9285d4890127f5efbaf459eb5e9cdca7": {"salt": "wsrpr5JRuwDPo9PJ9bl/RQ==", "nonce": "v6j0oayGZ6HrE6wc", "ct": "qpdx7eOHGolmgCAH+Sq7Q3elCgJ+z36x4igO9oZTngCc7Xo1py89fQuqnvGbsAAp", "nome": "CAMPAGNA ALFREDO"}, "1cf3dd3cf498b109589b9b81b95bfc33f69d2b599fb1fb1856f88d126ec62556": {"salt": "KaCeSSFcwhwfI06YxmH2yw==", "nonce": "abwe/SL7wrjYZDnT", "ct": "CAkJOv1ALdaCZZWYRJx96ZffXz0xSlj82ztHQxcDsm+491Mckyd7HHzCfm1urG1x", "nome": "CAPASSO GIANPAOLO"}, "5833cc4691bf3ad0ea3cf344671e05b171dc48dfcf601fdfe739f4afed81de3c": {"salt": "XtkfzHs6z6XOCcDtOYJLCA==", "nonce": "BsUAzh04Pt0m/T/a", "ct": "wrf0KJNMkSEK/1WMeNcUP2Sc1d8x3R33J/k8Pk1wkymgEzW/23mCwWncTyR1CceX", "nome": "CAPASSO GIANPAOLO"}, "4bc9d82414671789a467fe5d758449a169008bc7a2843578c7227c0266f1aae1": {"salt": "8LR5EHclhpVCJ1wYXirnrg==", "nonce": "CImcFK9lajjSjfhp", "ct": "ftRTxW9/s2Xw9G+9c4sTImaWX3nbty6BqPVQciItAmoQZ3skAPbCu7S84L/GGubn", "nome": "CAPONE GIULIO"}, "b2e2b5ac291169ac35fb970e5a3505a23c6845995e12311e1e0be1c8af211338": {"salt": "KCFFJtmfQkagszsMTWd53g==", "nonce": "4LrpaokeLKjTCrKO", "ct": "XC3fsJNeBgVACH2WE5256sfnKM6wtN6GeoeHbXxxBiSGr8Zr9hWpiDHwX+z71H1w", "nome": "CAPONE GIULIO"}, "5e5f6c1363df55642c5fbdf7e28b713e25762fbdaed37fce274de7ecbf11b982": {"salt": "aR7ogJLxKHSw0OijYbsEzQ==", "nonce": "WYynaZCHa/OgZKsK", "ct": "89iyDfUuy/xdzM0WnIqeaojcPGSVUyfW2ns4AGnGYVBYPMgsgn/27m+5bxLdakG9", "nome": "CAPOZZOLI EMANUELE"}, "4a7b5329f933cfd4f99ce17c50858af43d1731d3477821127212c0ede2fb716a": {"salt": "uTo40/ousimRzz1oYPLYww==", "nonce": "jGJxd8WQHK5DRSJY", "ct": "+WYU81wGCCLr4Ek00veAF6lQB8M+kEN1ulTUAxatWwbwlZl8LJXtMqdIOUUkIt5x", "nome": "CAPOZZOLI EMANUELE"}, "c87b188cae4a72a468e0c560675ec01f0f1e495a82fe508988e7235c55cb1a14": {"salt": "dq/nVFlgC9WYgf9D/ESQ/Q==", "nonce": "ucvErdnl0A+V1ArY", "ct": "aviDvMdjl7RJFc8bW9yGohCOIuH5d8VZ4hM83fbDEEXlj+8AZL1G17+y9lEbbivp", "nome": "CAPOZZOLI ALESSANDRO"}, "952d95a8195ace361b6fdfefdb98e1a6a6147f225c6a6392dfad7c6cea8026e7": {"salt": "lu92xUOOx9ta1UANEP4w8g==", "nonce": "D9KVwTfLR/yq0uk1", "ct": "5VBUhuQMkckc5BkqB/+eZB7aa6bp3WvnctGUe7qSNqAyKJOL1oPuE56QstD5oz0/", "nome": "CAPOZZOLI ALESSANDRO"}, "e5487aa88994b8b263b3c4c4395613ae9cd2edca8e63f0713e7371b8669c7ca3": {"salt": "eatFJNoD2xnLFp41DxcUYA==", "nonce": "MyqfHP9CZTT3Qaxd", "ct": "8Cfb+R/66GGvKGnslxVeYTK/pQGQy1dsP701BTqRT6yX18KqtVMwGU6FKjyHJAyV", "nome": "CAPPIELLO GIOVANNI"}, "183cbd5379785a598adee99bbaaf57d61caeee86ffe821463607eb3dcd8d34f2": {"salt": "TaObmeKlVhSMIk/3nCw1iQ==", "nonce": "/UedDZdzmjm9v3hW", "ct": "G0WwG5XLc5T4/4fEeLUS2TZyWZOcxBFFjUtrCLkzMPewoAsGK2Mf3XqJKIue1XzF", "nome": "CAPPIELLO GIOVANNI"}, "3835700ea4532a19c82013d9807ed6fc0c8e929b9c3975161bc822c804e7b3e2": {"salt": "bcQNTD58W4Q50r4DQBtAUA==", "nonce": "C0iqMqZmtAeGSP6t", "ct": "6XIF09ZUtMxwneS6RD+jTyKDx8vUBxGUC/o0YuYRFnFdcUO4rUfAE8h1SQm2/scZ", "nome": "CARACCIOLO GIUSEPPINA"}, "22f23d581057182ba2d6a5b54406e857b2cf49fe2cc574255000bb4ccbd567af": {"salt": "sNfezJnWF6bT2cUh0GUtFQ==", "nonce": "mxn8gq5w9nir7ZL2", "ct": "foQ+v//MYxAWWdd/OEgr7+8siO8gaInJIA4bokgTg5Jseghad+m6dO4O2v5hl2eN", "nome": "CARACCIOLO GIUSEPPINA"}, "ea2ac0f995e9d3bca91fe0bc3aa282aeeba4e319faa9d98e9053e6e0673bed6b": {"salt": "1B/++WRku5kV1ymuYHaVlQ==", "nonce": "ciO6wK9TowvLzV2+", "ct": "Kii7MGtAcp+FGXv+rKBYGD7yJ1856Nog/WlTSN66ZfqKS1gwz1DcKd1jNAsnDGWA", "nome": "CARIELLO LOREDANA"}, "71f9abd9c47cbf625c3f2da7c936c3091514e49d0aa68e6b0e0dd562772ff2be": {"salt": "feMmduO4IX1f4bpto28XHw==", "nonce": "m36aCgq2YA3G1iLY", "ct": "YhSk5LI5YyKGR+/X5XS2QaJT2HKWrZ0sXYKMYr5cKUK0kyA4uVbDBM3VO56Q4Gw/", "nome": "CARIELLO LOREDANA"}, "6a94f83156d421594552824065d274be18724ec0a99c7501ac945a544b9c0384": {"salt": "Sx4Vaw58mPC+jkBfPlPJRA==", "nonce": "kkAxFa5vnIcn5zq3", "ct": "n1Gj6eM2Vgaer+YnnJx80xd+6Z+UU+Z2D8UFcgv5hzR4imnP/yEhvGKVmuj0oqNW", "nome": "CAROTENUTO PAOLO"}, "e3e209100c48fd9505f7bc65a7f1e0fdec50956874090ff5d95d79771a3a2504": {"salt": "m6oDkr6lRBqAplMW5XJXMQ==", "nonce": "r5zpeqlbbPyHunSk", "ct": "bQonerwrSfKXfo3iwvSs0W1jszUxMVmw2dLLpbiCFY7W64Jvin7hCMKPnoRYluB1", "nome": "CAROTENUTO PAOLO"}, "06e7b52ff7233fda342a72a0ef62a713f84f7f77a0381b7d1c663da84bb63026": {"salt": "sIVUvHegj9+4J+Nd3t3jwQ==", "nonce": "/eSGAfiUoz9LdJZx", "ct": "5/2WbbxhPruvf0lOlyf38mih1B5sX7D8SaNP84Il+Heo8J/wfYcQ+sSf1QgIVgVn", "nome": "CAROZZI CARLO"}, "42d4864e66ffe7c79309d7b610f6433dd148e538fa42796217d8375de5f0eb01": {"salt": "72CLz4hnxj9MptbfcndVgg==", "nonce": "NSE/EBXfhakaRX2+", "ct": "uEQz4KLfzdd88KfcYGNgvmAqG8iRewmBnqD3b3mMtBceYltAFg+B4DuVZv7YDVV2", "nome": "CAROZZI CARLO"}, "388b7bdda0510ddd366aa2d7e4d1d06e798beb8543f8a479adad369b95895144": {"salt": "wlvqfYPi1T0UwlszhRjwhw==", "nonce": "geIK5sYgaawr+ViB", "ct": "IBngxEW/IryQAoSJx3OL/6xKlwQ2ERv8t6jzNCtq45IAUjf2/frWneOLDWPYKEOM", "nome": "CARRELLA EMANUELE"}, "372427b832c2ef1f2c0b86d2eb2f56af11f3327d2e5f41fd9373a15a383b079d": {"salt": "nGtln/UmUzqTDahl1t4Wcw==", "nonce": "cUrgoLwvS86hpSTJ", "ct": "NjvdEWDjqX0AqAib39UVxxORGv3LoWrjFV4Cx6L+wRipywNHJ9VHGSba6QcyiBW0", "nome": "CARRELLA EMANUELE"}, "9fb135b2df8b800f5d774a8e3149115a5cd9c1af7f60126f9d32ef652b7ae5f0": {"salt": "DBmF4Q8Ty3v5L39qbqHQIg==", "nonce": "wzvSbF3msPMHP9tG", "ct": "2IdYYmRhaOma9gE7TV/nc6P1PidRKQ0D6uBillR+LS32zmsjmgyAeSlEceRYtWxb", "nome": "CASTAGLIUOLO CINZIA"}, "9cde6620a20e84a5c5bed8b93189806772b5d4f3661d162c5944e93968eedee2": {"salt": "38EI9n8W1GH2MR2T/MglmQ==", "nonce": "ALQ3ITDJS9UlEhHw", "ct": "4eJbuBBtA3KgCSmyie6/Zn0y0I3UGSnLMw958dRJ0edjizK2lgDJvbY/igPqsz00", "nome": "CASTAGLIUOLO CINZIA"}, "f93e666b9ec06c8512cd6fde0821880a62bc41d2bde74b57067d0e9602a32bd1": {"salt": "Ree/VcJ6mSJVL2b1fnpwbA==", "nonce": "Vz189Fi3GFT+/3BM", "ct": "26laCfYLZrStRZOcfpwfHqvbc3WrRIM5xdSLxsDWUl/8JRLtK0vQTyIN/khXjzkF", "nome": "CASTALDI ANNA"}, "9597f7a96db22f7e78f89eb8b02d27900a060a2fe12ae487eb2185cac1965d06": {"salt": "lQaaOg/bcEzFQGKJsjvJqw==", "nonce": "KCtmpNfOMY2SRyKv", "ct": "6OL3LlxaVDoCgP3jq3ZA96EYBbkvM413RFxE5KipcBS6+gYW2Mz8cbh7+WHwocdr", "nome": "CASTALDI ANNA"}, "b5ab1582b8b0bd7155b2a41da45e9f9765985e009ffb7723270d5b6ff6c769a9": {"salt": "S9Mi5hN8s2Q9MM4IQVP0qQ==", "nonce": "RwyOD3IXVkpis2oD", "ct": "cXidXYBNk+GvmJq9RL5QLHM810rEiUJeclmUCeuCucMe6rSnw9tAjL1JmpIFw/UN", "nome": "CASTALDO FABRIZIO"}, "2143833196fe2a3491e4abec5a966f850ec5a798aaa9a9e543f93d912ef843d9": {"salt": "nOUd2lvuHL99Dq3mwZ+jqw==", "nonce": "xqpsX4MGUX1GfD2u", "ct": "Oz96egj72zLXKSxLg7/JkVsivP+9M7tkT18YLLT41J5cINvjykpph5WfKbgNzeSq", "nome": "CASTALDO FABRIZIO"}, "db055971ba428778651d2397a57eea19de29351da84f6e23afb51f4a3fcbe1cb": {"salt": "w5fraToZEbXZO/WBsIpkgA==", "nonce": "RHl0HrUdz8DBjG4+", "ct": "sSzNPGh5FBi74L/E1ycyF6uiF4fnL4EfwVtI8XE8mFGkN0IYenFuo6dzjPv+AjPT", "nome": "CASTALDO ROBERTA"}, "547f38fce491af96cdd2b44b327ad830a62e5b6c121abece276f0bad223bef8e": {"salt": "BPQ/YW/xdx3yCYqCMiZ1Wg==", "nonce": "LxttioabPNjCHVDa", "ct": "NwUaKSi6+7d8X4T5WSqe/L4vSEgFTbsC36i4/cILp2dTYbBQesaRFm6MWcfcF4s6", "nome": "CASTALDO ROBERTA"}, "a9a23a048dfa8916edaae404be8bdea20788de9413b0e74713284e7b3a12f865": {"salt": "ipzAPUTbaH3VqokIsymGjQ==", "nonce": "t/asGMDrFRYLOkL3", "ct": "OUQEQ94uW3Q+Lf6f4DFK0LH756t4InUXFNVl/Cw+4wHpr8FOcjjAeTOqG/+gn2GA", "nome": "CASTELLANO DANIELE"}, "cc75393237e9ad1d7ed484ef3eb8e70a6866768aae7816a24306e7f0a043a892": {"salt": "EH2154MbHMlM7frmKWMzcA==", "nonce": "3iZKBA4eeJPVG/z+", "ct": "6nXlbRzU5rWpSQdFsTkbfwU/D3+YSwtag4uWS8YFxhKo3WyzukBjrb3ExVId8aCG", "nome": "CASTELLANO DANIELE"}, "7fad151e3c756dcc525fbfe791441f329891678af5e15f038db52c250eb3e1d5": {"salt": "7/z/3S7VohtKp7u96roiMg==", "nonce": "KhwrwvgxsJVm0opj", "ct": "1mz1qTMNe6TK7lQn4/lfwQdqzfLZE0YcfgLHPddrtrE94QZD94TkLRfLkRHJUatf", "nome": "CELIENTO ADELE"}, "f160da81b8239a49e35fa43fbfaf8fe9cb379f20922f66a48d3fd6372f15bb6f": {"salt": "USb4Ym/jiTTZI6l9rw8DRA==", "nonce": "rzZnKsz8dJ8WOPwq", "ct": "MBPJEPinHEtu1EnpIiQe3wiqyckK+VXFIUEmy4p9NA8WuIEvTILqz70MAVFOi4Mh", "nome": "CELIENTO ADELE"}, "7227437b5dd33f65d59370830589eb322b6690105618204f738a7411ebf33ff5": {"salt": "chKGg0fEYMzCSkjVrqRuIg==", "nonce": "zXvBoEMyRoQ9rRx5", "ct": "j/1iHSaoXogyGUVZBMuaWc/yB5Ud+FeUNiKMNueJUgqc7zjqykEwXg4eDwdm2a3L", "nome": "CERIELLO UMBERTO"}, "dc58858a614ab3d8e686e7ef574cd375c689a96246728532bf1ca4ce45b5b1c6": {"salt": "cyRzdvcHdUgaDMuiICjUtQ==", "nonce": "IM4GnPOk3G8TlYqH", "ct": "6GVGhWAPB0/+txZuRSU9t0SitWmBq3nQvyG3KmaxVjrb6lxAPBMB8jfPFHN8gTUa", "nome": "CERIELLO UMBERTO"}, "d5005fc1deb7272ca4c37ee0a26f74ca9391efd3cd26370263a8830b8081124f": {"salt": "5nY3xu2biatqUmzQOg1s5w==", "nonce": "nrFfYdDf7vGI6tkJ", "ct": "4BCCmVQx4gM1G/KkJeY/DYKCiR/LMM9bAfN0es+13fRtczvMqD7mzxbo4e1BW+mX", "nome": "CERULLO MARCO"}, "f7cfb737f47d97fa39e40cbb83ce2b15bb264436fe03a6f7098fd87269f51e20": {"salt": "3Eg1KkfVAZzTZQBNEVVz3A==", "nonce": "4kBMPnZNIrbPOi/i", "ct": "J6koLI7L9B17IS7XXnt+hWZDAH7C2lf637IBW4i7aKtVSHIpsMvavXYS3Nndrvib", "nome": "CERULLO MARCO"}, "0dde7ae48d1a6db916a85d7507be7466817346eabaae3b7fe2794035219ad966": {"salt": "/ci25So/aIG7rJUhimuEPw==", "nonce": "VtZ4dPFbOBvb311u", "ct": "MFEG+xC0GtSQvySW9StuLWk/V9k3w1/eBEIcrkAPB74s2U3m7fl4hjTfBpIcjOUe", "nome": "CIGLIANO GIANLUCA"}, "124a16815520d19f6971e0cdf4bbd7391c00522a8354b37dd0d4d8b1ad8d8745": {"salt": "e4UcwG5AayxlLaGHHVMwvA==", "nonce": "Z3jObnTW818iZRIT", "ct": "1r0+VgJ7MFIBZI96kOTsiDH64AfhPK2ZzB0kw8D7PkflNVySPXFh5F7OlrbfR95O", "nome": "CIGLIANO GIANLUCA"}, "fc2f60f939ee5ba1e12a793c0ac8977bdde9d2af5ce75ac1ea8a1f27d64a27ec": {"salt": "lW4FfeDxRKQcgk05RveexA==", "nonce": "brm+HmA8t4q5xu6W", "ct": "umfy1hirGoxfRRp1fc2RNtqxrJFUHvuNcL/d9egCBDiStkNFPrhPtZDK6pQtW+9r", "nome": "CIMMINIELLO IMMACOLATA"}, "1c10aa0cb50a72087bd06e03715fd3915a8c9ac7168bd26405d8215166c45e6f": {"salt": "UjZ9Yso15aVPU+iHsJUIdQ==", "nonce": "2bk7kgKrf3OuoG3A", "ct": "Kq6xDwGfms/sq/wRP7n9ALFv0An7iuSnjPNiQT0gabtskCzIheIofDVuoX9p0S4H", "nome": "CIMMINIELLO IMMACOLATA"}, "d47053ed790bfbecc2e929c1d19506bfe77e1883187939b6b6945faba4e9334f": {"salt": "Jw/WJgT2UtKuy7CSITu1vw==", "nonce": "zMOSjmKZuSKob1qc", "ct": "Nf6NorUqQt0olTWS8zxtR04+XLXuowcbu8wZS034nfcOctyHIesq+rVA2LTA0iZg", "nome": "CIOTTI ANDREA"}, "d04c56a538c1e34ef97e6e33a924f992d3521de3f549052f54e0255c5793fd7b": {"salt": "csDquHY+mo063DTuzA/Stw==", "nonce": "y0mwi6VEOL0959G6", "ct": "HOFxoqDXws3fvfwi9/BD7jTz1T/2VspIuuO2Mu6QQyCzuC4DCQEf8xhRVtxpBaWG", "nome": "CIOTTI ANDREA"}, "dbd0e009754d0ac6e8d85b95d5a6897ac501a2049e95592eb8a00eebbd0b4166": {"salt": "WmG+RTLC+OhD/J3/NFQ7nA==", "nonce": "SXR4G8Lu9WrJjXuR", "ct": "2Doz9wjp/EGlINNO+//E0YO0RrLyeDtMbjDd6GErM2d3Ehti3Gb6YW5E9jZEnbS6", "nome": "CIPULLO GENNARO"}, "bd0431147ed3c7845a539d47fc7d25c953bf7b08900bc55b281eab68eedc1e92": {"salt": "lvP8Cx14PPlXFOvouxsq4A==", "nonce": "8UwXY4+CJlNqKW3c", "ct": "9IRF8XV4g/5Jo7jxL9W/0PqD7qKyOeve9IxFRRBmC/KQrNUNulUWHsgG8iGzCp+p", "nome": "CIPULLO GENNARO"}, "cea9671d2fd46858756b9975b54f88e22c1aa1037f0b72748a1ed5d1cd827ec3": {"salt": "hbkGVdeSRpaFmVewgfmSNw==", "nonce": "XSJ7N7Au0WLG3RMz", "ct": "j9TynVSrhWsm4r2dresbBVCvhSIeADh4wA5q6mbR/4m483cdBO1J2l0U581J5Om9", "nome": "CIPULLO IDA"}, "19cc4acaf842a99860c56e970fd1eaccfe97cc03fd46c687ddf110d5dd2f2b77": {"salt": "sQflxEVzz/EjexDpXNAdOQ==", "nonce": "QUjSrjNWg0Jmtdye", "ct": "n9z/7cX+etrMNb2oRcGOCHQzHi7LH/smlcIwrUDbR38AwaRvLwto0/pNGDhJilKv", "nome": "CIPULLO IDA"}, "ff531b82d9fbdc55f5ebaaed2205eb8c2bff70155c95e282718e8e34c9301570": {"salt": "1XQ+wS8ndPi1f6n8ZkDz6A==", "nonce": "aduTBKczWOxt7344", "ct": "LXEJ0L0vE3AZa7YOZ3JdZjdhYivaVZ2HECWBubOSa5f2LIZ//rWN7r/iAkGB2Kel", "nome": "CIRILLO MARIA"}, "a5baf9b28345800833db2eb82f1cd929cdb17b724a1101cb599fef3563043242": {"salt": "wFOWcCAra5ip+pqmlMP8aQ==", "nonce": "xc3QQosHuJSCjXyq", "ct": "O0nQnkVTeP2MeMyL6n4FHJcRIpm0fFaHVDVVV7gg7s0qvWhIEgl4ADnJQy1nOXx/", "nome": "CIRILLO MARIA"}, "f178998e5240524cf46467819e7d805c3ba52f65554ca54cd6fd98c52ca785ac": {"salt": "q/M8j6mG7nKPGt67kLeFAA==", "nonce": "va2sMQYGo9SJAmTR", "ct": "h55w1/uPkq6iBuAYvhNZ6VFZA2x1ZMycefvVCvax987c9yXagMj7aR8fuH81t9GH", "nome": "COLIMORO LUCA"}, "7a9f2cedfcc6198771d035ad354763d800097e2cabc848c2660ef0379519e2b9": {"salt": "HpuMf4KHBlP2Ap8DDOo+cA==", "nonce": "NZy7Q+C7shY8l/Dc", "ct": "eXm2dJI1eXDdREdl2hKB9UUyzeQGh3U57AWPQesUM9BE0r95AqHPhm2jetJMrG2P", "nome": "COLIMORO LUCA"}, "cdce2ed0fcd1e01d8af599fe07fdbcc2d51f47a724ecdc5a7821e064b30a3f30": {"salt": "EkJQYOTLtoLk26RUg2iGeg==", "nonce": "NNv9dLD82JOty8jb", "ct": "Kvrbirfw3Q4pjfnJIGxC0hxE+5J4oWpnCA9EsKoC62Talf45CpXHPoFru/ClBjbY", "nome": "COPPOLA VITTORIO"}, "22e373dd2f28c33c41a9e5922db8c7881f8309dd1abe575abfba0f9b518d3c63": {"salt": "kc5VExxD8Q9bEFh/q7jQKA==", "nonce": "nXr6/pnkp/g2uRm3", "ct": "GE9kLE69r23i8MBGRgRCsKuptjPR8jTEYIDA9CFo8hCVLNWFDd4MGzI/VicJMutf", "nome": "COPPOLA VITTORIO"}, "45b84c17ee7ef1442734dcf45bc54850c5658c8528cdc21b4f9321e1a2bb1248": {"salt": "n2MkcC4LlLWAG0HFIaYgoQ==", "nonce": "4G3ovjwzex5UnYwX", "ct": "aBu4c86c5xOJVYvXogxF2JES3+nsy0DgrOneklCNApH1ZxayBSD/K3r2P9a4FFSG", "nome": "COPPOLA MARIA"}, "6345b9d568f24f50b4f27577959f292d9a0a8a7a28176d6387bf142c2cb13958": {"salt": "6HD/PoRToOE3uCz4Ty3ytA==", "nonce": "K69IRZqDG1ahsOL8", "ct": "Y2qhirj3xNFRmcklT36kATky0mGBZJVzJB1PMtGD+ItNlEYCzVvBvjIUq2JoIA4r", "nome": "COPPOLA MARIA"}, "52efabb91fb343109f49c398cee7484f22edcd3446d14059ca3d75f368620718": {"salt": "5VS37qNVTzg2fZ8I3pj7vw==", "nonce": "wsMnBfROPCPuQoxm", "ct": "qdvTNqnH7ZqH/CP6BEV9x4njt4KSHTGFGt8RLrxEsAcKo7/ghQlfB3oQKMB10WLI", "nome": "CORTESE CARMEN"}, "2c09d1b0abfb94c56132c612b882efcd1ae3fa7bde4af021d05323b21c9fa718": {"salt": "zE9BZ7jwbiE7+ktzWG+/LA==", "nonce": "EvHzDVkya55BiGtW", "ct": "d2mDrxHwNHtc/a7y1292d0zeOg0qhS60a7hQVnUrRyG7+I2DEBAECn2nLYm+B/sH", "nome": "CORTESE CARMEN"}, "3f9a080d455d316804aeaa9d7df865a832e847e79128996c9ca2ed47358ca18e": {"salt": "+UVrJ5ApJRcCCWtxO8K//w==", "nonce": "06sZ5rcND2JMVnVa", "ct": "9JPqyc/EXLxsQ3J5DLiRfFPs0yH9hZis8ADG80YginjR50T6UZGXPx9YX0dMb7g+", "nome": "COSTABILE MICHELE"}, "d1829207f0501aa2ee5a64320ba7f4e1d86e813743dfdd8391a7c766014aeb24": {"salt": "RiNjZJ4AQoke8WOue4nVxg==", "nonce": "Bb4Vkx3UTqj3rJph", "ct": "hbFCEO4d3cgCipQUKY9s7Bh6CHhc7aWF1SeR+2gSrPqPwfHh5/SO4888Fbt69YiM", "nome": "COSTABILE MICHELE"}, "c07f529937feb80d662a82c102f1aef23f9fcdd2e9825901e58c14f23966aa0a": {"salt": "Na1OFe9m2QC/UY3vXj7wiw==", "nonce": "2i4RrNMBK24CrMAn", "ct": "KhBr7pss6cFPLSmMizxAXTCTuOnKrH3LQn2bHlpxT8rkRbHbsxF69anIlMiGt0tk", "nome": "CRISPO MARIACRISTINA"}, "c1da16e10bfbfabfd21701e49c74fa70b8d1bc4e755668b002486fef7f27c317": {"salt": "ZJBK1Uwpz2kZntFObF2DuQ==", "nonce": "0mnI4084gG+Utqt9", "ct": "IsQWZZbqBV7541CVmq/IfoAMop8sdp9g7W0nGYRHgr2PjVoL36GNqRC6g2C9Ks8e", "nome": "CRISPO MARIACRISTINA"}, "dacef0710fc31206b0a85b805525776a0927a94898b3068dd71fbff293a60217": {"salt": "4AGCsQ1qPT6RaYWdjxhEjw==", "nonce": "EU3+MBBU+74Co4fk", "ct": "+g8PJCw5qrdLovgcFzh/oE0dqvRcnA5J03Dl23X720ep2mDnvuPIVBMrxp6Om52z", "nome": "CRISTIANO MICHELE"}, "8365a3440627cc114a6a83e16556dcf2a319334c836fea362bbda3ba632600dc": {"salt": "cBrU1wWxT7Bs84xrBb50qw==", "nonce": "majyPUAndgxrev94", "ct": "XU8dBZc0v/jwoa146HDh8r3rMUnrUrhLlMsK596lKCJvrl8raeC0QKjlyyyENNMA", "nome": "CRISTIANO MICHELE"}, "10b6604d623006939f1865307ae5611d28e5afead3fcdb99a59769edebd6830b": {"salt": "dFV2h5uQOIzqotoHCat//Q==", "nonce": "ezMl+oy2otZcBP8d", "ct": "wFN7nXenfk3N5jmo/Dm7gbRQ4chrpSy+3CxOBPhTVHePo78FhRv4phrnXRp4r3pk", "nome": "CUCCIOLITO FRANCESCO VINCENZO"}, "db0a51169410bd7be11d9d0c828bc9d15177092c8e13234a74202e804eea24c0": {"salt": "7UDDHDiVG4MFHSfhaRn+tQ==", "nonce": "eoo2y56w6kSK2HaY", "ct": "Q2t/tUQntYf/bPzHVtwLHA7cu5e8YAGkpMx4P3ZcOdW9TJr+uifXoFIJTH1FFL5c", "nome": "CUCCIOLITO FRANCESCO VINCENZO"}, "5299fb558c4ea2719e0cfed41ac2732bb6ce653140824df1c2ee619904aaf938": {"salt": "aDppdJ9NPW7z3/3ccHKGqg==", "nonce": "tGmvMPTsWeI5iJMy", "ct": "svLYTwWjbyHdNFQ6rd8guH1ymjtisdoELcExvVkoosPdoLYKVAosBUA8q1AiGNM/", "nome": "D'AMICO VALERIO"}, "a912b8f08bb270061ce9d25d36da7d05a351ce00edcad3050e35fd668c969b2d": {"salt": "95t8Md+5Qczh70qwW2P7eg==", "nonce": "zVyIIOliWrAMl03F", "ct": "SFXS3Z8XBId3NwJVMdv2D/Ejbh8+HM2gTJDG0/NefjmUFi7tkHqVbRZg7pttb/0E", "nome": "D'AMICO VALERIO"}, "db4847bd254a68453772623c194f96a494ca7720668fb4475fbb038b51de282f": {"salt": "epI0l/I3MWcaz5y/WOzeNg==", "nonce": "KV6Y9kLuGzkOU8r2", "ct": "IYsZf0rtsg8GVdxvZ/aS5/m62ySQvArj1kKIAlmZd+8oWjm5O7jVTRkleXbrt2Rx", "nome": "D'AMORE RACHELE"}, "4271f3ea4e67bfc8a863061c82141422ef8c2b13ddf2a939091de453179c5b14": {"salt": "aQ1pX1uFNzqcd0+eOpH9mQ==", "nonce": "iuGD/RNnXc596dM1", "ct": "FG+Sa7SV8y1WGf3DthN9cFoa9Uv9wczq8Ie7iFrQWUMuOksDCWFCYoetbwErOd9/", "nome": "D'AMORE RACHELE"}, "2a9be5cc981bb60c06ea5e3c6ad62ca23c7e5cfa1df0c11ab9039271ef33dd7d": {"salt": "IWEZpnQ4xRdchwlYGJMErg==", "nonce": "y668Nk6kTEa7Gt+Y", "ct": "bTTiff9hI+4Xpwz+iuZUr4LA+hOrQN8MbhABBbpDBBmcePojWZgXtUtX/GBf/8xC", "nome": "D'ANGELO ALESSIO"}, "8b7333eb3f9b5e6484a726d1245e22d24e3da8e2dd60a08f430fe3e40273bf24": {"salt": "T750CQdLMSFIPlORsJH4sw==", "nonce": "0gttKmedG1nKdPlm", "ct": "NTge5+E6F0W0UGZLZt+RmUGVaw9TaNVtkQwns+6W3dTMqzcUwYbhc+Z6/yrghrWx", "nome": "D'ANGELO ALESSIO"}, "d8624af36a8ad4eab8f3a81e7178decc722886818fb264829f6b505972dd376c": {"salt": "Fd9TJ8nuIgrhyHlVuljAuA==", "nonce": "ZiNWUbqWiQ1qOnTh", "ct": "jl3NiEbVipzDj3r4u+3azYgH+Xt6oZcLLO1yAsnjCVZLd29nFhLM1U1JqWKAt9om", "nome": "D'ARGENIO ANTONIO"}, "ec27dbf2314588f48e1854155b3dae9e37474c5d8161008d01f313a4b9365a2f": {"salt": "w9elb+CNrjoIsASpbt2oXg==", "nonce": "Mefm5DzHEjwb+ofK", "ct": "VUD1NUHv9p0Dag5eE0FOHL4Sr2Odvo4AoKXzK1YC+sRh8Q9wOawoS408/zGHOWYa", "nome": "D'ARGENIO ANTONIO"}, "a5985e3bbac3f778938499f542164756e039cd4368ee634cb3035eacaaef7c77": {"salt": "ye7PkHL6/ez88DBExKHbBg==", "nonce": "Be/eM/ws9Se9vLao", "ct": "BuhtShami5UvFCd7eqsZPSnxughqIsD52xV3+FefSVKTarHFQS9ErNs3J0tBCZNp", "nome": "DE RISI EDUARDO"}, "560aebdcc2cf28bdb75f0267611eedc2fa6d523ce458089acb64aa37e5700cf2": {"salt": "0mMDOWh6bBy/PLfo+enxtA==", "nonce": "mFAmcpCOd3dTnaCg", "ct": "+tolFscgKM7zR87vpOkmEbayUqg2astZ7d/6/uR0DbXs2qC5DRmv4fDvUZJs4ez/", "nome": "DE RISI EDUARDO"}, "4c92b6483caf285cd05c5e976dfab0ee207fb0f8d19f54a2ae99d6bde2938b58": {"salt": "lt+GMlSzbvEpxju/p0CIbw==", "nonce": "9+HL7kv4HB4Jerga", "ct": "+5xecb/jvNIvn83GRbsKTTUDAPQSh6l9qHrhlJ7g3LRmYcj+QJY8qq+bPKMDfZJ5", "nome": "DE ROSA ANNA"}, "fa9e19c46c305a2e41d7d8b65ab5f88685505d92ffce38a9a3e80c41944eb022": {"salt": "ewwneVg8gvX08KV4FcjxKw==", "nonce": "QmFmchUZsl3CJQuQ", "ct": "VsdQlBUdHrbvuVzEITwgva1ZsO+EnkmKdV4uR8IbjiBTTuIZNfDmAYBxBDBXfXbw", "nome": "DE ROSA ANNA"}, "3653e04708e3b5b580a3463a95de139744415411d67e38dc5cf8a63daf6bbb8a": {"salt": "WUAmTqxj+2mzEADip5NeLw==", "nonce": "+VuWUs2TF1Z0Unqw", "ct": "JUaQQwGX+ufCKiuTolvtzdlMDJa2KmpqeFgFmLOrAkpN3iF9cg0sTgA0zYSR3bsD", "nome": "DE SIMONE MARIO"}, "aee30e63f8130536905c92299d9043619cfd634aed043a87dcdbe4e6dfae6ca7": {"salt": "YsOSrCYbCnFZbo5iCuLp7A==", "nonce": "aRXU5k4M91VAcZgW", "ct": "V9OUSp3+Cv8ysVQbHbeedKjCn8cAgwEhHuqpWgwYpayE70WtdMT08nMQZsmhZUul", "nome": "DE SIMONE MARIO"}, "fa16d41e0910341caeebd189b2a235411e7d0c2d92989afb4e8dc05903d24578": {"salt": "/0ejEeSBtjYA1xdbOXyZrg==", "nonce": "LYS2bUI9pJd6ZAiy", "ct": "SCejLkDP0lG2/avoAJ5u5fPT/TNYAX3thxRNfTAxfktvjGKUBOTXsHG6yIJ8Wf+q", "nome": "DE TOMMASO GIOVANNI"}, "c9a320307dff3fc5ba3b5b926a9cea88f6e8d0ed91998d0eda43a5802f6e6f7b": {"salt": "vYx3ICz24u9zEE/ykIAHng==", "nonce": "0ts6Fm5Mch8yd0Lt", "ct": "Nvv+2uKhgtfU7URwYV5ShwAuhYNdPE0isHidYUQ0vPJN71X9j3HCIxb8dUw824ix", "nome": "DE TOMMASO GIOVANNI"}, "a432b1c7c82f00e2021e4ef424ed07ccfe69a759d9631e58515d9d2265146650": {"salt": "75D/IojNNGfLarKa8WLPVQ==", "nonce": "FwRIprIokU8wv7q5", "ct": "+My97z9uX3imCjEvJRJIb8hDH9OFgF6+1LgOCbP2UUFFsMEHeFIjymLgdaT7LYpp", "nome": "DE VITA CHIARA"}, "67d96d1b02f80287ad449739dc28280c5f40b56177ed0cafc2ec63834f44dc0f": {"salt": "7DsWa2bUZkErZ7L1r07tIg==", "nonce": "supC1tGMpwvjQmBF", "ct": "y6UrnxMhGgLsUFPXv/+CcdPvx7a9MCW4lQOmAWhHLwwIwkVtc1Ss4FYfjbfkp/cX", "nome": "DE VITA CHIARA"}, "d86dd59b8917045de042dcc34d2d9b24b3a88d519e40cf4e69b1db02174e6c5f": {"salt": "LqGF7TIpGDXUvIUnpObmXg==", "nonce": "uGcQhx8LAxVBDN/H", "ct": "ieTBp+fr6XGzwexlOK0RAJrdumXpkghL/RXl+42flNT2Rm/3oCaWpan6wYZk4Q9e", "nome": "DEL GAUDIO ARIANNA"}, "34d656b57e440d04ceaf79ddaec9eab7a28acb354bd588e70e0b2ffd5382b8a7": {"salt": "Kp7yCPTOn8FyY92KHZ6pIg==", "nonce": "kVppt9e5veMy7j/6", "ct": "dsEK9DVQjKIHWG/LWxQfwcTzUtJlhfnjA+nEOITylzDWBlkQFW8IJijmoxgNGLYs", "nome": "DEL GAUDIO ARIANNA"}, "0b95deb48ab2304b79bac4dc1ce6160f90504b989c5bf2bbcf1b7f9ab1d6a90c": {"salt": "yicghQReMF59eO0O8zAfyA==", "nonce": "yOh9hAdIEcDYg/yS", "ct": "kvp8Q145i5UHHQZC15FiwAaASgAehr7nwCjby4Rj4L4zwvGRG2ULlDrjqrQeWOzy", "nome": "DEL GAUDIO MARCELLO GERARDO"}, "8030e9bda74bdb780f2205d7114862b08ca928f842ef654833fe60c575644da2": {"salt": "72Hj9qJoObLtzbg31Xx5Kw==", "nonce": "l7+raq5Y33zgbq52", "ct": "YJy8L6TFNovtWUZYyfoJRdYLyKit8t+blLnDMFJl2Gz2vSUDIft5Xe3LV+lAwqxK", "nome": "DEL GAUDIO MARCELLO GERARDO"}, "9d49ad6375b2ac1ab960386453fe108901194ae59bd56518ce1fafc9a789e835": {"salt": "+nxbra6wsPVsBF9EB5ZRAw==", "nonce": "CobwGBo/Wg0PXhMl", "ct": "1g9X8abMY/IQSj+YJ4nc4J2s/5n1mtUfG7jiq1pitLnzIh5L3eS2YsZta1Ey9N5S", "nome": "DEL GIACINTO GIUSEPPE"}, "21dc511f5afeb7d5aa76a2351067def179e07e5e027cf7271f2949b048da1ae1": {"salt": "Yyc5wNB1qv0gx1Dp4HZ62Q==", "nonce": "vYrub8O0fayrYkNG", "ct": "rn2iAv44TQOZyELFv3jdc0Dc1/c0JlHbT2KVUtuj1OQcmoAryxD9KJ9r4vHrIm56", "nome": "DEL GIACINTO GIUSEPPE"}, "79bf842b67e7af97d744c337525c771f9267b9bbc89544a53cd68e8599de155d": {"salt": "XA1jSIy/qO9m4UVcRpqTLA==", "nonce": "L6CjsT9asrU8W7VQ", "ct": "1g79nPg1SkMZQpC9dRT7UQPIb5tZZAmJzkOUg6gO+7jLlBQHz4Z73KIBtTi7z9Fr", "nome": "DEL GIUDICE ANNA"}, "356dafa139b371cf8537932abb93b8ff58bd3c38bfb01884154cb113bb158ed6": {"salt": "j1yrpoujabqG/y85RT4x5g==", "nonce": "M067T4TzUYEy7eYf", "ct": "zS/KMqiesV5t+lpnwUnpJH9YfEdRx2rvsPnQxCpySipGBnk4cVhoov1jaYXk3AUO", "nome": "DEL GIUDICE ANNA"}, "c67f4f05de84b590ec903f0f5723e7f71ad3541a5d917e7bec28590a20b8b5ac": {"salt": "7n9CEdqcUScjbCfBtdHKog==", "nonce": "AYpueIiuUfOj/3e0", "ct": "JgRsG4bMjhHuamd4pHq7QlS9ERIerouE26t1zmIfJxMEfqo9CGFg0qmR9y0izg7T", "nome": "DI CARO ALESSANDRO"}, "e3e35dc0f7a103e11aebd0c4113be23c0435fc1d83f3d74c22d2489c9f757b29": {"salt": "gstD/Q0xgh0NyzdiPGSirA==", "nonce": "qYOIBm8NoaeLIeAZ", "ct": "uumtJTXIIgZcZUGinfrHooKTvoPV6ZGfJW23/38Hfc6dSzYaxTxUvZpMzpTUSMrV", "nome": "DI CARO ALESSANDRO"}, "831a69f46a31403136279940410cad396532d499bae18fef726df580b453bfa2": {"salt": "S5kCqRsfHB9E573fbVpIYg==", "nonce": "KKcjeklH/TglOWaX", "ct": "HdF+YtQLddE4lx4iDbWips1KmzaRG9UEnFr262+dt/5H5oZRbUzyVVzliwlWXQfi", "nome": "DI COSTANZO DIEGO"}, "abef4d500a1a6a371c7cee26adfa67a975562f8e03bd4200e7ad3e738e1fc860": {"salt": "ECy+KTghknz5VmQZlAbyQA==", "nonce": "P7rUGMKRecEjlfCu", "ct": "cHXkRUi5Jt+mlCxJhWXzxETEcwGKinE/yt9X4bI5/JR/RwbEH1KV/otWb8KdyG/v", "nome": "DI COSTANZO DIEGO"}, "f0ae163c0cfdf2f71c856a9d00905b3243f84b317ec9d00347faeb27d35be089": {"salt": "xGWUVOPZ6J+pYWINR3hu7Q==", "nonce": "G+AOdbufa+qdGawq", "ct": "2MBbfUd+ZhkiUFI+wr7Ut86gP7gGJqF8uHVQvx35xvEZ356+8VEsLPfgsTCDlTJT", "nome": "DI DOMENICO MATTIA"}, "9a684420f7e565d79335abc9b9489f89175087b163bd4aaa59a260b200256708": {"salt": "ppLobePvFQG51ez55o31gA==", "nonce": "vtRCLerK0q+TS1AK", "ct": "pfIUJzL1cGvK8cdhLnxF8GjZ9fTCCW00mwNpeBGxKkvHABiVhcbWXEh54VFmidx6", "nome": "DI DOMENICO MATTIA"}, "3760eb461aa7deaf55c511cb99f73e70525e48e2a9397f4d9259715809d6238b": {"salt": "pXRRVnbdJ7XICZci+Bb9Ew==", "nonce": "OIn8wSs8L3/Y0trb", "ct": "yIFYvSz6PEEV4PHkIQINDsQmDYsYzzewU+2BuGO0eYs3l/hc8m0ZYZxPf0hPOv4I", "nome": "DI DONATO MIRKO"}, "66154e65527a411fa93542c582858e21e9ccd3a29fe130f579ecdde353dc8faf": {"salt": "kOXByUkfXWuOJjgvnRdczQ==", "nonce": "qEL6srCAQ2mmMPFX", "ct": "LnaGyZxvtjqHcoPD3EOECema2rIemldJJmx8VT22ljK6mUdV7qeAALqpPgOUPbNV", "nome": "DI DONATO MIRKO"}, "d0a379c5fa74a8b8860a78a7496fb04582dc9fad7d0fde89cc39364e293a3694": {"salt": "Embt8yChIrKUl0YckYKQTw==", "nonce": "s6992V4qJPzO+svH", "ct": "jrleVgi+sAm9O6ojFyTCx2htvEYTY6P5lnUohWFtIhZGKS9T31QE5a+W3wbKCE+1", "nome": "DI GIACOMO LUIGI"}, "a17641d5c2fa17e69079fb50c94567dac08413ba01fb163d3cbfb5808285743e": {"salt": "xkBZpwF8jU8GxF2xiWla3g==", "nonce": "o/ruvye9zP53KhMf", "ct": "Fsq3oP7ihsMouxyeAMpkEd7e0z0S7/LG7GiQcZj16vPg+Se6qz/KC3EBoCXnRpo9", "nome": "DI GIACOMO LUIGI"}, "5d4092f8c60aa33de1c92465d915c19cceba73a25d43cf69416d743f4776a599": {"salt": "LMrVviu7Q0xE2sQBc2OkSw==", "nonce": "Qp0t1Rv1q3dkOhec", "ct": "t5+Dmy+/JtzSlQfCeB10JvTP+pyns3GxZtl5ugXhG75BEwEZOizUDedFwF63Zyrg", "nome": "DI GIACOMO ROBERTA"}, "ac4100c076db6a39ffcb53aee6972a028b3e29ec3fb4e5d83bde535068b0b452": {"salt": "HvPkOxefKFuywCgcd9OIxg==", "nonce": "BGZeiam0BOH5Awok", "ct": "Lxek+Urv/DsphBIEXselmgS8nLDbIBpE+m9C209t02VG9e1CckvV/DbWLUb9iUTg", "nome": "DI GIACOMO ROBERTA"}, "c8f198f9644c7a533dc829ac15c1fda5a63c1d5ec252c6f1c2a49845b42bd9b9": {"salt": "RS5ucnvMQzYaJvwVRT4W0w==", "nonce": "KK8Ss7voMeyhinnu", "ct": "dzRzwkMSrOPyrt/gQaNlK+6MioxluuLU9JckD0W5eG5Vjep4B5fYDJWV+glusYa/", "nome": "DI GUIDA DANILO"}, "6c66c86b6fa8c01aca45048edd4e2029cfd906a692f99d275fb75f6616492b90": {"salt": "6aliSqPSdop3NaMGiN2zjA==", "nonce": "U8jGAuov3r8ykUYR", "ct": "ShOCzUSCVLpTwtcVJbZHI1R8nYzC0VieBePgMDbor+BUaEXyolQBQ5Z9FeHlcugq", "nome": "DI GUIDA DANILO"}, "e5dc1fd244cf891a6ac5ec7f191c78bba1e7560656edea799f03d2edbd9237db": {"salt": "qspsFc4ZjyjT/42FIx9p7g==", "nonce": "EEN/n2JXL/NMBsca", "ct": "2z7kmghtbxE+FnOXKC/KaTaGbhq29+uCh8Mm+X265Wx0q0d2duWyE+Je2AvupoEp", "nome": "DI LEVA PAOLO"}, "7f767db86baca68e6b0e30db9f13a867fd78643abe15395015ff57945719f766": {"salt": "7PlwPkuj0HIILtgqMVWSCg==", "nonce": "1UiKtMUQb8RD6O+j", "ct": "Ti8ZJhC/cLQXp0+6Cjmg9y9gFuzRaLcSzBbnrAtihRDbX2cDHWJNsLD11BsRaT59", "nome": "DI LEVA PAOLO"}, "809cb5577921f455ece62ce1074ad6ced2c71eac9264d7fdfc5a00a1960fad6e": {"salt": "RuV3Wya/3umamUy8HyHe3g==", "nonce": "SSvqlG0MSZDdlMxf", "ct": "AKTINpQjRC0Lk8v+6kYSnShkL0JFrcdXRzByFZ8nR4+QfVgMvobSofl39+bLjMEK", "nome": "DI MAIO PAOLO"}, "7962dda8c0c01409cf1a7c942828bb1645e4a3e571d33d41044157b2714257c9": {"salt": "aCYUV3EQuCJ3ChB0covD5Q==", "nonce": "/WSMGyTM4omVnXNw", "ct": "XRl8t5Tdg7Gux5J/2AxII4df4TGMfFIlxEr/PhyWl5J0pJ3XL/s+rJjKk7rG7tm6", "nome": "DI MAIO PAOLO"}, "00843c8a30f5e15f6b63e7211b8895061fdd7a0608efbc66bef9306b5860d020": {"salt": "a5UI4oak9UwvTlOshvFB8Q==", "nonce": "txQ5ujQ5I76bqAIt", "ct": "JJIno6EDCFosxLAqfwjSeKp1+e5nNvcjqpcuv6Npt+Sfi7JQqcISVnlMbFvAe5Y0", "nome": "DI MAIO ELENA"}, "b90ceb7fb1570205f97af0cc7334cbdd195d812f6712dcc7a764f07380cbbe40": {"salt": "R9fRyXtRu5iIDlGnRdEgzQ==", "nonce": "deaTA6iOoOQ97rFa", "ct": "FoOg2LpaPeRRkVKhMgbyY3iIsb1686OL+gYMUGbhGhgd+5ATHzDLlmjW7uHESbrN", "nome": "DI MAIO ELENA"}, "ec1ae851588ae1e8eba50b6655815cb69f87f2165497d877f548025019665ca6": {"salt": "31ErgWc8B19RvGF9DLOSSw==", "nonce": "XiXCmGZxrE0pwF55", "ct": "lp3jqlc16CsI9Yb0Qe2Q1VzQRIiJwEAEBI6zvIuNGN2AVIG9UKiwFnRm/hskWIv4", "nome": "DI MARCO FRANCESCO"}, "919aa9fe95c3cceb9f4940cff7ce1aeca0ef577597b6542ab3af77cc42f8422f": {"salt": "ddtlL5FXOsiwYUhfhZ2Nyw==", "nonce": "pdrFr2ZNnHc/lTaW", "ct": "wbk8frBfV7LIuKg45v/3sVwWZaW+qdxMhSAjPouTB8GcXdyvxWo/0C/PIR5/Iqxc", "nome": "DI MARCO FRANCESCO"}, "c87f2d0885a3ad267b00ea258db1b03b6e2c3784b5ea0ce222e657d68b2b4097": {"salt": "8qAkPwks4KGbrqKpHYgrcQ==", "nonce": "Uyc6XL/kCozG0YU2", "ct": "Ec2EZd3dSILTPvODDKqMcfgpYF0TSwfFG1NhwWk+LkVKUSDDmc3z3YIr0f97CJXd", "nome": "DI MARTINO VINCENZO"}, "88eed2a4c3ecb133af037fc17a4763d8ca0d60ac9ede252551d0079f5a1ec14b": {"salt": "xOhN38dw3g64IK/YlmUeng==", "nonce": "pZhMOUKZIaGB+Mbk", "ct": "uyS67LlZJYVwLzguEWKzt9+jbUPY6gGJE8/dPiTt6s4aaPiQJnzeddzav1A0EoMt", "nome": "DI MARTINO VINCENZO"}, "cef6baec9bd1c1d1c825e550c00f99869882d0f8074a7fd7060d2db6fffc9008": {"salt": "6tUYW6wXwcigHPXop1cBSw==", "nonce": "aR3+HVh4/IH6JbTS", "ct": "KnIysnywn5gTHV4+O1/+iFS3JsZBJfcNmt7UJyJTzfPQKnw0gRzxXmcpqKJTL6Sx", "nome": "DI MAURO GIUSEPPE"}, "9c64e426bdfe919a261d2bc1b7f5d3915349e9c0ecbdf2170ba5a7bda764cc57": {"salt": "tNdEfdJZoHNk/1b0TqJN8A==", "nonce": "FLCq/SPwoqm1/Y5n", "ct": "d613U6YRyAl2P9vYvAsifXoihZu2Wa5N6jWQvWwWxTHa21MfBXOG4g/zJAPQHm5W", "nome": "DI MAURO GIUSEPPE"}, "a1fcbb2e8ac8243fa8fcd2204b8975eadfa9758ba149c229e1325b2e1a1cc2bb": {"salt": "xoM9LUnrBA+LbvGxkQZtGw==", "nonce": "GJIBv7wffyjEofMD", "ct": "q+5IqHLHGA2IH1Vri3RxfEo5OnpAKcXuBC62UBUblw2eO8V0HyYYLn10o9BizHkP", "nome": "DI PALMA ADRIANO"}, "d23e3b2caf1a37630c15c687ed06521bab1cfd57fff4c3384c783e72ad82305c": {"salt": "rnFEP3jtfGyNo9zdOr0uIw==", "nonce": "VieBT09aKuY/hPgQ", "ct": "u7KXWmJKQqhL2wOXdYXjR6Cmel/r6C9ZjVnFFWE4swqICgmvnrGCloTKD4q1dULB", "nome": "DI PALMA ADRIANO"}, "1ceb765812b87d0f77cb1e1f21aacf663a6e338c2176fc4f8a78d7bd01c835f1": {"salt": "AcSNwR9epJ7Hcw15kDECEA==", "nonce": "qk0wJcmC98e7nwGx", "ct": "MDolanltuhr79dYvCc5BKB8HaHxLwBqn6PKdHrsbxySidkc3SdHv4zUYsKWncXGR", "nome": "DI SOMMA DOMENICO PIO"}, "150546bc04a93bb2cbb0408f932d3960ca25927273448e9d124c37ca3b11fd7f": {"salt": "yvACL0Ah4LA9dqgEXOvZBA==", "nonce": "Qeh/QlDdaMhRt3MK", "ct": "VBiB0TFmF/6QpaRur2tpd8CPdkLEeTdOVdgeWf64bjyMekIWKUVEauDRpE8lURHh", "nome": "DI SOMMA DOMENICO PIO"}, "46a0d1883e1908e416313dfd21841bbd740b072efbaf91462cbc76a74d039e49": {"salt": "14pM8d48DKB/4bq8CR23yg==", "nonce": "LoG2MV1exffJTMht", "ct": "+sUAobg8d2760P+31/JnSs3tfBGydnEItfcwYSkyKoKuW/ZkExVhe9c6dj1uVg3v", "nome": "DI SOMMA GIUSEPPE"}, "54a1b93f7c97aa3d4458b8b5e96dd279efc49ebffc2aabe3c6dc06288ba48f28": {"salt": "PHRYv7n9snZYbcF0x3zzhA==", "nonce": "2chXcRHmNgDgKIOW", "ct": "eNp9LbY6GulT3G4Y0OyM3Ah2qZAsvtldnRxky32rST8a53vn648oIw2MHU8CWt2L", "nome": "DI SOMMA GIUSEPPE"}, "98ef4d4c0e6c9cf347e7b6c259c229a37c92dbafe4072acefdeed225ff336d9d": {"salt": "E41Y4NA7hfg4Q+Juzp5T+Q==", "nonce": "my1cygPZC3e1Hj3N", "ct": "ibpa5EG0Q5QT7wZrYMwW6G6MHREThm7GIs3+DxJgoRdFjMGDrvok2nfqfZrjU+Oi", "nome": "DI SOMMA MATTIA"}, "3cd789f71bfafeae874636b03933d540a3c43be92f4ef1aea11786036be49fa4": {"salt": "Hp2IM+/n6p2b+ETaCVTVPQ==", "nonce": "d+iJ1idDuitgoEiM", "ct": "iiYQ4Dl8/LME/UfBaxWLhRGC/lkIy/p9zD8MANBQH5s78miDnL5nb/VUB8sRhLq5", "nome": "DI SOMMA MATTIA"}, "66f746c93bc1f1d8a5a4fab085cc70ab5b18ac560ecb3a90d8c715c7f84c55d0": {"salt": "0UiFH9SR/TR0LtHjW+NzMQ==", "nonce": "YWqBQ4Vs9Ml4gDpH", "ct": "8+NH8N0ieUPx3Mdxrs32MFzZIslcoNxB43p/f/XNBqffFxeUkBnl3vbOWLdvNYRI", "nome": "DINESSI EMILIO"}, "730fa2c95531073f174aef1841541a9dd920c632e20f6e15f24dbbb9dbd7e9d3": {"salt": "fG/uC8EsLucXNxT2X2zJGA==", "nonce": "PdMt5tJvtWFY6Vlc", "ct": "Kz01OtjzgPWX9N4lcNqJOUgdbvSEbJrnofb8eR7qrhWHyMhrRhnGWqOY051UfRd3", "nome": "DINESSI EMILIO"}, "88536769890a0635c75488d869e826931f83a9b785b43ed5491a63cfa97e7b30": {"salt": "klrk/zQia4F245JlddXdIA==", "nonce": "iVaOuSUf/Lu3nWHR", "ct": "siEQFU144yPgwEZbeA6pzRxJOLbeGkWEIbOz6+xRhfpFRu0QhiRHZP7G4XrFAtpC", "nome": "ESPEDITO LUCA"}, "6d92cc3ff1f8f08c9c28470a147ecbefdb50d6830f8d7a8c3674c2959bd4d8f8": {"salt": "pLbuxV+Ztkwlk3vLqDaPjw==", "nonce": "LOBdkQSu1N9Xnsie", "ct": "j6qrr7nMGzMsinMW/9/qeg5hbeKlzEgc05fsfcUp+WSfLoFeF01caPIRP41MHXrN", "nome": "ESPEDITO LUCA"}, "a4928325b038d950d2ed62c23208f8470df72a4f029461637a3b116ec6b35367": {"salt": "y6wsZXrFUXeyl+2qzrp9PA==", "nonce": "4FduFXYln3zlQu71", "ct": "alP0dNVmPYKEG7/wGLICsjuqHEuZYb/Q0oWiu4c88HGeFuni6sc0pDaTraRPZ1aj", "nome": "ESPOSITO EMANUELE"}, "e46aaa1384037e5ae3c7d0a9efd1f69908215bf0c325b139fa0f69fcdb3c69c4": {"salt": "Ke7oWps7u/lGnBM44jU5UA==", "nonce": "z5+Ht9R25Up+KWXK", "ct": "RTugmWY3J6fFQ13jEgNN4lOgkKQnXL5jBtuYKO0mhO3CfVCE05llsFk9P9fzUJjH", "nome": "ESPOSITO EMANUELE"}, "7ec0fe9143535f309a7a6e842b380fb4a5042ab56d9c7876f018a322265de973": {"salt": "w0HPDglYDhXC2A4XPnWNiA==", "nonce": "MBzut8WvDJDQg+mA", "ct": "9xbrXOLLIHKdLnOl71mZqaUHz+/aEmIkI5yMPrfqwiAFSukxZUsJ7rBKphzZK9GH", "nome": "ESPOSITO ELIA"}, "a2b79b216a47e18639206350530c3502dd1d6710967c6736cfe53ecfd9dcc814": {"salt": "w7yJfnc15gz3BxIDYKnQPQ==", "nonce": "GPxPkE+NKOP17GLK", "ct": "x81okXFpZuphst54dXmYeL3T/RHV4YZw0FIHfd7NYQ7Cbs2deVW7q3lMEDoEWGUe", "nome": "ESPOSITO ELIA"}, "da091b117825a512e91796bece111feb8054da38e605598ba69d09ed802b4359": {"salt": "6tvr1cSObQqvi60CdpcylA==", "nonce": "bqKx7urmCot8khDb", "ct": "FOrZ2k+IbS1heLNlOlJuCPPKMRdhReIIR5S2CvkjS+F1hCYq/HOQohPkcOV1WWLf", "nome": "ESPOSITO ABATE GIUSEPPE"}, "4e0d6fecea6614c2f1fe37b23c268ad5af184df74aab8416e31802148f70c8fb": {"salt": "2CxUM0s7IHF338/2R/JZGg==", "nonce": "SGlqal7dvANlGP6n", "ct": "pNZK3mmmw5i/yAao5ntN8ClykkMwCJ3SGcQ6c0qqDSiJ6nsBk+y+xauKqxxcUCrQ", "nome": "ESPOSITO ABATE GIUSEPPE"}, "55a6d57f4c003b607e5a2745c5edf68a5d9a818f8a91f75e233e5ec83c0b5f91": {"salt": "aKc4+qRKGql4WLqbvVsStQ==", "nonce": "BFlaV9Uyedw8ryyf", "ct": "xYfwawL5p27L622IV71V4ujoxS4q+pUlXwyLFxN2umMoJMEk0fny3v0LpfV+0wCO", "nome": "ESPOSITO ABATE FORTUNATO"}, "71bbc6ec87cb97ce233c267d37f523b5f1e1defa314cf6711bbf5edc5fe11bf7": {"salt": "jzPeQkAXMHwb8hCfulpRAg==", "nonce": "7KFRmCAsMxGGRpKb", "ct": "+IFs7JcSZ9y9GaZdvkQUa1QUGH+JH6pcBEv5hYE/wo+oKbKto9gVANM723UuOyzV", "nome": "ESPOSITO ABATE FORTUNATO"}, "51a5c02d43bddba53b36ef90328367b3cbb0f9fbe4976bcfbade1e2b4b0e1213": {"salt": "rdeFApnijIPLI8F0a6BDaA==", "nonce": "Ss6fl8zjvBLtqIKI", "ct": "L3bxD8ZY9QyVsu3+kLepXe8SLoxG88oilctImh7amOfeT3gIq/aDUSEXTUxp6ptT", "nome": "FACCIOLLI LUCIA"}, "baa620890f8b0854c1f74397847a27f7cea35e6810c9449997e8597b56e4a7a4": {"salt": "fSKHPthUS7OcLS1WHvBnQw==", "nonce": "MtJcuv3ujeR1zjg3", "ct": "VksyPiM3Y1wz9S8PdIAGWaBQQorZ6zZTwZm2e+q6bUSWBK390S3PXSPgAyXd49TJ", "nome": "FACCIOLLI LUCIA"}, "4028e159fac519b5a28beb25df69f82e9f0c0ac3668b432b8f0fd58e62e4273c": {"salt": "78OUmvkAJiqnSCvT9bDB+w==", "nonce": "F4D5EWKA9+sOnB0Y", "ct": "Zx5yv4P+gTxWjKcaM3pEOckJYb7hv7YnuUR44RPEKJmSqCOSOHotxVv7LeSs7daU", "nome": "FALANGA RAFFAELE"}, "e278ddc877f06d420732338242440c8ce15f776e7a05d8d93407d052c983b64f": {"salt": "tl6hXzHWMY2Xnt+wAbugrw==", "nonce": "LIOgQAW1dA72tNJu", "ct": "QDD8VCxw51m5eyid+luJXV3BpA+lddJz7ixUHBxYGSmjIsR/sJBTFcc1PUwECZRF", "nome": "FALANGA RAFFAELE"}, "1614955e9180959486e612460eaad18cea820a4c78b12eec07e1bfed74da31b6": {"salt": "I4kmOElXye1758Tno1KITg==", "nonce": "nxYCwiqWdrInHIo6", "ct": "dWUHjY0i42R6R1XpZ0esK4xZkNmTeJIp5ZC5dRzhpGOMVe03E6SSbeVNw6GgKwU+", "nome": "FALASCONI RAOUL"}, "3350a335d7247c7123d2ed5e3e7ac7a6277f5862826e376116ede279a0cf2e2d": {"salt": "abfKb++VdRLLsSNT5OaOyg==", "nonce": "2kTKvZHOQtEaLqlD", "ct": "AbyXPd/1hj7FFSxG7zkQd8qf9h0TmOh1TeMeaWs3cKMopoiL0PzGiM7JzHJl6kMe", "nome": "FALASCONI RAOUL"}, "70f3511da0c95c061dc8bdb89b03771fa8a6d8462edddcd631e32762d8ed7459": {"salt": "CuSiqUorVVsg8ZS4zmUBcg==", "nonce": "0tCK/2Po/SHWdfqf", "ct": "IiP8JlMbSSFHI7geo8JqxNBn1uo4Y7W0mdenAgFiWTdR1UWw329Iy33mLJM14W1H", "nome": "FIORDORO FRANCESCO"}, "05538105ad71e0375f70ac8cdae3c723c4905b7ffd12b138e2f951aa07ea801d": {"salt": "lEEMUNK18vmfMdYnn1dQ9A==", "nonce": "DQVmHg+t+kEbRVhN", "ct": "x4G/cmM0Np1mIZaObya7/IQURvuFoNP0uDBv1l0t6LYn0BZdYXIPeoJU1zJFGRYg", "nome": "FIORDORO FRANCESCO"}, "4243ee1a857fd52166a8b57ff70981881f1279453dd9eca2efbb32aa19e601b5": {"salt": "Zuk/sS90HD/DXr0a3CQe0g==", "nonce": "uL2het7aw37Rl5ud", "ct": "fUAJXJR+9+VtvPErQAk82bTjkzRYH1ipuuETowd1fOAZj3RYLNP9Nlm8Df25uQQc", "nome": "FIORE ADRIANO"}, "7c61f57e6a205f6d6880395f1b517fabb28d8308c0b1a798d1eff260d2eb9ca8": {"salt": "aoldWPTtvWBIorR6qSFvoA==", "nonce": "SAnGV7vlwt9NfcD/", "ct": "xhRZikLMb5veDg1qvHUiH7eYbY8pwanZNeuvY8WNUWGNAkckosOHTZvR/7n9wLjl", "nome": "FIORE ADRIANO"}, "54aff223e07d06c29d3e8a0c22967a92f7cd1cbd1e40a2a39ad0354f2abef8ba": {"salt": "RhpjhL1wx2pszuHrnPaBew==", "nonce": "3IzKskJsZzz8Pqnr", "ct": "4etHNy8RcyLVz3d5bkzYxVwWW+6YtvsbWp2kWlQs+G6rTKixQkbX3riilYpvSW+u", "nome": "FIORENZA GENNARO"}, "4a568f4ef228ebdfe905ed66256374d2e70b22c185734235387ec3329e2adcb6": {"salt": "0GAwVUAF1ZkpaYH2B6gG7g==", "nonce": "Xd+fH6cF+eCJKABM", "ct": "et0reqLaW6BTqlSDvrdddy+6le9vUVnNu+cKUWWFsNdJ/2s8cz7kKe0Ctlt+D+DL", "nome": "FIORENZA GENNARO"}, "3a998478f92afbd9c42a5d21c8a072847f94998c01569412fdb62d9ecd08d11b": {"salt": "bVpMqi5QBOdrv9EurEihWQ==", "nonce": "vpSincFo4ly0fAdW", "ct": "TH9IRDbfXWrSF2xR1EaJgtX5/cINCnXf3xNuh5ScnYxIBAgN3y3ZRUirxk0ko5M1", "nome": "FIORITO ALESSANDRO"}, "1739792a977108e4a1986cbbe8d88bf5d1e61e3a0e08ae3c791ee8ee6c138512": {"salt": "xJLhqLr1fsicWoqFGcHudg==", "nonce": "8VnavfrHtFwLEOI2", "ct": "qCrWA0NxNISnAIDY/kI5Lg1uGqwyKBYefmrGg1cM0QWEogz14xL5Ws4hOnlvuMtk", "nome": "FIORITO ALESSANDRO"}, "45d74ff6f2650c456c64ca51b728625211d4943db0e95375e39101ec78260562": {"salt": "10H1NuRm43foLHlG141gzw==", "nonce": "w6E2T3h7hVeUcYVW", "ct": "nGuVbAe295grLSo854EhSrxwWERw2MBrsWMEUdNq7Q6H2s4ZgfycLNp8Yp+BapRd", "nome": "FRASCOGNA GIOVANNI"}, "c9469533119d9ac6040a7138ce380574d07e64d2b1279af9d4289ce9e89cfea9": {"salt": "IW+BROqRvhoZMkkyErDEfg==", "nonce": "XoA+LdeUsyP6SV/b", "ct": "DzysvtJBOcl++3+lcJ54p1OMRQexen7sS3XNkwmdq6GegAZZBROKH4UBurqI1W+v", "nome": "FRASCOGNA GIOVANNI"}, "b20293d96a48b614c5cf89821ff745c2af7b0c80ce0d4ae8ea848c2572ebb340": {"salt": "+p0CKyvW0/KMunQ6FP+8JA==", "nonce": "aEJwWeFyRmoKepvh", "ct": "sQMf7nAEjEi0hBF+2QIJjTnIuRr7W9SqKgdVALPDtoAMCHrysODFuSAmeTb3VQxq", "nome": "FUSCO MICHELE"}, "05153234c624a2881bf1e3bb833134e5d8ce136e51271f59f6ce1756ae4920da": {"salt": "oXKCaAP0KAdQ7KdBOXNrhg==", "nonce": "CXbhjpvRK+PQN+4o", "ct": "Vu3qMIJ0zszzzpdYuwMpuyvK8d8+kIy3L1hcj+OlifzDMyysBM3K2p7GNKAkdNiY", "nome": "FUSCO MICHELE"}, "22c11750588d046c2f1b731bb906afbbbb6d71d389839f3d71e64ad8fabe807c": {"salt": "Rj66Z+oq4WslDnp46fZAbw==", "nonce": "oqPV7PfVFOtCF8Aa", "ct": "Ki4s2aA705Gjzv6uGewTssnKrFcTSCI2+GA87rdP56qlGILQCN7j1dgdKI4Z+kWD", "nome": "FUSCO ERMANNO MICHELE"}, "96f1b754b18a5468ca2b7be03f7a79bd7cfd391564b57153df82cefea49cdd61": {"salt": "w/ndldWMDh69+TjkyF4Z1A==", "nonce": "1i6uoIw3sZDaX9uD", "ct": "FOxsNxs8aRY4hHS+vs+k+iFMui28eLxkWPOUAehp6S5MNtLDyoBWZlKJxcAst/S8", "nome": "FUSCO ERMANNO MICHELE"}, "9a5674e13073a9842417a54e7dcd6057f20923933783a021bff8219ee35df469": {"salt": "1i6+PH85ywufEbwuFOPiFw==", "nonce": "YkzviFvFHqDNQnaI", "ct": "LDsbzSbAooLRPjylwHwNsWWVVb0BO46RCRGQkhNmthH1iQsljdDFmZdwJG0WSCQK", "nome": "GAGLIANO GIAN MARCO"}, "0ec92150cac29947861fa768ada439a4355439669053f0d94c2b79f7f76039e4": {"salt": "VFYC1lgEnK1UtUtjWROS1g==", "nonce": "YxlXQmf+f37dj7FK", "ct": "AAU2BM/S92KdGcnS/tKxsYZgnCBeX9vpOgTvZ0EdMXgEXjif2apz0ICMg+HsIXsE", "nome": "GAGLIANO GIAN MARCO"}, "1d412bc698032ae4181483c6567dff9bd0a8c06f381248b0f2dd697bfbb7d321": {"salt": "hUSjol4hdmiVUkOsmhLHXg==", "nonce": "jfkG0bkZdTw1zFMZ", "ct": "I42AaXBHU/hMU+catnnQtc7cDd1x6g49s3hU2xL9WEpYLHlh6axWZr8G6Z5Le9oh", "nome": "GAGLIARDI SALVATORE"}, "e0268b9226b297ac25bd9b453328cdbbe342a05397a6e93d74ff535fc45b139f": {"salt": "yXGRb/iwPnAYuq5svWn3Fw==", "nonce": "lnwYC8Vc58Hc/dx2", "ct": "NE8PxaqQZqK7u7A15wb91jZYV19rnf977HqlP4iTONJntJlAOi08GcXu/4/UzEcQ", "nome": "GAGLIARDI SALVATORE"}, "c04af2c7ac0bbc8b07905085ff54dfebc2bb65c3f5b9d2e5bde494e89599682f": {"salt": "BekGMnIXBaIdQBvQFBsEfg==", "nonce": "/fiBDLklJpWTf5on", "ct": "I4S0Sj7icwrSUHgErMwaure8OV1XMn07gQyIF9VDI6Fsx5oRa/zZ4XYdsGRFMv/A", "nome": "GAGLIARDI FRANCESCO"}, "9b31b8426319fc1bea4c482777af468a4d7f77014dfc50460373067ca8224a5d": {"salt": "c2FIESPvkGvdz7BFaR67SA==", "nonce": "Ouw3kdKFiRAEJY59", "ct": "ZOS8C5zyM8Osr+9RR1k6jIV6slDnhEsaDTJl0uGnj/DyPjnOOWegtR1xqAxJTttv", "nome": "GAGLIARDI FRANCESCO"}, "8fb7809ac7425c48c53b2482176607701baf65715ef186369ea18e5eec559d02": {"salt": "w63n094Eyi2yiem+DmAjxQ==", "nonce": "xK+rmCrWxTAHAlHk", "ct": "wXcgfHQobHv2FI8Rl+pGEFvYfX6ux71T4SK06PFHH8ccpqX2VvkSCevHIonqebtk", "nome": "GAGLIARDI RINO"}, "d1dd6cad1cee43ae03f8021d07667befad3bd6c8d18397e70c62a869168a502b": {"salt": "bLu9zuvkg0jWHhZTPP79Cg==", "nonce": "Kp25FVACHyXFlllw", "ct": "kx4CyzLnxdwCm4E7QLR/VaOUK3joxPFSnCtYeOa0Ckg2zTS1Fjm5d4vprBzq7ruk", "nome": "GAGLIARDI RINO"}, "e774e1513cf78e1edbb22159f26b5c646281f60e73ab1712c42195852e0ebb46": {"salt": "f0NPNxWrP14fpWTZZZNVog==", "nonce": "EGJTqP8xj6YxYpW/", "ct": "jjiveGL/vdS38uXHLEAUJFpE8EwmxF3/QgdtNI1BvE3Oxvlu7cArvrfcYYc3F+ri", "nome": "GEMMI PIERGAETANO"}, "384aefa04f7c8cf9c8cece0b81fd18cc272377b855ffe65d5391393aa845e373": {"salt": "SpIhBXtLpD9LpYSBeoCxiQ==", "nonce": "sEyoqEtbOcHGJskY", "ct": "MAibJlnKTVhfn9XFP8XuFs659vK1M66ChpNcre6OhM5pIwefaaZFoQcJV+oBGCwd", "nome": "GEMMI PIERGAETANO"}, "f3ca9d4bd1354688640537bb5a624074476a5a7d55f3e6e383b69853793c2e6e": {"salt": "w/WS5GtC9fAjTuhNNsQVBg==", "nonce": "Y1TgAyNZgdjePp8g", "ct": "wKy0Ry94XyyCJ7hQBvZAJCEy9WhMndb7VCavY00/nNQMaPZqRpS0nqTtoFXlAmZa", "nome": "GENSINI MORGANA"}, "455c30b98ba87880f78ff44a77a553b7d3b29b320be446da585fa4e26ac5f4cd": {"salt": "1uw7GJO/8kMkOJmdAd9+7g==", "nonce": "e4D/UrkwwhrBpwMC", "ct": "SaLBNAQ4J4sDoc6sNIytkj6ch1A0xRO27yxDj915OJZrjCMQHT+TimBb5gFt5qAE", "nome": "GENSINI MORGANA"}, "cb7aad50b06faa8e76e9370f474da07fecc12e72fd5c74c2461562279d161323": {"salt": "D4FNlq5KGaBdRm9KtOPtdw==", "nonce": "w3Hwk6PqZmPEFXQf", "ct": "DspuK73Mf7mDYkxJR2Ufme2a9mtOYWMXOJiCeCX+JsyNsuc+jwlZBUpaJDAI8nPN", "nome": "GENSINI VERDIANA"}, "69e0de9d1f21efbb2f952f664b5578fe568c07e849abefd9f132ae4743e2340a": {"salt": "I22vX9fC5aKUY6DFtzvLVw==", "nonce": "jSXAqfW0igtgrlYe", "ct": "DlQJYDy/ec3/5Mtxz4Zsh5wZpMJx5EHQYRiVpE0IU8o60O8mhnZwtgGK8YZskGG1", "nome": "GENSINI VERDIANA"}, "245c4b30fb65207b7f6e7a068c753a2afeaee7b5a9972bd5470592dcdd4796a3": {"salt": "X4tDKoQoQqPaecCi9eogWg==", "nonce": "TT5ponooEr2KlG8X", "ct": "xuj6PPUW4POtqQcaeX5nnTZQP0TytGebv8V0A7YgbAb3GckV0mnI68QXHABmzDMN", "nome": "GENTILE ADRIANA"}, "a1db94187f7d11deb1c2d7d07e808ba29608f36b873db50c8637978a9ff5ba58": {"salt": "wwsMKr7xoQatFw3p5O9vDQ==", "nonce": "A6SljCotjFbVx6+5", "ct": "ZelnQVyP4SVSf1ceH823qHs//w+UMnd2UuoCPV9Vy2iS0XaHxEvCkWWynAjE0sLO", "nome": "GENTILE ADRIANA"}, "fb520c7c45bb81f9c5a4632d7544dbbef9bd898d2740f70a40a27fb1371a4a5d": {"salt": "IwVDVZAbW/uY3I1M+iWFHw==", "nonce": "2D/j/GNu049rcrPz", "ct": "15upsAl0aLXLIY9sfckVi+QLazEuG1Ew65y2ZsSTjket3Dxn9IeFt/uj5H1HbhVL", "nome": "GRAGNANO LORENZO"}, "0f49d1574007596497e6deae4cda1f0ec67ce0c19e505c0a3c337ec38e4b5230": {"salt": "DigdS6K9dIXFvJZfqvoggA==", "nonce": "aBMV2JCwcZ0hYgsd", "ct": "2lz6fd3Y15NjcJcJABxFaYzJ3GKVO1DUC2NURPzeo56DgEN7dYWWLEiGKJFD79nE", "nome": "GRAGNANO LORENZO"}, "8faa0d2b307e02409a7e284e38429da058da474c1d669bbcbe60aabd3bbb7f4b": {"salt": "t0knAmKKZpPGQNHiE4tKtg==", "nonce": "PIEY3DBt+v1WcIkd", "ct": "wqXcTzos+v6cT+k/ilVKZaln/EuSON1MRZdK78BIZx7v9o3y0eCurM353EK/SnzS", "nome": "GUADAGNO FRANCESCO"}, "0a00696d680f6637ca0d3570c89dcc826a4bf368b1f55d3ca84c95e1c1f2ffae": {"salt": "YaSPsCU9NiKgm2PVENAC/Q==", "nonce": "K+IeT2Vr66aDgiIO", "ct": "nm2cO//ubmRFKOougLKWKE+slwuC7H1w9TVuWLomdE70zBDYQg1sVdqBBqL1TAFs", "nome": "GUADAGNO FRANCESCO"}, "213ddfc9135eb4a29e290c634265c32bd8204aa95d0311148d890fafe64d65de": {"salt": "QYI3Jb4tEidrAfFQN/z6pw==", "nonce": "TWd5Um854LwQfQ5E", "ct": "5y4QlxLc/ql+GjPhIYbiY+rb4zn4cg3R8Tn9PRseKQjbuqC2nctjTqbjsHJwhQqz", "nome": "GUARINO VINCENZO"}, "b62940e8459dc23881b13f983c6eba9f7beaa21eaf9d3f5e875f6c900b28ef58": {"salt": "3o2Du03aedCN93L6w1QmPw==", "nonce": "GBH85AWfOwKmqoxL", "ct": "izNh5oShkProMEI4n31igQS9INJiJ1hF8nFoqYTVscTu/Ju17pCzJwtu9MhC0htw", "nome": "GUARINO VINCENZO"}, "7ca92b37d340ce93dda4f8e40f7051e306b477c0c440dbff9c9d782067854f0e": {"salt": "qgUAsRCizD5TvZ0teas5WQ==", "nonce": "Yk8uNYAuVIuc2d7Z", "ct": "vIebBq92qkS1tNbxZdvSlvateceZlvzAao+4JnP9RVa5nq14sav4jyAf1/W3aneE", "nome": "IAPIGIA ANDREA"}, "2938e59b13e69ac4c858781eb13567eae945f407518a18032d85e5f6eadc7f8a": {"salt": "3L3DoO5b5AAg/vSTO/W//w==", "nonce": "oJsYCJpETNbYUNak", "ct": "WlTcz3AX95UkrEk36h69XJ/uONXuLSXjPJ8J6C8wNhHbxGb3i+47hZBxMqXAghO+", "nome": "IAPIGIA ANDREA"}, "25fcc7125cdced01e636cf7f3684ab08400ce03e9b670eb33cba65b7ed5ff0e5": {"salt": "ubREh1NXFxNILDvaX/6ETg==", "nonce": "4yRrLSkxwPD5yEHA", "ct": "HZAsF4uPUZ1xHP3BrkGGhpgwDB+sbfLJIVjvr8ItQP8a+M0pW4Pau87pKyYN4HZE", "nome": "IAVARONE GIOVANNI"}, "137a9cf71b349444428242359ed7fb65c3e2d30a6ee9accbb73e5701caa26e98": {"salt": "p6FgDV4rAGhC9MbH7xb3hA==", "nonce": "uAl66pvbVh2ueJ7y", "ct": "qoY5ew5bJDW/6WdgCNN4ikzBc5rbxMd8Qz5Yrx7C/v9qGS/nUX5Np7HX2ZJIfDhV", "nome": "IAVARONE GIOVANNI"}, "1185f258a818cee2f4e908fc8682b88a77a3f64f6e1b4344715812d796528d61": {"salt": "GJN1C2S78b9NZT4wCBxWWA==", "nonce": "rpN68Eo3lkxTb1QR", "ct": "au9y7hoemlU7hrzKvBVgQ7Z5vYUz0bXjTW5iM1p2C6QEn4wUQaDO5OBtzDASJkcw", "nome": "IMPERATO SALVATORE"}, "4c304af2a3fde4cbdae10ef6ece957082bfc36b5ec27bbf4b094c4fb2087fe6b": {"salt": "0mz2RDtRP6fSIjfIUhC2yQ==", "nonce": "pIDCLsOVox5DKkE3", "ct": "3ZkUyFt1aYIPgSUsuE/Wdvcm+xy4H26y3ZCVPuTT8fdXte2NjfbkCWynv58m8kRM", "nome": "IMPERATO SALVATORE"}, "d1830bf0e8da32db5516fa75887fb4bb86153e6039dffa6c1c94448f5a94d0ff": {"salt": "odY4j1ukyVnj6avIuadflg==", "nonce": "6U+eYAXX7w1pJgdt", "ct": "8esUu/zGBHkF/wef9cZXniUTw7sxholnnJRLpg4eVDzvu02qJ/q3t9HOY1/Vn7cE", "nome": "IORIO ANDREA"}, "fc459c57633a794706705e9288c20cd3525eaf4f2fce1d211e28e28096ea64f9": {"salt": "mKtDkSCKA32nTTzFmLvNWg==", "nonce": "Ul/GlxMnBqSdrlxv", "ct": "43P63AovX6ICS8n0O8DHIZDU2M8+JD56WTz8faEX6gu68kjM2+zvYidoWCtuoy2R", "nome": "IORIO ANDREA"}, "32c92b4762d619e0cc49cf0465a035b9e2e7d2b49163cbf23fdeb1489867e1e9": {"salt": "FgwW+ydH6Q0t+aLrSfA3WQ==", "nonce": "f2Uwz3MHxIAnpBAm", "ct": "6vDYm4GGcP07WAn/QHfIdaMnqb7pwOFKh5aiCNfJt/eQK3pRyu8BGkXFOTtkrn5R", "nome": "IZZO GIOVANNI"}, "d220ab301fea12bbb7f45dd4c73a98de514ac9c4cac5d726c913d2d4b39f73a3": {"salt": "GdaUnWod6kcmygx4CITFRg==", "nonce": "1EdSBw5REy9hn1pS", "ct": "82xz4/+lwKi5HiceozeiGlg80d7+kiMVLto9PFL4YkX6yXHuTA5d0Y1SKcqQhMbj", "nome": "IZZO GIOVANNI"}, "eb59bd75964b0cca96dedac07de7c96fa3fda7c659ce1d13229587491466f5fe": {"salt": "gDfnZga1w/+f9kie/rVxxQ==", "nonce": "N/DjjSvlD5xaDPvZ", "ct": "3eSAqvDq+dauwnrE/UCXLXfAEoNS9p/ItP829bsQd9Bx6ps9FAtSTMwgxLh+SO/Z", "nome": "LANGELLA CHRISTIAN"}, "1380056086d7c76f824ed9528203361e7a5858e0f4a289add128eef66a8c6bad": {"salt": "600yMlDzQvn4iS3TgyG2ug==", "nonce": "sSG6b3T9Y8U711m/", "ct": "pZmx9cWuFjmKWy9hUwX/b75YC4AYizseCBZRDIuabqzixbePx4CjiNBw5S9oIZlY", "nome": "LANGELLA CHRISTIAN"}, "cab2f96793a09d6bf9c0d627c9b95e43970a2e743efb570e2034b5eb8b5c5fee": {"salt": "lSn1+vLfjK5KJ3h1ChT9FA==", "nonce": "iqEraEEDt5MbT+jV", "ct": "NCbveb1ayBGFDtFv4p9W/ZKWilaZV1H5KOe5Qb8MNYi6JnkXwbHQKvsBPUM8Tw5J", "nome": "LAUDATI ALFONSO"}, "032ed9c0285ca06a899cd19de6b35f5b91beddfcae97a39493bd072b91dc93dd": {"salt": "XyWAjS04EsoqxUtuDCYJ+A==", "nonce": "3pCDaqfcw+GXCxuo", "ct": "pYAEviJ9TolJaAfQz1UrlvL7m2BVQ5Zng4HT4efgQxqLM3mn9yldBVnAgxAdaEY0", "nome": "LAUDATI ALFONSO"}, "cfd2bbd14a89c4b7517e44fbabe25ceff5ceb578f82e4a48b74128bed083cb5f": {"salt": "Z1oU0TMfE9XOrFwQcuF/7Q==", "nonce": "u6BKYDtP9e3+BAQW", "ct": "AX3/n+e7GS2zUzyVs48iWnmks1HyCfXpg8ID1Mvcis0+M1A1dP5/XEe/SJNu/WK1", "nome": "LEPORE MARIO"}, "11e899fcb192f9b06411479c26e1e1c23b9d76402be8ca0d7743fae4c9dc7185": {"salt": "z6ejSglqH2ub2cin9JGj9Q==", "nonce": "PVnqHDx68jns3OQV", "ct": "hIE1mSsi5+6bM4ncqMLCYQdERwUKF9VBAtXdjbbFrKcJZqL3p5KrhItEeMiwVbPH", "nome": "LEPORE MARIO"}, "7facff9cac54d7d3467891181d120d32f66f15632779ea0dde2f62004eefbd8e": {"salt": "AsiKzwdYGO+2Noqwwf03uw==", "nonce": "MMJjzpiM0okbzVO5", "ct": "a14EY88+zxBVTk+g77tNSROOyRqtsA7PXZ5JFHyozZZtHZhNo0BAhRPAbxi3pbOp", "nome": "LICCIARDO ALESSANDRO"}, "d0e0bdd39f813eaffcb843b6fc3b97eea0fa13cc977a8b84fa9b834f80fa2678": {"salt": "+GhzgDm8/fF6GTut7Pui5w==", "nonce": "74m4utb/1+3t1QkU", "ct": "jwO6dmC7IuGuVp/42AZq9HQvdfq/2Q6FXGQum4LzECztl5HODJMEW68a7390NzRO", "nome": "LICCIARDO ALESSANDRO"}, "f808960f22b32d133414b2e95f0d3c540f54eb6bc4ac841b2d8c7092758a3410": {"salt": "hJfEQHPX+HhcuUP627ZqaQ==", "nonce": "ZPaQ+FN5umoYDt5l", "ct": "PhQNLozccTGX+h1XHKst1jjmUhweUp9kMEGpHTjfcwotylqaF7kfs2nJbD0sn22U", "nome": "LUBRANO RAFFAELE"}, "439453783d19f687f96157592702c72a9f49c297b60942675a633c0aa5eead0a": {"salt": "N7lyZCCKCWF9YmDD2aLIDw==", "nonce": "wjSN+ZsXO8lxKQQa", "ct": "ilbhLAiNPrYODSgR0rOE9R2bfIyb6G63asDxKRyliO7RTy3W3/4KRi9sHQUMLtA+", "nome": "LUBRANO RAFFAELE"}, "e900ce2695355c9c96a4b4e9bc9251bc43c8ebcc14b395438a1c10863f7371db": {"salt": "x53V66N9ZtfIxSbgdKd8mg==", "nonce": "922qWPyLs5CvQrZA", "ct": "3rDQ5Tiwu9X9Kz0ZMW5/mq/cApJn7yJRp5hZ534c7U24kg8DK5uYmSX8zlRDaAeg", "nome": "LUONGO SALVATORE"}, "5e7f4f9a804b532ec86b9d3060b3dfad1243bcfef0ff2a87dbb65faa5e7eafb7": {"salt": "+quHd+fTzliU//iHk2mG9w==", "nonce": "W5er2l8pg7nPrvBg", "ct": "K8l/Be03jPcmeTWtwAo9AaQDT3era0LAzfjtQjQxdYDXhpd3Yie6EyJq92qFSGMc", "nome": "LUONGO SALVATORE"}, "55b85501969a35d0e7d110f0763a37dfd372753cdbb9a6b14db3b33b15c03fd5": {"salt": "IqC2Sv1AfF9oha8RyfUSLw==", "nonce": "zj/PkV/OfbTKfMXb", "ct": "eBLzVmrHDqpIWwUuIB9frmTQN/qH/Yq0pdd8qZRSVIFj5KqN7KGlAnuvRj3N25aE", "nome": "MAGRI DANIELE"}, "220f87985d0495a87dee752fac70b5929b79de2a34757b610c8fe9b44f868b7d": {"salt": "oh2gyWpz0ppvV6p7Ah0nKQ==", "nonce": "CsbA4GE2f+cX6VM6", "ct": "QD9NaxWVKk7YkPDRnq69gtGKPhE8rFhDlvMLVis1V9pefpzdFSOlUtRi8NbuuJrQ", "nome": "MAGRI DANIELE"}, "437340d1a5b672c1d8403ac6fdbdb09f8c99f46747a4aaece25c21cf4ab80a7d": {"salt": "gfP+NOt+NtHOTWXnChUZ5g==", "nonce": "4yojWrDO4+dX5aYL", "ct": "uTMBJDrrhs75e0QQaTof3vc+xzFmfykUIhWvodUDzvpt5LrAny/oVhabvNUAlO4j", "nome": "MAIELLO GENNARO PIO"}, "81e700cf4fb121588e140faa5f986b294c3f28f015c2980874fbbc5c35388b0e": {"salt": "Uve122/8+5xB6D6f396frQ==", "nonce": "57eNHaOzYywzP+Mv", "ct": "42nehP9MMwOb6Y8qJxIBW3iXlzGTtQmEB0Q2J++VVkY+SaHz9YLp+FBYvO2/bJoa", "nome": "MAIELLO GENNARO PIO"}, "021b214c332cde1bc07f27782f805753007137dc5302af4a44f56d1e0373daae": {"salt": "hhhnHM3GMaq2PRw30d9PQQ==", "nonce": "jST0s+d5oQj/MfqH", "ct": "Jos3s3kv8GRi7I4jXksXeP/rjptBJiGO3B3wwcfmpzrl0vZfQBuDehp1mVlh2FIT", "nome": "MANCINI GENNARO"}, "d3e4c94bb3942223d0f8d79191052ec5c758b0345ff4241efd704a9e1969784f": {"salt": "HXfnWGLfkiS+bt6qOjmB4g==", "nonce": "ak/kWRG3XUpApjAv", "ct": "2k9GzaFZU4JssbLyM1HZ6uxqtuXL39kyZfnR1SOKBHWKIqWetUiSVR4lnUHflud8", "nome": "MANCINI GENNARO"}, "6e59b179a0c177e896a5183d06a59e65d93bc209d76fd8de1a3f5953e7fe319c": {"salt": "nIE26hWQRK8sSyUybzB4QQ==", "nonce": "ayIlARp4aNMkSy3A", "ct": "qkBfDfmsk+DfmTryhB+ocsPYbl/mXtHWgZvNLeyzzN84zdSLTa2u8/0BL9ruY2Ts", "nome": "MANCO MARCELLO"}, "36ca247a563e5c6699ebc15f7abbd08bd137742b8d192acbef76fcc9986684f0": {"salt": "fwCB0gJUSxHvvp6r6lxe3w==", "nonce": "Ewewczc5CBM0k5KO", "ct": "SKt1HwwudUzDr1YWkxE8WcPHGwvfnJNtZEqX7bf4CLUsTKt9mqZ/P/pomKLNcWTY", "nome": "MANCO MARCELLO"}, "2d02747fa7fca9b83fd62659a90d3d49942df2585f0fe45d269204a6c4fac0df": {"salt": "dbnkzocr3EsepsqbLs4z1g==", "nonce": "9oEQnOEEhof7mK9r", "ct": "UCRG2ZESldVqIAllxrDxWP1s8pehRRP3zhjHP3kLagMv7b8M0hb1je3o2Yknl9Eu", "nome": "MANNA ALESSANDRO"}, "daa560ffd2e1da9ca81b95e7bc2dc38f20b5f4401f29afbfc64fe0efe4fb5bb6": {"salt": "jZsBA32bK3P3wiLEWBV+dA==", "nonce": "kiwv+cUGnC4k4Kb3", "ct": "dm+uriWBa/44tvJur0s++r5EUJG80twoFuugdkxGPIMziiryfkMd+UuX7Zne4DS9", "nome": "MANNA ALESSANDRO"}, "21325e2faf1dc68a3cd14ff95483a1808d0aac8d18c24352c22888753197dea1": {"salt": "0YAnVfEVjMUE9VVNRBQAIA==", "nonce": "c60AfrTyBzH/KDv8", "ct": "a/V0cgskH0IlCkBh263OkGAsy96LUUD2+bmAnv1/C6g/Zl/uSZ4zcu174U4WR68V", "nome": "MANNA FRANCESCO"}, "6f60cf8f5f9acbd98de8b6eadb0242f82da85b2e1736616be4c74b243bace793": {"salt": "gucWnsawzkCGzc6yySMGKg==", "nonce": "xmfua8zVmn8YnpRT", "ct": "Y/xH0sg/IerUzyE57BsnIIXEAB9VffKud2SBrEjvCbyI8l82ubCyc6uaKssfEKgn", "nome": "MANNA FRANCESCO"}, "1d4edf2cb931a756fb1b370a5b320b894b8a55568a7051f775a30003a6af2584": {"salt": "aGwau/q1RdIDPKHnkwackA==", "nonce": "JCLCbpEH5EyTjB/j", "ct": "Htuydv5PGs/C9UU/eKRpYRxOGNg9VdB+hjrb7ADx+tkKWesWAA4HZCJcMKGH2vVu", "nome": "MANNA GIUSEPPE"}, "77c6d90a9e81f715e146cf44eeab451005da37f161790194d85ab899d50ae701": {"salt": "SNNvW00jA9XdPshkU5sIUA==", "nonce": "Khvor5dl2qDPy9rg", "ct": "25lrhTcuZCPA5o1X3gbU7qXyvWPsLtuChJEJmGnQLTpxzDOzAhqADyKzXbaWTqvY", "nome": "MANNA GIUSEPPE"}, "6826bb5256df2183494d268f1c0fef82f58be22f01081ba3923e8f3ef6ea8ef3": {"salt": "2W5ARC8RDq9wkccXuLvJLw==", "nonce": "dEJKstKk5X+M+194", "ct": "NudqNEI1ISxZPAgkOiWxAIomdqDFwTNFvT235QvKULzf5KaiFWc0ghjiYJekX4OH", "nome": "MARANO CARMINE"}, "6020de3a49974ba530933d27a978b5faedfc28b44c40617df5d984343a32ffbf": {"salt": "heYersmuNN5r57oqD6vfUw==", "nonce": "LZ4dZOmtYtimkuDb", "ct": "rfiRNkE/UMW3DcMJ9ZNa0rHfbAI1qoxf58vckSu1+vzhq/5PipFd1JgnaD1evGQs", "nome": "MARANO CARMINE"}, "124fec344a318f826ce2ec46c0eb70671047632d5efd5546b6b3593eb600a717": {"salt": "vdihUHx/MSl/vlMZSnPJcQ==", "nonce": "fcBrFs0GkgfY0IOh", "ct": "ckAmovWhklo4I8Yru6D1G+8TgIqs5SC3u8C45I+y3LjDvaRWU1JDdH3Z2JAgm66/", "nome": "MARANO JACOPO"}, "53034557b000b59b07d22555c1516de25265fead17c970a50007fd4114a45174": {"salt": "c732VDSMAcCnwEkQtmlHDQ==", "nonce": "Q3JJontecB3SbpEx", "ct": "VzSpOmtl12Z3d6V7Z6POJV++D/dxU4n7YTjR3MPQlIYfMVu4wofjN79T5/IbE64X", "nome": "MARANO JACOPO"}, "f34a815ae4129e623877ba9b86bf86b6090df626fb88466330425c844a53ef80": {"salt": "ex3dWQZmMC7NRx/Xc7xa5w==", "nonce": "FT9b+RtKXsYTzzoO", "ct": "KW8XaH4h2gekMPsGfYwfz8NGSdnH9/31605I96t6jwhKSug7Sizv9TQCk7UoSSJF", "nome": "MARCIANO SIMONE"}, "fe327e3f085b340739a6e8f35831649a67b2cbe04c5a1b7e3d3f180558445bc0": {"salt": "sfy4hvWgVAeJOCYGMAumxA==", "nonce": "trfIfxedo/byDsCV", "ct": "w6ImUT6JYOOq+Zgyiv2iw5vrg55dvGguGZJmd+v9WpxKzs5/MI/a4bX1tCUa+9Q4", "nome": "MARCIANO SIMONE"}, "dd163a0fbfa6115777cb3a81f6428d6548e7b52192c1fdb506473fa1a66ce13f": {"salt": "nfwFxkOqjPLQyF4SORFr8w==", "nonce": "X4EVwS5uNP6c7Wxl", "ct": "XYOCJIb8YgowDt8atKTzfZOM4i+nollVq24V3j9PH0iCPveChH3YYJHB7Ns1Joov", "nome": "MARTINELLI FRANCESCO"}, "e575237dafbf172710bee119e3d728c9ce9c37ed5f4c516c6743d4e2b42a4ebb": {"salt": "2TbSTb9lzAkkt9q+qjJakA==", "nonce": "bj50RV7IA97u63r0", "ct": "YqBwxE1a5GZGp8oITOVPeTHJC6qlxIGgLPQE9kncCi633Q1ZlvsgxJmJfb8SAfoS", "nome": "MARTINELLI FRANCESCO"}, "ba2694546700889d37bd526fd674093de50ea0e163e7b400d74aab592de9f766": {"salt": "BbWyMg7J/fyc+53rNWWlPg==", "nonce": "QMA8UQl6MOQB7EMt", "ct": "h9lJWYnHVG0zu0hBIfjx5bPW5afOx1srAKagKh3slvvVD3cAGksSsk4hqHHZVxpZ", "nome": "MARTINELLI DOMENICO"}, "8812441845771ce1910a758353efd5d0fb36918b8903f5204a3fedae334055e5": {"salt": "zXNUHmAIo8j6iHPumnpmaQ==", "nonce": "AQob+KHeX7ywfnFh", "ct": "cuRxABNL2oyj+moxQcXb47Q2zHaDo339co1OsSt3mIRXEwLj9yxfvDxCL0kMGCsq", "nome": "MARTINELLI DOMENICO"}, "a2443253add75002256bfd4ff4bf7a90ee4df1cdeb2ae16f5636c8bfc5bca0f8": {"salt": "F6J85lH9hbCscnkIOt8+7w==", "nonce": "Tkcu+grVhQ9mfFOx", "ct": "vLYmoMjfzoor5cdY/idMGSWlr4v4WnwmGUerMOsGKxQ1tdt8740Qa1JdSQgfpD3S", "nome": "MASSA LORENZO"}, "b77ea43dba33aab761546cc344913ceb8f33fa5f8de5180366d48f8d42eaa05f": {"salt": "l0Jg3meI18KvtKlZDrcw8Q==", "nonce": "egJ6OVyWvpa4b3bi", "ct": "6DNH1XD8ViLlSTV3ch4XVmvyNuY++V/Ki2bWH3WTUMTbOyyxdk6JMh1T7v4RXbQZ", "nome": "MASSA LORENZO"}, "57de46cd6832a193793748f2eecaa18e7cf99beb68bdd3863d3e51b9d962eb8b": {"salt": "4jDFBkOf/DaAB3wW4ZSwDg==", "nonce": "12urAq87y58aYOHr", "ct": "jzEQzGYK+hd5hbLFpa3qJSGanA3xQubJm4TuDOWB9b0g/9QTZpNVMFIqHNT0HYCq", "nome": "MATTEI ALESSIA"}, "27f85a3761859204297ec89c0fc6df525de0ce2a4defb98b7a57db42395cc621": {"salt": "HWqA5FSpCnavVeOd2PA0zg==", "nonce": "mHvzNBvr2ukcsceF", "ct": "lUU8c0ef68c+H4CLoVAPg/pAncK0/lz1HzTXO8qJWnj1SEAtizzFUSfrN7NqhaPX", "nome": "MATTEI ALESSIA"}, "f9f6d158384c4647b3a799545b780bec7de4a6b9add34026705baacb16724da6": {"salt": "+JK28EGAaoZ82ujtayc+4A==", "nonce": "65IQRy89w4a2RQhR", "ct": "Q8kTIGr5zZkgiXsblMiGDt/Dp+7KlCgj8nz32Cpt9Ot55iemuKfC+j7IUcsLeCPc", "nome": "MATTERA VINCENZO"}, "c31a3709aefe97da642d0995d9fe6ca6f5f0cf22a2b877cd009533932b9b7998": {"salt": "vSNSEVy7vPNvG5k/jYRqXw==", "nonce": "f4aDkdenX6iU+ESU", "ct": "kvOux8MO+c0b9JKMgV7+2FVi2l+HJW1xEEduOy9UCTwGESoXEW9yZIr5Hn7Q5YUa", "nome": "MATTERA VINCENZO"}, "dbc5c47c7af8a8d58a5f197368ef878c74af591277be967eb94766d9c31ab1ee": {"salt": "Ha//03bxaOTC1pWq4j/Zug==", "nonce": "wG2NIQeVT5Numvy5", "ct": "YeCINlMpIi7qGwYzBpbWkupTyNMH32J8Gh0OgHOKAULlSPfFzinyvLhk4BFY69y8", "nome": "MATTERA PIERPAOLO"}, "06d73406b535479f020e03ffbdb60b61b1957919e712315236bcebe631975c9c": {"salt": "CvK2Ur6pjqfMuB85GiqCIQ==", "nonce": "PVSyN3zwgLCSnuEh", "ct": "wVFaymtI8uIoL3UbEHwQgX99uzvpcnbMbt6snuRUyWKIAohrapy/HFEm/Q+gInN9", "nome": "MATTERA PIERPAOLO"}, "9b075ecea7e43c71e0a5eab9d5af95e32136224fd9dc27ba7a1f8a85a694fcca": {"salt": "KwkN/my++MolYoxd7dNOFg==", "nonce": "3T0iN5NuUJMCUlUa", "ct": "p9HD3akQ0U8kamN2v+OaYxl5TccJiL64gFRTLGSaSYSJl9G6pvH9+ncXsxvxqJHB", "nome": "MAZZONE DANIELE"}, "db90d1fea38e7ce31ad163a1042ff1bdf6a780f9f538ab677022b59147495594": {"salt": "RiCoukCFQzqFY5rTLaJidw==", "nonce": "Gi8PuM/275gTj0Ub", "ct": "arU/BPAHVElXMIk2mWw5Sm80lhAatdZHveyrjvfSbgjvpFT9UbHNyDNb5TBYBziY", "nome": "MAZZONE DANIELE"}, "ebcf1f665adb72e175109d3ca94a00bec67687e315607aa25abb25e35b6572a0": {"salt": "koIr8urYJUXh/453GRswAw==", "nonce": "4Uaxo5F9/ED23uwp", "ct": "pkzNSJsF5WVXun85F3kpPBinqInGiO6Zk6HG1WqvfXEzi05lJEcCvEgRCg3FLv0Z", "nome": "MICERA PAOLO"}, "a4f9f5d1af06970465fe29f65f914e2e616ba20362a43cb30c8bc96d5a81b108": {"salt": "xFdJbcHni15Y5sKlUAg/yg==", "nonce": "/mnCWL5EEX0x28OA", "ct": "wIwZJN4aBbfGFw1+Up/OaH7vxOdWxWvKy+zf8qOWz5JsonCKFvKKYaGBy5ZiQxJ7", "nome": "MICERA PAOLO"}, "179e54c96d8d696acd3a059369c8c6f71bf6466c542280898259299e3892ab4f": {"salt": "TtCaKuY5drr0rsGMB9jcCQ==", "nonce": "4GvhFoC/bIo82+qe", "ct": "I1NlTrLcuW6y2+hKTV54kSst76qlgvngg/qpIpDnKCq7RdVeccswjUx3vRER+qe0", "nome": "MICERA DARIO"}, "7d9075f7e44c67d89f9ceea44463276d390faabad52159ac6fdb3ccaaf4d80e7": {"salt": "EAJqxGB2o500OoDlBiiE9Q==", "nonce": "DXr3pTKwXdSzPAwK", "ct": "EVOZLPX0ItmFwO6kpZWATslEIT3HhlWknadmFesFHKb75KcpUO0C6xBXcm8KzHrR", "nome": "MICERA DARIO"}, "94e3214874bd01e4b50b63ec0056bc878b542832b6ef42941aa2aca056581675": {"salt": "/XPBOtt+t8T5gPBWdEOq/Q==", "nonce": "JwKT9E/xcOTeH8vi", "ct": "CkUO8fTi/XPXOgwPprlY/LW9K2uwuddCkVYJXjwyUtKEjWmpZOkHG2ZzPDLKZzg5", "nome": "MORRA MATTEO"}, "383b29f02f527e41b7c83418555123a82ed0e0bfbb10c49e40c56e6c2350717f": {"salt": "NwPPsw5gkAr7x4iRKsRDgA==", "nonce": "qO+n4XHa49EMlIEl", "ct": "aK078noq33ikBm9zWL39VrNri+LCDR+jT6oQmCh8vVc/Zn57d2L75gQ/8gSloDJt", "nome": "MORRA MATTEO"}, "176860f2d8f1396ba4116d80fdb7e89d3171515e4b0c704dae27882da6b2f17f": {"salt": "BfrW5MhYwbWtBZHSG45kig==", "nonce": "SKqPu6Yf+9oEFoGK", "ct": "+tfdR5ALZR1S3T/q9gXK8GP76BH+USMNLIF/shxa2fKouQGbhymmSNo+6TQvSy2m", "nome": "MUSCERINO SAMUELE"}, "07d4be43ac35340e5d3ae9df0da322484b8e2ddad524a6ebc3187542217b1b54": {"salt": "lODJ1shQC7xh8VpR+FtqgA==", "nonce": "eQt8sqGnldJpmkwy", "ct": "hcEBY6YNFjoC4mT5bMcKuXMDCjwuryJ4xORfLQVTviywqbOLQMreno6dWbJmnvh1", "nome": "MUSCERINO SAMUELE"}, "184fd9e8fd665c8702ab5f69891e62156fda8ee92190db6c103e47ef67ce1f15": {"salt": "2gbIP6AklReuzYV+wNw6tw==", "nonce": "p1JAgY55TExRAjIk", "ct": "NjX2Gb62VFgcktoGekyjYvVHk8QmEgV0IHJmZ4oywI2y6h0GZpIpWnwRj6RQzAnl", "nome": "NACARLO UMBERTO"}, "0be9a35ca4878183d781b477a727b6103104a9487292637e0f70df4a32a49ead": {"salt": "Bo0AugivRhDu+mXM7Soc7g==", "nonce": "kx7zKPxTVkcyofIy", "ct": "OdCg+NMI0QHQcx2YNef4puI91+zGcMKwI8mc87OKYtZwQ1yeOMvm1f1cWM+/MDmz", "nome": "NACARLO UMBERTO"}, "f8e32df9eea5df4d62c8ca1b5010a666046db1fd6c951f62977c4685a2b1aa20": {"salt": "7SCb9xPtXqDpBzTDVT0X4A==", "nonce": "5XciJMB86yyB5H38", "ct": "nOHRleFci3yl8l/6rOumHT1UIaZiPAUyjxw4G9nt5LO9VOK8KnnwPa2Oxu4YkffN", "nome": "NAPOLITANO GIORGIO"}, "d98d07ffca50c4c5129c48ca4167dd607320631b91d89469303f153f209da4c0": {"salt": "XeJfUKKdbbZoIcRbKm66yg==", "nonce": "vODSbcawYJ67WdvD", "ct": "T4e3Dh7mO/wubruYTLS52cXydtENW/UJVQtGRSlDdZF3E0mkq2DprcXk1nFT9KaC", "nome": "NAPOLITANO GIORGIO"}, "f328f22065e4cde228661f299057e576c7a3fa8bdb8c3c9be5e897c6c06d44c3": {"salt": "c8o7vb7vkFAn1q/ve3DKLQ==", "nonce": "FI2bR05jjUHwcbqu", "ct": "7FyQ9+zud4luiOmJbkyTACiEYnHtg4+Er+BwBre/QKBSH342Qgjmu6woc2FobPFH", "nome": "NASTO ALDO"}, "c270398334cb4f28b886df733871ad78e998a07255f0ad7efe03bfc9f0cef2cd": {"salt": "sO7ogyUpaZKR248YdxqOOA==", "nonce": "lgBNrlzvJ8l62PhN", "ct": "tt/KEI/BnSo5oY7e+vskND39YzhlFtMbmTe6hg8ucJfW8SIk+LLoeRE6pwnnygHt", "nome": "NASTO ALDO"}, "c9c4ad9dac56a4498b0e865401c92fe865b15d5954ab35efcdb72732b5853615": {"salt": "O5cxlHDcb9EYHFqIJwd7iA==", "nonce": "5/afqD8X7kTgyXGE", "ct": "R2deiq/oKT+YPsedke+/s0s6RpF8JaTKQmLJ0c9hgPAW9n84yte4dnVJ+M83Jzi1", "nome": "NEGRI SABRINA"}, "3cddd75dcf2ac044ab8d42782b015b04b14873cecfd475e91e9c187c3549a604": {"salt": "XH0bjMVqtyoTOLiBio7nBw==", "nonce": "CvdZ53XyRevgQ6R4", "ct": "FwiIRb5+C9txQ38zectOImMEwMgKSYt6wK6BMp8k9pf2b5ItIaMBgz9LTOVVaOhu", "nome": "NEGRI SABRINA"}, "2f0f4df22dc7646359cfe34feca43ea919d363909f7720dc0bb503af19bc6886": {"salt": "ewAoPWRogjHNO0+QZMdECw==", "nonce": "VYSv3acRYZle1vxY", "ct": "A512k2jLZKghzINHOIYf/Or/p2ZJBZRjCAtPHvFOPK9r+0M1H/aZ4hOBSWKGhLv2", "nome": "NESPOLINO STEFANO"}, "1931b3ddc77abe9649c68fb14175a404080fe309e363b685ccdf38a864c3db27": {"salt": "8sgWSpZQyNdjrtIpJInJtg==", "nonce": "hhpcm92uOs/GMGLf", "ct": "TEfIUOYVnRKup2DCVYiLwf+qNvLzQLB/33rgYm1xRVCessBeAvnA2WRmcpF54QQr", "nome": "NESPOLINO STEFANO"}, "82f0b6e472d9d627b55fcab536df637eb851579cd9924ad2109a0cab80086f47": {"salt": "9Kk7WTdATENmqEMebwO4xQ==", "nonce": "CFmLqWUDZN2sNnuR", "ct": "vduc/FXRgnIMqXobxwJ5RChGjyqgpWdWR/WMpw8W67N2G4kjkomi/ePNKuZ7ZgRc", "nome": "NILO MAURO"}, "a162250a2087617bd7b6a62b39b6aa3864442799812a42674a6477e3c3ee7421": {"salt": "nS9kw8nYCI9TiRCtOoQzEA==", "nonce": "VOQNeH8Qo8s7lnoy", "ct": "QURDhlCY0BP2n9nxUNJ9y7SkcEma09ei69lN0njZneGfUcbKXBb6UioxZmF5+bXw", "nome": "NILO MAURO"}, "76fa6b81d2d370b26ad51648e1b27d42927b2076b0de40d81f14dbe0db3b477d": {"salt": "YFA4DnCs0YdBvfIa/BVuEQ==", "nonce": "Z+NBryrQYlwAuGb7", "ct": "iFlMmsuPMGOMltSUkT1pVGOwh+SnWkHJEK5c2K84oB3HV7cm1vGC3pbMWa/jQv63", "nome": "OLIVIERO CIRO"}, "021189a7a5b25da11ee4b5d67d737ae83b65c1dd9fb6c489a295216c6042ef61": {"salt": "DiGkHJ/XxmjG3yZAa5Fo0g==", "nonce": "pRSO2OnwQNIhfGKf", "ct": "RK5ohwNK0fodZGrq5qbQV4lDhPBoz/XwT7a4lmvfgQCC0FbNYiEpsr/bt7sQ/VlT", "nome": "OLIVIERO CIRO"}, "99d5073eb0006ca62bd179271f5cc6b949ff4d98ff1668650572b6afe268be11": {"salt": "+5XD1tHeTUfiIao7MgZLDA==", "nonce": "ORUYnIcHs4qiemCp", "ct": "1eK8DwUY8V/FCNfSvVOEC1xf+OFJirpP4I9ijSMnJlJLkOOCXA3yvnFeChc2bius", "nome": "OTTIERI RAFFAELE"}, "0343e3d81756f2f1e700ad8557da57020d7d22650ca76c9115bf4dfaaa95efe4": {"salt": "r9iMkHrstYqDHB0WgZzKmg==", "nonce": "XNsjLSrknHVC7FPt", "ct": "itZ/Zt65/KyOn/IyV6/CPNW+UP4jJpme3EvmjJtLXwLB1yGb+2H/uRYMrnhWUGh0", "nome": "OTTIERI RAFFAELE"}, "fcf823abdfd3b5d5b23dafc1e1b7bc8ddbf2d7920f33c559db8aab5cb1c0775f": {"salt": "oJKhc1eKx7ZTI7UTG2FvQw==", "nonce": "RqIvT69TohLPCkBV", "ct": "RopUtCVAdBYtZV2igQxhEOuc1eLr0lw+u7fk6GM2sDVM+b0hC076nHBpSFFtawDJ", "nome": "PAGANO CARMELA"}, "c28546c2882b632194b278018341f36cd2459225744f1e5e6ad2d841d0f2d09f": {"salt": "wPD5hKRJ/eFqZZfECG4Jlg==", "nonce": "5Z7N2H1PpP2flDus", "ct": "MabraR00+fiEn50BTLJUxkien0PZKCooYjMiaSP54srD5h25ZsGAInT34sSDS56e", "nome": "PAGANO CARMELA"}, "b522cd3ea6e0115a735408969fdc2a5700f181ce83b1dc4094221726ee5f06c6": {"salt": "TAWidnSNkk9lRLqd9P/1dQ==", "nonce": "OsIVkuYYwTKXnGud", "ct": "kczRahbCcX+kyNS3nnnpDSXSOjyD5+P7DZcxg0HKDkKrEwVhVKvJov5VbXhGwGVV", "nome": "PALMA FRANCESCO"}, "adf9bdb4abd6a2f857ecf6541d007705454b3c8cc482a9cdcb4982b0f77171bb": {"salt": "ihRiMGIYMJNPTRtvOaxwAw==", "nonce": "oFDYg8/T5keSyk8r", "ct": "VaRIJ7zaaFm58TM79/24c4u7pmNqwmbaYWdxXemSu1PqJiOKB+gNCimszNBryJV3", "nome": "PALMA FRANCESCO"}, "e185939047067be6dacfb9b0069511e1551102b1ece1f61018a240ebe2d1325a": {"salt": "3vI8hl8kpm5uyRtJ4YI0AA==", "nonce": "MHULwJO5GX4P5U50", "ct": "L/svI9wLY8DQT7xAJj4nlTEZ/ok9/aXM01bZmu9Z4SBIysfqSKxtuhQ3XFqTl1dF", "nome": "PALMA CRISTIAN"}, "550e4a3afde16e3982e59ebace5fbd87a5e10562cf382d6af3092b6fbec7ed37": {"salt": "GaFucFYi7pweDH8e8eGWPQ==", "nonce": "fj8LqZKunHnDkdJZ", "ct": "laf9ESLf4qazdPJhg5L4eGWobxF3g52I/HnVRtqypp5HfEZs0rGdqROWg0LGWs93", "nome": "PALMA CRISTIAN"}, "b3e64f7853c707c85e8199aaa2f2205e104f35469133e0bf17bdedb97e3e5070": {"salt": "cifKaG3T5u0bARI57HWWZQ==", "nonce": "EhWtHI4UWqzpY8NZ", "ct": "uoTtbwEOJcJPzHaD/KpEYQxv/Y6SciI7R4JzsELwIMAgXvO3DUumKpy56YfHVBdJ", "nome": "PALMA BIAGIO"}, "c91d0b8cb8bf2c08f3dcfdddb9aef731eb3f2e5916bb0a3ce4a2ac87d66b9b27": {"salt": "T2i22d81LQTfr562ZjIcEg==", "nonce": "Eb1p9phg9W75KyJP", "ct": "FFqFcxN1DCpWbWyCo/zX96+fbFxGI5koUdTz1I2R2driPqBY871cSzar86gOBQBQ", "nome": "PALMA BIAGIO"}, "1c4c31c22d6d71326cb4e630d02c82e0d90dc87cf49e0333aaebcf924d259d0b": {"salt": "bWEyh4IsbgmXxqhylBz8Yw==", "nonce": "wktOFa2Yw2lrTRuu", "ct": "f/PYv9Xwi9t4NyMA2jG+tdtURlaQjxw273hiJ6GozRqmkbytAS3+8LuYM2viML0S", "nome": "PALUMBO RAFFAELE"}, "86583f0ecda43d88b6ff9102c38ae9c4674958898610afde2a577451297ad948": {"salt": "g+QW49CwSSRA+dXejajEVQ==", "nonce": "4UBNz46XHZI6oUU7", "ct": "siaQaV0rVB9QXChzpnmZawZF6HmOGnd8reraEokfpg0aMPDkZHzfZWJKGDYYrWkF", "nome": "PALUMBO RAFFAELE"}, "56ab0be59c1a9838145256e7baefc16f2eeb119f02ec9ef9a10649a3e4766a91": {"salt": "KRTJYM7PPCq72lLnVqf14A==", "nonce": "IvD7uRa8Msrli7WF", "ct": "WCVQNAGfmoJXF3BCh7y6antgkkmfcwrneeQng/ZFJqUBQkEfQ/taDKwMrwERnz8x", "nome": "PANICO PACKY"}, "c9ab187dc9a3366dd148631ef1b508d55f37f98e15d33801d65fcedc76ff865b": {"salt": "6AKVpyJ95Pi9dp13EXvrKA==", "nonce": "/33AKOgHg8BY258/", "ct": "/incfUQIQDQqzJPqn+NIksLcxRlTw11BfPphXt8nH7wsCDPboxoxzv3O4G26/uVs", "nome": "PANICO PACKY"}, "b8386668e623275333ed6b023f05f9a1ea520a06f797f731b6aceecc59b40671": {"salt": "quDQbO9fLQEumeJNrrTM/Q==", "nonce": "oE5XxezRaCsessIb", "ct": "yTMcCQN1d2byJvH44AC1UAhec8CzoTiaTToLxebXm/pkr9dNWLYNRAybe5Urjefk", "nome": "PANICO VALERIA"}, "1e5630927fd65d3db87417c21a4b213afea07da8e3b6b3285d88dcd514f8fd99": {"salt": "R7Uado4q7YZdENJAOoQuZw==", "nonce": "oQ2/b8yvwbiwuuRg", "ct": "OSN6m0UGxQ9BxcrCqDU+hyvzmtziSVZPd6HNQpyQoGn5NHghgn/Ow2c76jE1W7Vv", "nome": "PANICO VALERIA"}, "461eb95da2a67ec6f6ba312646546681421ef1dcfefbea3567f5649507ca31be": {"salt": "tf6Qv74n4YH8W9QJs5MUCA==", "nonce": "YWtXYdAyT/mt7WzC", "ct": "Qj0nvIeOJ8tzoec2liGa5b2mhvawA1wWP4RDU8KYwn4OE8RdwevV54fu8mMfTR0l", "nome": "PASTORE GIULIO"}, "4b4d07e9da141300ebcd4b65f3b14bec194b2809c3ae22294e7bd8015dce9553": {"salt": "GMMJ0QJBn1lTXnszN1EUgw==", "nonce": "qqKNS4z63K/op2LX", "ct": "SCmuuS1swKd4seHog8DHaWWExeEen/zobNZ9TJlqdhWFMF4kPkb6am+EGuYbrpur", "nome": "PASTORE GIULIO"}, "ef58841d89066640c6eab0dcdc06d9a35aa3e5ad7ba1a6108b1bc6d639c35410": {"salt": "CN7a5YOBkIei12RhzwMNGw==", "nonce": "Qj6zuwJzCa028AEd", "ct": "7EVuqFmoAqDN0BGrbmSNTzkOA1jsLCOZjGEatNxigOb8DOWaYvMl7rmJINozCqqB", "nome": "PELLECCHIA MATTEO"}, "b51e60c48733a65baacf9eff2c664fa6b2b4db5a8d4fc01040da15a09731d9b4": {"salt": "w8jRiDQogy9rtqKnxQ9gJQ==", "nonce": "sa5QPWggiIXaXZ7K", "ct": "Q0DeyHMtzfvWG/OQvZ0gQ/Chr+XUb2HUkczLDyX+Yx8cIOXa7bYAMrBrUeSER32x", "nome": "PELLECCHIA MATTEO"}, "9556ee9332e28384607c0fb03bc6361fda636a67ca1954540cb4cfc0150c2ba5": {"salt": "699LEtAmpnJMPRf87gSG9w==", "nonce": "YTq8g2dxCZxLrKBj", "ct": "lAkTGDJyin9l1MKfCw9Yc99KZ1FYtPEiBj1oCHBC5d7yKsIfG8kuxNncQmeuLH0g", "nome": "PELLECCHIA CRISTIAN"}, "9612f6aa407bce2c8b2b59968996c9d1ea5e236790aa58c84be2c67f82693b6f": {"salt": "gIjGxEifP8P3tWbkQSxdXw==", "nonce": "kQ9u+JWtaKbT8fZm", "ct": "SNelAVgxQFzSy7y+C4Vc7TT4yUiHmiGQ0T6T32Ft4N72NFQRf1XxS4eS0ps0a/AJ", "nome": "PELLECCHIA CRISTIAN"}, "f0909023c714de21c13e48b4294de67f6943daf2070deff691061c348984b546": {"salt": "Xa7zwAE+KLQSXJ09Pfmvdw==", "nonce": "rrBnLKQzj9RNvQBX", "ct": "qyr0sXZODrFu7bL6Ce1XVR2PYjEpgC6+Kt9A+S/oyaz2UuDiXHxsmEkADYPE58wz", "nome": "PELLEGRINO DANIELE"}, "1db9ba6c7479b5ab3b84336efc765de2d9c23ad9a7ce8a9da2226e9a7dae1eb6": {"salt": "eYN2P0V6WOcLd9MpQ5GB2A==", "nonce": "P/wegPlUZ5NlupNb", "ct": "KOPcO+gPD6SpA9YlYRMUlzspmtP9iD5jqlnbFxVd8NN21arWXvCxTXYA70Mz9DMN", "nome": "PELLEGRINO DANIELE"}, "194ebfc1f7fb12dc12499081eb4e5ca614af64db0a7ca53511dbd30139a8458c": {"salt": "54v3+4V9rDTNsOOlzp/IGQ==", "nonce": "l/Y7VaDVst9WiRyQ", "ct": "Jv6WhUHHIy7bFTEGMPxwvm01yAx7i4AXJ6Q0yntOgvoH1jzcTCq0Ml4z7VAhf7BJ", "nome": "PENNACCHIO DAVIDE"}, "0d1982b17fc55e888c77b28a603de4b1f1505ae68452b81a01fc07ee885c85cb": {"salt": "iHWoabWL3X2LbQYTtGsTvg==", "nonce": "RK2HPyrY8bSdDKtO", "ct": "E/PPRpzH1JCRAuXaK6MvIBWrd7VakwmylYi2DbtrAhwjCe161Kr2an1KL8AFN53Q", "nome": "PENNACCHIO DAVIDE"}, "c1bb3cd20c646577da67c1d9fb02d1acdf4841fee69d62c35bc7783ec382c09b": {"salt": "eWMfPFkzhfToW3FcxreaRw==", "nonce": "h2ypW62XQU0L+s8l", "ct": "HBqIJhGfP+VXn2TRFWWjEcRgxLN+2LBr5IXWZ1tR1YYBZTgXaDRrlTY4mhy4Irwr", "nome": "PEPE MASSIMO"}, "36bfa82817ba72ae4f938bc3cdd8f8db120dcf227268843e2243076ffd0790bd": {"salt": "BPso9MFt2XXIim6IJ6jFRw==", "nonce": "dkkA1M2VKwGWACSj", "ct": "7bogsEZfbflmd9nqOJHVOxhIhTGBd2uAV9GY2ciwvj3VmeVGH1UyFF3NAUvwzL2O", "nome": "PEPE MASSIMO"}, "332d37d1b6382249c4019c9a6743e42293b73629a6d5c793547ac232d019a9c5": {"salt": "sNomPIaeIEIwTbmzSDFCnA==", "nonce": "nn0+E5TJ0Eupbi2G", "ct": "KAqv9JjHqPQ9vJi0EU8kL19Wk5k2DfMgTxOx0VLIODlG5QGfK5REs7UssNxJyY3R", "nome": "PERNA GIOVANNI"}, "f5de34b4c9f68fbf373123df5ce47ba54f014b73529eb8b1f0b3f69160789ee3": {"salt": "/Gk4L8bnrd8LCgFTz/G2QQ==", "nonce": "cdhU86mZZWTAP+Wy", "ct": "R7JCB8vByIId2sUotrWrxiIlpKH1Ue800bbx2w++1nHqi9zOPwrG77qwgqHhZPHk", "nome": "PERNA GIOVANNI"}, "d56bd164de07bb4b271c8a99aa5933da034da2f09fce8be863e1079d2f6f4711": {"salt": "TYWxMCnwnmG9SPibgNc/pw==", "nonce": "kT/9APmbt+BlpgKk", "ct": "cme4OeaNmRZvj3p+IAO5Orh6WHaykoNXhXb6U/Ktnsltge5BtSsQkBMyG9oGl0Zt", "nome": "PERREON PAOLA"}, "5fa3dc5a235f4855261e18f6bad3beb55ba7e510e4c174fba0d7f174efe425ec": {"salt": "jQKu/HdT6KoPiia503IBcQ==", "nonce": "gjq8MK12pXvdpC+k", "ct": "terNforaMl8zieYED5TKl2TK2ql2zfZDTY+Xzf9OfJ94dzDMvtLrRiFZQNy6PGDc", "nome": "PERREON PAOLA"}, "5466688ce6020d98c1d9a345bdc0a566237b25dcb2981aeff1904ac0d8d2b738": {"salt": "SqmoH1hBFlvjGAsaMtnG4w==", "nonce": "ojLgBH2ptuo86byp", "ct": "5p/XTchTTJATBi2N09T8Z8fIKKMUZM4lKdOtSbTOkZ6T46fxqRX4JKaT+83WPc6I", "nome": "PERREON VALERIA"}, "703a8763d94ffc0341a78786291087df944acad02a588858b0148e162037691c": {"salt": "MWuvXXID+DBROFYpNKKHGA==", "nonce": "pzPvlu5ICMsFJ4t1", "ct": "i8251TjEsK59go3KN4h+n2ztRl5Arr1mT7QJ/0QyB/GcyzVrV3Rnm76i1g3aThw5", "nome": "PERREON VALERIA"}, "e6b51ba5e32f0ed6f85beadde0200ad68514b82a848e9d900d985910531bcd27": {"salt": "TiyRCO24a5+Fi1C9WhH5rg==", "nonce": "OEsgg3yebQdVClVc", "ct": "L7dlFxvfrchNI/ElhBzp8PRrEpspjtSPfDUC3nCXAl1lzazUMUZlbHKDisV2t5yQ", "nome": "PERRETTI FRANCESCO"}, "923f9002a205a20dfcffbc2710cb329552bb3e4b1ceded31b59c4805153fbb43": {"salt": "P/gf/awjG7RE7bMB40kBkw==", "nonce": "HEhzlLOpm0QL3Pjq", "ct": "1jDfhVYZVE482klOdhuXv72wvN83yJQQ1UEOoM+5xdMgF0l2Ib4tusvT3Jo97WVC", "nome": "PERRETTI FRANCESCO"}, "ea2f5ae084567bb905f60a8d7c84bc0aba183a45b87550c9d161ec785c1043ba": {"salt": "Cm+maMTtael0EmXaQWshEA==", "nonce": "+p2mfajdgbLrduuh", "ct": "6QA3qWZql8GGqikjVQotABKvevzDTCuGN6wx4b1JLgEBsxQ159V2AtVyfN4RPcco", "nome": "PESCE CHRISTIAN"}, "fd5737c6a20df12ce295e778f51b9d22116e824773c70e21fb11a6fd7215c7bf": {"salt": "3V0JC53Af3wKwhA1K+ncdw==", "nonce": "vhyMK9fpyqB74xZr", "ct": "scj7uWIDiQFTY38JHWRF+RWZ77WcRpYBDwYpIYUy/WYn6mlacVQKZTQSN7C7Wdue", "nome": "PESCE CHRISTIAN"}, "722fcf35b9e5ca0f320f2d1cf94f904cf4d0cb54a8bb1a1b9de638212d0fe33b": {"salt": "eAvNamVSqtIlVAuYm50KtQ==", "nonce": "vcfYXd40ZMFEpdZe", "ct": "LS+I09WYixCqHGoiDa/o6cS52M/MiHICykOieKa2+w4jpWoP27r40AvpOLXn7h/O", "nome": "PETRILLO RITA"}, "cfa6e63e797604a2504b2fb2377b47abc77a99215565fbf9a838ec442c2f14c5": {"salt": "zsVtigS6B5nDGbEtEOKlDw==", "nonce": "fAwaaLtYi1Z9M4+j", "ct": "C08kqdCmiVpiJC3/FUlOMpJ3+0Qu68F5GCNgDOCTrvQ0M2L3uK7JCXL9XW1UJWGN", "nome": "PETRILLO RITA"}, "5aa8421631467f729cbf6321e0617b92126854b83b02042081829e75028a776e": {"salt": "sljtqwlwqv9fCOtZzAkbdg==", "nonce": "NzNVvoqfo6ZDU1EA", "ct": "R+wH6FcpMjlup8bfYW9QlvhR79sP7UiqtV6OTCfuAg3mPVnJ/h1Zq1tMoglNI3fZ", "nome": "PEZZELLA STEFANO"}, "61b2fbf01baaff0913d63b9f48dbebe1a74892dcf4f38db2789a192155571dce": {"salt": "DYH5zW4V6s0uYnQQMnszOg==", "nonce": "6IA+JDUiVltSn0Xd", "ct": "kdOu3Sc1Kd/sUpfLPFnzj1fHTl03BJSezxmpDGvyztlziyrxNbNowlT+8Kt3FqHW", "nome": "PEZZELLA STEFANO"}, "5d35f5bd1831954c106a847980fc32f0d293d2fdeb1952c30f6cb43f5be24472": {"salt": "Uiik1YUiBp9fJSEL+zb/EQ==", "nonce": "7OSmt5c/tQImdTyu", "ct": "+qfSTdbbH+TKjBKdoTIPKpsOako7QRQy0eB2lzfOF09yT0KaIYE3r19W/k6XE6Zf", "nome": "PICCIRILLO DARIO"}, "c6371a371182f9620d49be5dd755c17e76fcda8fe37517338a641643e6ca91ac": {"salt": "mZxhI3H/Zv74talZr+rMJA==", "nonce": "21szvpOnJkceg9gu", "ct": "HPbQTTlOm5Efw0kiz2D5WhEiGANZAa7W/EO8F+IKDN63qTLevjMU04MwsU9I70Ek", "nome": "PICCIRILLO DARIO"}, "d532cb6d9fa3a8e87b6519b8f2c040e89b14f155e1bdad3fa3a09c6b5f96b599": {"salt": "LTFxrf4Gtoi8tl8c4RVGmw==", "nonce": "mvJk4n7UhsQwqPMt", "ct": "kiEU0D/KBCpdnZ9WypVn4vHPLEgwZZ45vZrZ+sIFhoAsK941DgcrP9aVhTNsU4JB", "nome": "PICCOLO CARMINE"}, "aec5b7fa8dd08da1f6b7f87d5ffa78077a4519752864ab736e96c904b4f959cd": {"salt": "/Ay89ZTNqEmD34V3o4hlYg==", "nonce": "UfCCQDATwd/GvgBr", "ct": "zY6BXTIKv5c8qrMSDz3JwwabFVnAYuD2+VkEiPmWlSeUClCCxnOpL1CFGX/Ta7aA", "nome": "PICCOLO CARMINE"}, "e43b76dbe100fdbf13926ad1fdb672cdaf98dcf23074699500ef4bd917938557": {"salt": "7pwLXJlLOf6O38QuYYDNaQ==", "nonce": "z+Ij0JOvqa/92rXD", "ct": "su5t5wtDJh1h7yn6pe+0WMzyX7Ax4eh4ayHYKlz4t/vXdobFlWzbZ3io8V21QLsd", "nome": "POLITO MARCO"}, "8d5f7b3b0372931ca9d63c73733cede32622d659ed1b34034e59ada8b5442bee": {"salt": "2fGcdBT8aMpygG1jF611kQ==", "nonce": "Ryg4451jIPIUAGhd", "ct": "kDDagx58TKSShiSUIFQseFuq1H5OLI0m8HhcmIqcXJj74LDvjpdtMFrTYSUPaRxN", "nome": "POLITO MARCO"}, "27cb8a5e6ad8832f48c23771b737bfeb064c3338d2cf05ed990b30fea55b273a": {"salt": "XL4ze73BUeAObBVzK4YQVg==", "nonce": "pDg010Kpv8/izbB2", "ct": "adJPIby743R+lNZT1nJX73azsbjDsSKmar+0oxqhAvC2sLkWmbOhFmaDpF1R5R6v", "nome": "POLLIOSO ROSSELLA"}, "9fc95c9f7020c0f6d10198d12f546ffb51735e4fd2faf6b0fd47076ceeb023e2": {"salt": "OB9x3Z1DL+vKtIZPNluzYw==", "nonce": "mPSTbp000WwA6T9B", "ct": "/5F8mV0FRUsOoMhDuCANnaEN3yfc5dZJhVxrM7xYevtdGdOfAZissTlmLjIwpnoS", "nome": "POLLIOSO ROSSELLA"}, "c0bc43f01781ff23e1a2022b191c3ca3906134f9d77bd33515280ce9de36f5ec": {"salt": "+V/bxhiXqFtdHxsy+qTcug==", "nonce": "uVa/20WdzNqiAGGG", "ct": "/13QqR5gBH0YIepJHhEdVEAAq0BXfw9XrLp0bwcdkky3V+a+8lcLbiRgANaRXvPm", "nome": "PREZIOSI EMILIO"}, "9abebd2c38d8611b656c43303f8ac99c71e9c792aebb8251122eed457ee1c670": {"salt": "ZQBYc9m+4wN0Hx1IJyRPJQ==", "nonce": "O4Ac5LBFD/3we46G", "ct": "55TOfQDX463Wfeo2Xcg8QFx/YdpGS4aH+BMO3OnqGAvCMCCDa2Fu8V537Z0ENHcp", "nome": "PREZIOSI EMILIO"}, "9e051c97808a9d0bb532823cf653bf40bb4a1f49b358d0be59cac89569bd296c": {"salt": "N19tGMLLIWPaBHtJS5EnHw==", "nonce": "U0Uq3MPcRIaEt3an", "ct": "e7ebTRyXcA7gd9yNqUJXdkYq5JR5dHTNqnuYVtXM/x8cRXTKpjIihAkM3sF4G9lD", "nome": "RAGUCCI EMANUELA"}, "9a9fb0aa4c1f8cda41de06bdd9ad9e49f9610460f6b45a3e6a63f0d8aa8ed968": {"salt": "wXPvaQEfaSI8H9p8qPHECw==", "nonce": "NR960AnVaAjB+a17", "ct": "fcpRQc0s0sHIh7SisCGxbqzcYPS8+eNhQCrswXvLS6iYPFQuKoDnqgEypR0RDR1w", "nome": "RAGUCCI EMANUELA"}, "5c20f3482c02d22471cfebf3d824e4802c706bacc0a21c48391ac5ea99845685": {"salt": "dVRRJnggcr2XIZXl8arN6g==", "nonce": "bQqxb+QNHhQWlGvs", "ct": "q6gvRxPEdcdGP3hjjwZt+oe5i/H4Kf1mHZJt05p5dzdsWFQIjgdTXQ45UJMnPABC", "nome": "RAIOLA VINCENZO"}, "0a8c9bd2acb541a936b5194eee36d1f5c6fda775326caac763daeea905855249": {"salt": "ZiveG/+KeLVTgfO427S1Fg==", "nonce": "mJ6QlBowQHBddMyh", "ct": "Bp5TZDqNvalX0mMrKU4D81hclL/L2FVNJKrQce2mmF7z6jyEimw0VIXYkdMsj4j0", "nome": "RAIOLA VINCENZO"}, "ce57957d69ca6127f8fb39986879b0dd88918084ebc7d5228ec04e6ad900a18f": {"salt": "I5TguOamh+3EgytqyrHT9w==", "nonce": "7oGEvmRDHOhZd1ir", "ct": "JynXmIFKF4Q8KBzGujlTZqf4mvEcTKazbdJOk8ySOdPvvpd8FsdKorNMx2/P8eK6", "nome": "RICCARDI CHIARA"}, "cef21cee04c4b8c4ef4a9474deb05cd5c0cb1c27d91ab9b16166f98ecc38452e": {"salt": "1T7uKRCH5YzQhIluaVaUXw==", "nonce": "30S4ultiSOyW0Nvu", "ct": "sAIBnIjer2WSiqy1T0OWilFfaiu8KAAXPJSKimZhdVD8nPb0IKfgLPAOYEWWyMkt", "nome": "RICCARDI CHIARA"}, "857fe9d52c34bc5ee1dd68843c519a2ceafdbd4a52fa42cddca73a66d73b351b": {"salt": "H2sS9DEJA3cpokE9SMDeGw==", "nonce": "kPLK7yEJb9ZBWDw2", "ct": "2UiNyxI2FlGDuOPs80R/6wbGxtgCfoA+AVnztanIUS5W0M80rQlsL8qUAZZtiTOx", "nome": "RIPPA IRENE"}, "d0d2d5983e14a2c7b8675488f436ca9417bc362f10f45cf199904b56bdb4ff44": {"salt": "R3FRZvjQP4n+kuofLONncw==", "nonce": "ktmciQhPnTBN03Bp", "ct": "wM51HWOBNkCIRN5ndaYlGjpkLKk0QwVootmb1UNwl/0enU8GpTjRA/cu5TPYxUXG", "nome": "RIPPA IRENE"}, "3e29add94e5fa692796c8b71b986c5633d1bdefed2d8f607277fb5d66d57a290": {"salt": "c7X5pUACPCyQ+Xr3BooR2A==", "nonce": "DRJ4zse3v8onErln", "ct": "CnogpF5Kf0excwOs8i8Cagehg3pxl12cwkl8Ym08hJrBhzc8/v+28MWW5XMjfCvw", "nome": "ROBERTI EUGENIO"}, "8431d428f425c99ceed63403bcaa91f5c44cf9eb3bf7b204e4d04523a8b8e2be": {"salt": "ADzA22GPuu/Rj6Ic8OmX7Q==", "nonce": "6hhi7Ec16V0OX88a", "ct": "9V31yInY/eiAvqQR2WNjXB2KJCqrb9Nn1ZVqy9lQkbEpatEBtlwFGPjpIrut5VuD", "nome": "ROBERTI EUGENIO"}, "cf6cb1a91719cfec5410667bc046f82283450ba6512564ee42ddd18f7ad13204": {"salt": "UrSv36saGJvtxtT6icmnTA==", "nonce": "xzyjAhPoiyi4+d47", "ct": "lH2keEvpLk/dhHLHC2dDSaiQw+UvhgcNArSMcDU9py1e+gIbWaXwIPwmf1i8Fdqy", "nome": "ROCCO SERENA"}, "8b7e2c209dd11b0cb70bc15ec5066fd9170ea16307c36dac536914619f942a92": {"salt": "7rThUOeKBd6ju6ZcDMlNXw==", "nonce": "EnhhErjMKFX84zyk", "ct": "BNk4g/nydX2mNh1w2BoziZoURHQD/e0sABkL3EAz3DWsGdK6A/ZgR+hVfWGBMIwM", "nome": "ROCCO SERENA"}, "63499d3bc1f028d83e1de62462f39a6d3cb837a4ce7da88a75874c835b7f121c": {"salt": "K9tDZ3oWrtPYZTP2oGrw2g==", "nonce": "qe4APZ76P/MRiGV5", "ct": "Ml6NK5n3VMBganh1lYJMT+uaemGDNhA0GPivVt9iZ1/3XvkexywwI3oGHvtYtgFk", "nome": "RODIO LUIGI PIO"}, "70482e810926c236da8271dd08dd15f2309e86ee43f0e0c9b45e7633d75094ad": {"salt": "JxqVWKUMSsrpy5qyG6EfPg==", "nonce": "4TKQt2dY+zb66EzB", "ct": "358BZhfrVoJaqQlFhriKUv83tQs/EWMQYu2bUSCeKbksVz6sZXPvh/K3XmXMsS8r", "nome": "RODIO LUIGI PIO"}, "9c7d54aee4c049c9dbb0c894e53c52a872d21743f3f89ac0936bce39f283a5c2": {"salt": "q65cFzEtKFd+S5atv5hFwA==", "nonce": "CdxslnucRQRkNYNR", "ct": "1mkrvC59pi/4ASxXvsPnXlK61RmgIpzTUxIKjZ1N5NP+gdEim7dCLV3pvYy7Vbbg", "nome": "ROSSI DANIELE"}, "29bf8cd76285e79eda64823e20492b46a3646c6e5a11ceb362b28d63d7e01f38": {"salt": "ebW1Jicuc+tkQBX1CNJwcw==", "nonce": "VmTcDIl7h67TLL6k", "ct": "Or3NwgsEkTCavby8Qb7Z+JvLbQrCdxx2EqKaulUCV33mrps/TIxEiTRG2ZqieMZy", "nome": "ROSSI DANIELE"}, "be1382c5ac765518411969c54162ed6cef17cd55f23f671c64f365576d77bdeb": {"salt": "QOzkhJuuz9NGWRPUz2llUQ==", "nonce": "1N5MAQ1EgD2jiDoQ", "ct": "ah0QvF/c3+6DmumYNYOX3w4cnOvb3/dxemPJDfwt197CNl/X6wJGB1nxeCMSiOT9", "nome": "RUGGIERO DAVIDE"}, "0b6b2ee7491d38fbf77003d6d6fa388838161edede6bf3065c2d292de06d4760": {"salt": "vAPLXJ9GkseMrJZN2bG+zQ==", "nonce": "xlFRavbu703vdsFQ", "ct": "afTTkvJqdd4C4fAvVR6f/XFVzswuqgXTIrQzh35zPmRDhr34vdawKiTFKac/8AgK", "nome": "RUGGIERO DAVIDE"}, "ed7099ec67b2b345f8fec96394387dee19c3164bc48a0f172a0779df5b558924": {"salt": "mKIBta20JvNjRBMctsUDaQ==", "nonce": "/Bj9Lg4bbNO1ijZp", "ct": "GoQftM55pGKlfMBy+iweO+/AecfMHcOLBlwEU3rOXKXwV/c2yGr5/AKTOD1qVxZS", "nome": "RUSSO REBECCA"}, "3d9be72ed53cd76f53366d6e214c7f4158220ccfdd5f12bdc3c31fbe254479c7": {"salt": "h5Bsf5e1nEba/s91su+Yqw==", "nonce": "3mklgICUreNdJlW/", "ct": "0msM84ifdT0F+z/C6fMlkYqRz2qK6Ru+zf6OEZNZv1KvZI1tcCca2pb6kw7njaqk", "nome": "RUSSO REBECCA"}, "e79410198a7272ee3117704f98c680c7559a0d327b54b8996a6dcf3a19948a27": {"salt": "SOAF7PaeRcWvEVe1cyj8Fg==", "nonce": "0ttN8dc5OfnsJiIS", "ct": "PA4zFTg327DAQbGyIHG6H0zN2oWEo9Hlh7Ml06DZhcjCKxD75avuxosBTa3sZqmN", "nome": "RUSSO ALDO"}, "2ad8f5825404c65c2b1b1342d12b42876d3985022a5937dc4ec98799b3f980dc": {"salt": "zB5ii5DeSFoaT+NW5X6Zcw==", "nonce": "fh9Co3yNafq1FunB", "ct": "IGQ0T/qyHQDSApA+a9zMsOoWITcDNXRm8n3RK7M45n0/vt53kKxnlBKh4khIOlE3", "nome": "RUSSO ALDO"}, "efccee29093bb0df81906106a6fbbd0fce297db6cb01403ee43ba6373175fe10": {"salt": "AvSAHmvYfr9KgXGLUGFWcw==", "nonce": "9mqwX91DeUQN1cU9", "ct": "B0/KyYkgyfBu0n/Z7O386OL8wS+hkWU6tCrTvKU2Hl05PF2iMs7jYSiYIUnM4myS", "nome": "SABBATINO FABRIZIO"}, "87618629cf391103b9bfa05cfe9a87f2a89c711c21bb13945ceaba5a5998eb0f": {"salt": "JSsPEyRDK6LU4gL4TiWLPA==", "nonce": "zj3bYIfrAiddn4QR", "ct": "kUAGcmjedafB76XV2TMctaW9stIqzeeVxHdYYD+IsOdvOdKqXj+TEjNvssFo/tJi", "nome": "SABBATINO FABRIZIO"}, "703fe814639c8783fc376d392197fb8493060a412a9f4dd3e370820a3c20f7ab": {"salt": "oXQce2cz1IOuU3/0NNjTDg==", "nonce": "3btj5LJ8pJKTwuCG", "ct": "Zr7LlkKwSPrBvfc5BbB/aqL+XrwhWPmK0OuBv50h6DKsfVdSj/HaWuyCPzWv0ZP3", "nome": "SABBATINO IVANO"}, "7ef9451e5ea3c10bcb358fa6e69dd73f0b573a09c0a5bc30aeb5f2e921c8f67c": {"salt": "eA3KVFKZnVn8I9T2CgsSlA==", "nonce": "RoIO354rak7egKSR", "ct": "e82n1bNdcltvQof/vGwF2efzIRxL07vsGDbJukQ2AidBala/YKNRQLVokAMo9Qcq", "nome": "SABBATINO IVANO"}, "c7525253beb5c3d2cbcc94348d8a885eca1539530f292115366cf30e3bb01e94": {"salt": "qsZUb3F6fORm66GHYPbd1g==", "nonce": "/eqcWv+/xyzFu3zB", "ct": "ELOxmU9aov1xwn8uTzCeSAVujVoTIZlp1XBUFLtOBiLr1Czvlj+E0lLMM5mZd1au", "nome": "SABBATINO FRANCESCO"}, "84e6c837bdccd82deae03ff10664a9657b55e4116b8b57adcac6fa8d48f69efe": {"salt": "SGKvUOnmwpO9jsjeCRKqzw==", "nonce": "tbTXwnAMUz5O5OAz", "ct": "IVldTXnwhE0J0vCm+N+n2d5zKVKVNZ+LyRvbr6ew4ND1Gp24KimJViLsLD+pQTEd", "nome": "SABBATINO FRANCESCO"}, "fc3cecc1d1b536972147582e17b64449570ae4f5ace360dc1d4ab8673fa77c00": {"salt": "FxamyCYVDy8czuEiCjyzpQ==", "nonce": "G0VTMAR3WUuK+yBf", "ct": "KayZx39l5RoT3K05zbBku8upGTjDo2Q/ljcDOvm0r/GTCX5chj4BhEqzKsbC3Wbu", "nome": "SABBATINO CHIARA TINA"}, "73a49ad482d7e7bbc3d7bb18e5f0ad66cacdeaf25d4eb8cc6c15778b5756958e": {"salt": "Bd+1XGhWTDOhu8CUpsuKGg==", "nonce": "MyIwez8L+aAyuh1e", "ct": "NKBYLsDvwgZ9vwSVWTS86+0UFSHfwOmAkEZzpL3b6u3lkr7IoHjJRaK4vGMzn16X", "nome": "SABBATINO CHIARA TINA"}, "47c571f6e2c83cea713d7c533e292641f0c050a55f5d2de472e37ff3f6af7d93": {"salt": "qiKgcqZziJQG/HunDIyRcw==", "nonce": "Cbjdw2WLUpf/otEo", "ct": "PTNSFknOECQJwwc2kWTgRKeRcsMMn+tf3aTQsr3NLrGXl8c+S3cvMTWmFaoixcdz", "nome": "SABBATINO VANIA"}, "6dec7a44253d8cc4045476d51927b9b3d2e4449df20c583d2190a6cd1b8b4a2d": {"salt": "mJdfHc5hWDh8Hj8AXjln6Q==", "nonce": "ZdzaP4Si+MB53RT+", "ct": "yLtbavTHI6KZF4Ay3g3/7PvNzUtPC76SB/JlcphtbcRukdILo6yFkD9EJtxBgdMk", "nome": "SABBATINO VANIA"}, "2c0faa00aacd4abbfeb4229bfb06dda8bd08ef145861bfee18dbdf3c8b9f2eeb": {"salt": "0Oh4QJoA7d7CVFNpGCOXOw==", "nonce": "KDnrBrHHqU5AgMMG", "ct": "vhONkbmPhyRRUAlpwqoGbMNPqChv86MTBCDxEsr0wIPBEuadTp65EY4dZ40ZnO1M", "nome": "SAGGIOMO FLORIANA"}, "e6e4220671f658cd461d4eec475b92729b6a9115dba9c2dc53c02a99b350074d": {"salt": "JjVTVK5wEHRKgGcy/9FWCw==", "nonce": "pklkQTo4r59nsbPT", "ct": "aoWGkej9zP4BDVrNw0t+Zbr6IMTAKS1a1/5JQz2a+iH9y8WZMmXET6EwcixhxyG5", "nome": "SAGGIOMO FLORIANA"}, "cb85329c86c3a643979143ad93e0819aa98f18d28d324bfd52679e998258199b": {"salt": "+va7RUsl+CwSgNCgle/o1w==", "nonce": "S2vyU0uObr/pI1x2", "ct": "tyMyaqWV2RX4u/tWzIP+MqvRzZ8EkE61gneD02uyuLPpIn1xfUHA5Qu/YYdX/mFD", "nome": "SALZANO FRANCESCO"}, "3f8c74ad10dde65215ff59acebede4c76036f9fbb9f1f4460f98ff7332ccc9da": {"salt": "T5EWYlyNrL8AAtyFKPXTsw==", "nonce": "mJGFVn+dB/uSK7Zv", "ct": "ldOqYBmzVkJLbVVEtLiarksVzMZlWVwg8J9oTtjOOdUg181nLSrvmKPAMUsKbMlI", "nome": "SALZANO FRANCESCO"}, "11dbdf4a00c01b7773ad0c40b9f942bd4683e1ddee14b1fccc3eefc3b5f35a61": {"salt": "Mee/icqOquz6sQVPZazHqw==", "nonce": "sXqOnXyd4KBidB+K", "ct": "dz2LQYWV9bhzHK2xvryOxpRiQFzsMptoJEo56wCFdKloxmdNTC4M04FRt0KnFaWD", "nome": "SANNINO MICHELE"}, "0ef596452cae90d81a75ce5e63e9a051614d0054e5aeef7446c46f8b773d44b1": {"salt": "2H0P7vsb9obdG/Lk8tDbqg==", "nonce": "BZvZdChYJBMg2I3S", "ct": "S/3v66rH3/DDgG9uPmNAdLA2zYuT4dECEzWqMXSyyGWSZ7grlB+VrBq716pHBQQg", "nome": "SANNINO MICHELE"}, "2c73ca90801f225f7959b788a38fd7952e39d6a45ad9b9e57f56909cb4a60212": {"salt": "oqb7rpTtjhB0D2/aAn/1mQ==", "nonce": "Kp4Qyklz/NurSI6b", "ct": "en4wIGxHZ9i45GVOl/ywzycH2EcUQy7z8msdllisPORTd85AdDTE9o25B7ILxsH+", "nome": "SANTONICOLA IRENE"}, "c57649a00754ee7578418ceb7de1a3073ffd3324c03eece2c43bcd5e86600cdd": {"salt": "GRv50bLN2xmQb0E3JpNhNQ==", "nonce": "n260+X8nytWS5Tbd", "ct": "3H4oyCfQaUNDcEU/DhBPQYoAvJjkUifknrLvXhLqZsj7+PYrOOZCl+RRzc3tqjw3", "nome": "SANTONICOLA IRENE"}, "a0b3c4d63de830fe2f944b20cd0f784fe285899b90dd90276fc98de298d09aa8": {"salt": "EZGPV2eHa5g41NOdPBnWvg==", "nonce": "AVzQT1fbIEuR0mLf", "ct": "WWhAfVprzoWsCqn1b5N6VzqnQzT527FLiabbEvgirnlPrgzsLJJPRO52TJSvqSxx", "nome": "SARINI PIETRO"}, "9427839611b4ef3ef0f2309ac7e7174cb63bbba409108f239563b7a45d99e317": {"salt": "lFsGSOZGtpFJnO30EVJn6Q==", "nonce": "N4f7wL5JfK+obG6H", "ct": "UINGQpwV6RW5LEttuGovhdI/2EO+KmakGrofYir3YkG+Zvsochxo0sFj0yJe2SQg", "nome": "SARINI PIETRO"}, "d55cc496540c9959f9a4eb347b65a31472a4e5a4558545f60b2fc73235f91768": {"salt": "NTWupvjseCuFKt9XkQcD6A==", "nonce": "k6Op2RXithOPnpE+", "ct": "Nj7SgwY0GHLJfElJ8es/QI+ejo3phvseucjI855e7jXfKbswVKxXt1SKt5SIBGOr", "nome": "SAVARESE ANTONIO"}, "bdf259f36fad829e8dfc07abba28f2716fd28b703bb5ccc661a189b6763f7c2d": {"salt": "a0I6VOoG3P+zrSuCA/rXow==", "nonce": "glkFR5mOYNntK34g", "ct": "eO5e7nAEbT1kj7X2pTAUt0UxVt1o3lzd8kiitb2TLsRwxNVQzu+JMrZchOSSiFtK", "nome": "SAVARESE ANTONIO"}, "84b98f759206787f942fb52523eebceb13819975ca22e46a1306a2c77f1f399c": {"salt": "FkwK+68j/DowyU8VGOGUJg==", "nonce": "zPngjNQHBBPxjRz/", "ct": "4D6SbBrL3+WLC8SgRuV9TUGN+sBMMq0NOSmqeRFmITJfAkG1PBEgwNREp3RQNyzK", "nome": "SAVIO GIOVANNI"}, "66909a60ce7ccc2953513e3fb99bd6785e3063b45ec1574f69ff9ffed8733476": {"salt": "Cb4rQQJBWCAzRHTVVZXU7w==", "nonce": "KBGKQ120emD+js2p", "ct": "dmRb2oADMdJuae1DQ606NjFJs5hanTyUz/8zrUfflXfeILoiWZe+fqppB8QkjnjT", "nome": "SAVIO GIOVANNI"}, "be9297b5c2296dad53d5ccb256179d8f96cf9fc21d5cfa900f2fe9bd66d63574": {"salt": "LSdz9JtTQquKfsgRf8zyag==", "nonce": "pSTUUW9C0Hq0OmTb", "ct": "gTRvYqHXTZKle7bMAKHucog+gkR/85CXHWQWSZFqzS8kA35b2jDM9L8Bj4yI1lX3", "nome": "SCALA FRANCESCO"}, "207e93cbc043056724727b246c31d14c5e778edb1ce24c0edbb1b1fa978a0570": {"salt": "CFliEyRd/BNzB5LwNvT8Nw==", "nonce": "IiLQUc7L6vbL9MK0", "ct": "dj5CWxNCxWWRIdphecZ83jKFI3oNzGLv1nxkKj1yMbQQ79KGrZNKRtYgeYo3a6ct", "nome": "SCALA FRANCESCO"}, "bb711323c880b79d3ad7331ec6570b31d5ddb6561634ee9d6b7997f3717f7148": {"salt": "wwKFUg1PVMe5kyCS0ABg9g==", "nonce": "ubivv26UMKYpmBDu", "ct": "/qK0drLfrWqf9Nme46ywe6YV5vJvbfBnotAUQiash3bLn87lvpZ7YmsSX6t4RkAg", "nome": "SCARAMELLA SONIA"}, "7fc05a134f2786d7c1382832a3e4bfd00ca46381c11e5fc44f4d70455ec29b5c": {"salt": "i+AL+mODXWzx1omSPymY5A==", "nonce": "RagVL4qXyYqTNmpZ", "ct": "LVxplg1htUfB8IpP0FFN03ek//415qnNVFFRw4W5PZ7fgp9R4rZTv78mfhycm7Ok", "nome": "SCARAMELLA SONIA"}, "9846b9ecb09e67fff0cbf6b6399afad017273c866cf7a4f8899e125d9c73fad1": {"salt": "xISk5Y0YCpt5Ty2K6Yp4mA==", "nonce": "eUSqxhd1LvlrOZAa", "ct": "Rje7uLgpM1sCgDSRhUT/H0FRw8aklKZ5j1QJvfRD3hljWuMoMufgNeB++DI+rDsR", "nome": "SCHIORCH GABRIELE"}, "b0fb6f7344e31b71c870019c3836548a14489897aa09f517b61de4af005804a7": {"salt": "TPBGkSqrFRiWuhDUO0B8xQ==", "nonce": "NelZmnrJd4hc0Po2", "ct": "Q/NTHindJHaUTAK4SudUwzJ1MVjKqas6taL1lwaFYUfsrqjnzyBm4cyx2EGY56ox", "nome": "SCHIORCH GABRIELE"}, "31c94effc590d0c708d4af00ee006deff929150f81af5b3fd865411bc5021728": {"salt": "v7TAkbWvUw7LApSrYXBAZg==", "nonce": "ZfKKKKWniA93Q7R6", "ct": "KjogNLCs7L8YIsBUnmlSjbyFt9OzC9rhKvJZTqe47GALhHx2swAXu9ZKrtkZKH0U", "nome": "SCIOPERO PAOLO"}, "fa9f2961d55aa1bf4b7a9610f6b5e4c61ea553e2cc7947df6b7debd54b5ee9a0": {"salt": "UxKQLwsMtHOBA5XDxaZ0Ow==", "nonce": "3YCIAJnCIyFFrAN4", "ct": "V6zuCRK+FJ89h5mN/LvyFMoY9ke3PuVr5R08/IJ8VMe1kRZ1AZDUWeqZ+aPxDnFY", "nome": "SCIOPERO PAOLO"}, "b0da9754c330efbac04e8635ece64f1af10011df6f0410cb3c4d2060edd30208": {"salt": "MCf18vV927T6nKu7fkYK2g==", "nonce": "JxFErL6W2ZkGdauv", "ct": "AOJCLFS7t048Sulblezgjdw54N0kCfFA2X7MdvPMzAeZBkbRXXeNewy6m2av+51b", "nome": "SCOGNAMIGLIO NELLO"}, "55c147b67c18930df60128540adc538a838672856996eccc27d99b3433787403": {"salt": "OJFXRxk/YTTcE6Q3xELouA==", "nonce": "EvSkjn5msMlJilCB", "ct": "a8gYQ3iaFBh2+QHYRc5YWl416rzTTnkmL82wbyd8Vd6OOPfa2wVrtJZZulQbdZHU", "nome": "SCOGNAMIGLIO NELLO"}, "ddb1c5c87c6df2f9cbe6d38cb309fc1a317674b373a40b35021542783003c07c": {"salt": "6U1Z9AclFFqsv2HjkoQL1Q==", "nonce": "VaIOJa6XCDXnKJoW", "ct": "1YXnBWbpeBOEoUeNv7WS81qJC7B4HrSbHgRw0AYIK2L07LjfggGzAXXqmFfaqmgo", "nome": "SCOTTO DI MINICO SAMUEL JASON"}, "1a50e7e1fb571bf154ce432a2886c35e6e1eb71d56d22885090bc0173f6f3ee8": {"salt": "UZ+VtkckrHOcnNeU0NPpMQ==", "nonce": "AN6ZEViULZRQyFYy", "ct": "GZlMxA+y/oktZsW3wzInpi1kFp6BrD47D39ktP66nolZj/f1aFahB4DKbBzmcWQx", "nome": "SCOTTO DI MINICO SAMUEL JASON"}, "efe3054391e7c34647100d3427270e9727579206c812afe413ebcad9d569c782": {"salt": "dtbxuz42DB6/YqiXwzIW4Q==", "nonce": "uFIk4Bf+G5Cipxty", "ct": "Fznwp0In+KWNUe+hDn4aD5rKNgsOS3gM9LQSiyhx2P/5k9Ky+1uTSyf66EWussEf", "nome": "SCOTTO LAVINA DAVIDE"}, "26fcc5d648739c0e3af2a3a1183c4946970d30f771b28710eea9a66346a19d77": {"salt": "cfjUrU+BnJFLjlYBumBGlQ==", "nonce": "x/RCWlj25W03UK+4", "ct": "KFMfamIsBhkjd26s8c53afZj7KdRi54nlAFqobSR9pRN8buY/o6EIp6Ba0TCCePx", "nome": "SCOTTO LAVINA DAVIDE"}, "3e303ac8da1872b60d2990316234574887388ed7a35bf4f7218404d869a37bdc": {"salt": "iCoGRdPos6fqszuIbGxu0Q==", "nonce": "/AjBL3UUcdwwuGDT", "ct": "awIug5NgyqyaTGvt3RI7o8SYJoxuzv/la/37DSw/eouRWj5TBQXaB9Q8pClYVnGA", "nome": "SELLAROLI EMANUEL"}, "f94755de7687a12939a153e886b0727b70ff20647d8fccf07aa72d1c91d80e4d": {"salt": "jDdeMFsxmXVzl11uMNAl7g==", "nonce": "saym8dKQf53fMmiY", "ct": "CVzixmpXLdePUvgwNw3QKKsZB0j4hoCMlsdp7LJ6St2pw73S41LrUuLQCnIm4gmt", "nome": "SELLAROLI EMANUEL"}, "ebefbde9a0fb0e09b2ebdb476d184b290606b86f6e502d4587452b06facb5328": {"salt": "9XaACF4MmwWO8PTS+3APjA==", "nonce": "VXnNZJRTVJxD0DE+", "ct": "qNuoV71kc+5ZK876CveSyPAXTPyN2j9P6ta9jCCJsAEYOfGjpu0dxoG0iCD/HNb4", "nome": "SENESE BRUNO"}, "d6ec653dc32d37a45fc7923df47adabc478c2af3f315b1e4558b734ecc67321b": {"salt": "HBBpOQdMIgCn6GojhOEGhg==", "nonce": "4sKoQ5pVvu1HFmM7", "ct": "7KmON3BD/ZAV64h02uCJmEZWeCl6h+5hu3fCnE+ZsvQMjaZZuoOfkFfu12h5i9HI", "nome": "SENESE BRUNO"}, "27f90aff76781e9ad4ee03c4c1c8360ae1bad4097665e59b7e70d771f894d3db": {"salt": "AYObtZblC9h4K8hLhYv8Gw==", "nonce": "joLYg/jfF/rcOg6V", "ct": "k5xCx4IIWkhcv3JYInAjxAqYqSmowzpU0WvGe8YG7fGEyixfniGYLwUfnjrK8a37", "nome": "SERAFINO SIMONE"}, "789a814d96b7978c165a648990c30816fc89cd3d03dd551395837a1ef58ff020": {"salt": "mh1qQoaJZoOh0OTYTKVRXw==", "nonce": "ZpQpWHie9gEFUJ5Y", "ct": "/P5dRUUr3ksyfxBzD7mmuVy2wZatMZYo2oeELtL0Q5ThQkLXDYBBRND7elHjF2B3", "nome": "SERAFINO SIMONE"}, "f69e3fb6505b619b0d61f76d8a9f9777b85fc799794a68cd122886bcbb0a1a2e": {"salt": "xkot4h8m8+n2tTwzhFqYZg==", "nonce": "m+WNyAV8HJjl12gh", "ct": "bNptI+fGR9tH5CgOCW5ZdaD1Cog54YP5mjaFfhOi5DHoxyMYSgvpTlVZxrxggUu1", "nome": "SETOLA GIOACCHINO"}, "e01345c44ff9c982ed6e53e834a323c41707b1cbde5be2577d624067cdbee8be": {"salt": "6tVxchhBa5RUzJEohXucaA==", "nonce": "lfbbH5M1WRD/Dm1i", "ct": "0GjtsHUlo3cGF9s9Zy8UMVWemW+L5nsk8bdrArlY/t+7dBN7iBHChNCDy/545rL/", "nome": "SETOLA GIOACCHINO"}, "61960b1ec03a067d2d6d0b7c59afd5f1a1f7ea41b3eb3a511826d7ddda923907": {"salt": "N5mZKSdMBTVXhtoRexnfGQ==", "nonce": "ML83Yil6aO4VnaMh", "ct": "4yDaoDzSEIZOnMCE1bAf7S2N58k6bNlzYywRgbxLcqRQNd+ZOV0dvO+BgMCFw+2J", "nome": "SILVANO SIMONE"}, "3b98262dda657b0a0fa2c52514dfd7ae700f8ab879498e96bd0a2e4d435f1290": {"salt": "i3mjC5/ZRxdePN1by34uSw==", "nonce": "YgYhdFZVrgPfMh1k", "ct": "XWfufxDzjUeR15Mct64KlT/OjSovNYMfMczp/JOCL2JdhECJ7mc0f95srxl2K8Bm", "nome": "SILVANO SIMONE"}, "27d09cc4ce9ffea892282d984b15727750b646fd1439ca7d222e72aaa36bb95e": {"salt": "bcLoZHbalSDDdEUKVBTXVg==", "nonce": "W+A6hAAEl/ZutoIn", "ct": "XWywNc1f+PZIhRWL3/3qhnp1XXNmL42Ni2tDjrOvfg0PCSeng7/fkEkdyK2zO02S", "nome": "SILVESTRO FEDERICA"}, "81baf593afa1be71c88a9f5c0ee677b48c3ee6bc76d701a49e18e211b632a3e4": {"salt": "ZUcRPKsIf8ipXUnIb7NznA==", "nonce": "3wjmY8xYbC4+k9tn", "ct": "DwYj9zMmtnD3Wd/y8fUEbeT8/qH+yrB1Vj5nbxoKYp+3YAQFP0+K9s6db3HTA4fK", "nome": "SILVESTRO FEDERICA"}, "75ff0c48cee6c2d0115774c9753feb2b9760ce4f0a528cfeb5f27d4405d0ff0b": {"salt": "mbaMlSLZEFB/gkXtRS1zhg==", "nonce": "d/L0SDNWq4WdU33A", "ct": "iQNWQ5O7wsw46ZMl+qpMgoZ9NsjQH21UQk8KKQzbKiLpJX8SqDFu4/magFBM0H8A", "nome": "SILVESTRO MATTEO"}, "75f3819e41b1636cab3fe1798fbe87cac85987b84ffcbeeef6e1e55c8eaab95d": {"salt": "yiFSmHQQN2pDYZ5ldVzBBw==", "nonce": "W32XruRpmJwvpOD7", "ct": "qVLLSdPeEW9n9+ybjDYXKFE1884hb81DrJD74n0mvIY3xVarQD4WlCuHNonh2WZC", "nome": "SILVESTRO MATTEO"}, "f1b3ceaec4b84f0115112ce9f618f62faf083214b05f8033f68fd005cf6fe2a0": {"salt": "/0FfBDi1QqvFOmFsHOfMWA==", "nonce": "vpjoKWtdUv4XIlGF", "ct": "NQ/5SwIcZ/rKpYM5v4agO9nZ3gDqBpDZC8ldGAfkXAxZIYLQ4lnNbHd/1Pozz875", "nome": "SINISCALCO CLAUDIO"}, "2cc1dbb30f4d68c8cf99266d5bb7d837f7708bd702f8923659398d3d7ffb00d4": {"salt": "5i/WHTRj78KZ1PmdV/NAGw==", "nonce": "EyPxVB0zwwBT+gBd", "ct": "trEmFJLeT9zpr9c37YjqmW98bt2HEeFxXc3Q6mx52xLxANSYR7lTFS7CDKoZXsAg", "nome": "SINISCALCO CLAUDIO"}, "9538512a5c904f3b061eaf44bd5ce428c90dd52daf44d75180b4498a0fe9ac55": {"salt": "Cnu6QaZVCTy0NjGbVlaptg==", "nonce": "eA4Dcdm4EjR6FavA", "ct": "z1xcihH9awKtBxAHv1BTfiOroxotr5sLxpVy4IJ/UU3UuO0N9NCuQJv6UIvGFRI8", "nome": "SMIRAGLIA FEDERICO"}, "d125abe917409aee95328eaa1b212affa919964f395fa0c1806fda48a9b8a611": {"salt": "AxGJ7UjJiPsuky7ARIe+5Q==", "nonce": "4br6CB3Bfp0dQ939", "ct": "XabHnRy9YHbN5i5yPohGnSkOu8ZWKLVfwPZUNC2QsXCsfQ34DAw1vLXVoAjFGrld", "nome": "SMIRAGLIA FEDERICO"}, "9bbe6feb00120da8cfb5abeed83c600a726e1e1c01f20d479b2131dc9981a840": {"salt": "coNaLJCtZMFEJgFLFN6UFQ==", "nonce": "q1P9sHKSM+0gTiBP", "ct": "u0JuIz1zcBl7XQepcsgHKcmRnd7H+fH6JNwjh7SJSNWvNjHFk20MtsMbxjZIoeBl", "nome": "SORRENTINO MICHELE"}, "c1a5d1d2a030be15e2d91a1fc14c6a1a59ed7f40489f5f624fcaaf1e3dadd6de": {"salt": "CLlbMq1YVlE2P6WozquR4w==", "nonce": "fjk87baKcjTe4SIi", "ct": "D/rolfTvFoVpGmICQRGTW7v40DuUbcJCEqlzn4spKBKXGTaFJ6/BVw6z6PKcCbkU", "nome": "SORRENTINO MICHELE"}, "6bb48c282ebdb3159fc59d84e01cc0344ae1dd65c133bcaecb1422f63ce4fa11": {"salt": "IAXhL1Ks4+hmFprmp+4ueA==", "nonce": "wdjAr2MxDuy9dyR2", "ct": "u+xJsTYbwkgYsgGT2XkPVsmsi6JCJnFiXcRLUB2lQPpWN6cEOKr8tfZLs6mOmIs4", "nome": "SPAGNOLETTI RAFFAELE"}, "c6a6986d3ab4daf0000216c352f1bf9d35561d19c1201b38898f28f8e1b4695d": {"salt": "Poy6sWBPeTE+6W9oXEAZ8g==", "nonce": "OpX+3kx6tybgS681", "ct": "N8lJSojZcPmTFqQpm64baIEhgL8spW5onOCY3kPP96aM5zjeOUFJe/x6CbW39EAs", "nome": "SPAGNOLETTI RAFFAELE"}, "ed9275d195999ea66ad30d0e00513f66aa17c2f9477701484d331c8ee65b8677": {"salt": "dI5KS2o42Q1XWiYOcB6+Dw==", "nonce": "Lz+94YnUCrpHGeel", "ct": "hdNKW2shoD+F7sWL1RCzOghaD4rB4ydWD7//UAEq67stugo3wFed+LuI9suI/VGz", "nome": "SPAVONE PIERFERDINANDO"}, "6a1638ffeeb3c0351be82d06e6d8360ec26e4353cb700b93ba32be75986d5b3d": {"salt": "5ug7ZfC5QmfULh2yIgblkQ==", "nonce": "CnyTx297Mf3UhT0V", "ct": "s+IgBYROyJN6rplgru6YbhA9q2ulC4xnf4pittvkLw8x/LZ8UMSnzrr0zyfJqntT", "nome": "SPAVONE PIERFERDINANDO"}, "8150686073ffea89d3380c87c2d9090d06e8c5df7ff473fcecc9b6be2ebb55db": {"salt": "7UXr+E/eXmPr36ImZCFyfQ==", "nonce": "pQssTNPsgDbeW1Uf", "ct": "OjCZssUqcORP9MpZM7/NBTu1SAAy2lNQzmD75oI0SfYQRaHGw8589UCWOYqwlNez", "nome": "SPERA EMANUELE LUCIANO"}, "072aa57f6abe816d1f4ba6f5ea3ccbdc21fb2177d45905f2791d8d6d572f3f68": {"salt": "mXyPBuxhyvAcFTop3Pj+Xg==", "nonce": "+I7c2kNni0awKviH", "ct": "Ouw9/lfGMjg3lS8W+PBHoFZEXslAD+CB1XylbQUCeiZkRw3E2v0/V1em8RSJHjRD", "nome": "SPERA EMANUELE LUCIANO"}, "b566fdfee4e39b67a484c8a36c40461304877d5e369576dbaa81903d2dab688e": {"salt": "P4DSkcXnxy+9ZaYK0jGAGA==", "nonce": "I2mnN6UDFse6h5LI", "ct": "eVg/zTOjOXHVPF6aljMnYnD4ncAAKMe6qxaSb+yvHEkCSxcn86uwQYGBtJarlrYW", "nome": "SPINA ANTONIO"}, "1a5c023d1cb67a9694f5ef953898a497f82c5e4546eb82efcb1e33205a35fa4b": {"salt": "zOumGbqd4ttOXxHMIKk7VA==", "nonce": "MRvuFlnzUskw+V22", "ct": "XRJ57n+i3Jbq6uzkJN+rhbouSA7JRRBk8M18n1V+9i/vV4zz6NVe8ec/f2Cce3D1", "nome": "SPINA ANTONIO"}, "1dd83f66ca39bdca30a00fcf7f4ee765c87e555d9c12e1801ce8a3d768bfb65a": {"salt": "uBNuBsYgjZIOfYr7PUcfoA==", "nonce": "ftREuedAchj9ZUxB", "ct": "296UHssgQ1HqPtzN2YNWH9FAloiGaulDQdXdPimHzd1oS6pcNQngrtIaZ16a0wtN", "nome": "SQUARCIO ANTONIO"}, "57a2ee2c2dd88c200d54a838f54be0cb54f5c5f80e0fc026ba5f08658bcbe257": {"salt": "bvnWq7d/Cr1Cq1EnR3xMqQ==", "nonce": "4XBeU4WE+sn6FqQ4", "ct": "/KjCpZF2tYSUfcbWwBFsaYzQ4YSWvxR8yxt1RTFyqpIZ/4qNi+nij/Uplt6zg0fb", "nome": "SQUARCIO ANTONIO"}, "6bca103c0a903763d1002aca0eda4da8a8febd44e0b9505acc230c7d67e60a4c": {"salt": "JrZSY2jm/lX+ODiqROIt6g==", "nonce": "a1rjtN6WMtv5Z8Dr", "ct": "SNWsH55tr0/Y9stKM7pu5xITCCKJJfgsrd7bThqQwBTTAv+Qv6xd1dWMgYA6iktf", "nome": "STINGA GIUSEPPE"}, "0aacedae91930999f96c4e7f4d3b23acfc5f213cf64a2aedbd6a1762781ec6b1": {"salt": "ehQQVfaGdr7mPmEvrW7dyQ==", "nonce": "N6fVNRWquFslw7hi", "ct": "xX8IzDLcean4wDdOPUERgfK3qbKgr8XiL7ZIdKna4ks/rxPt1eoIeMYwTb1w4816", "nome": "STINGA GIUSEPPE"}, "772f97e1413031112f65fe19013c9dadfa72ff4326968041d174448b0454dce9": {"salt": "2IIm1NPrmXMMGvflfjq20A==", "nonce": "y/rf+xLMVJq7gb+K", "ct": "uvUWd5AFLBC9jYG8g2ZVohBL9J7Y34D5Th5qvcmj+OpLZxK2WqaV6iV6gzy6XFEO", "nome": "STIVALI ANDREA"}, "e468375387e3258b02a946b69f962f97c1fc7c50ad77c31e584c79982c498723": {"salt": "LpsqlnCYvMwcd1JljhtMQQ==", "nonce": "TEXy1tuoQmcJG+Sb", "ct": "GRgGGK86cGkbt2a/FZraq9ZzPb+ieppe6nAhemjcz9pQKlUM9JhiZ+WimF06L7cj", "nome": "STIVALI ANDREA"}, "c7955e304812ccee88e9d675223f87b93ad8d9d29e118dad3aeaa71801bf180e": {"salt": "BFFonEHQZHngw25IgtLnTA==", "nonce": "rFqPWWYMziwGJv+O", "ct": "uJcPXdiZVdu4HD6izQNp76va9PfmhRFazz3mVFL14uxAlBlqd8Xaun7xoTTNKVWV", "nome": "TESTA VITTORIA"}, "2fd9e988d49580e781731c73d4a5d18d993f3c38ee1864930eeab94ab7780eb3": {"salt": "oKijtNS2z/Qvsj2sRu2xew==", "nonce": "U0LWinCvZ1FwgJ67", "ct": "7YmGy9JLrJbAXRlMywXo+hMC/1LYRDnvC5WKc2pdbp8vj98ZhNtWCR6+xUKfAULj", "nome": "TESTA VITTORIA"}, "f1ad32df2a1b16a244e330e16a01a8030b87f3aed610d0ef35e86a4fcac217af": {"salt": "vakYaNblrsLls2AF7dEBOg==", "nonce": "wya7yyvFiA1QpsCq", "ct": "W9dWVubORMfE4Gv21rSUTFiNrGdVSzP49EvcrRx3upNW755Z0ocYrQBFwJj76/FP", "nome": "TREMATERRA LUIGI"}, "6b26b0e4e9d8557b00bfc86c87455bc7a72aae40ee7b0de637f3fd734ad57828": {"salt": "ZTkmfNJWcxRJPYG4neP2ng==", "nonce": "Aig36P6v2FspO0yO", "ct": "TrEFn/H5nGo5cRDo/HQjGv3vPYjRwLvflZ6WW7r/Rp4L8kBmrJtzifTbbsBg3xyu", "nome": "TREMATERRA LUIGI"}, "17486c26a598745d4a8af974184a31b9a45c5623a2d145ec98b019e6c854b303": {"salt": "0sPBk3uDVeG9TSnlVUn9gg==", "nonce": "/US0E6a+KglueGNn", "ct": "zttB/96/kBS3doVE5OVLv3Beb2RiHYOBUgm4TXKKx+uQoImmopdN7xkfXBkxVi2x", "nome": "TROJER LUCIANO"}, "ac97c2dce2ee83595c0e496d6969310d322d11b05015e3cdd3ad6b635c18bf7c": {"salt": "DOduvLwOmihVh2PdaUn8CA==", "nonce": "ogb6xix7CR0Ii4Po", "ct": "+G/PtxwskdVgtR1vNwJ0k4BpTTCKyr7N5X+K4kwlysIDzElNk7QAXhQtPMT9QANH", "nome": "TROJER LUCIANO"}, "3af2fb6ca6114bc4d7b02311beb0ac798851777bc3872a45f1013fb7bed2b502": {"salt": "DJr8OwIsBV12SxRPp4tdcQ==", "nonce": "bBluP2DnQeoCJMvI", "ct": "GawEhdgSAPwYCdh9oKM0Y1yXcTiuvg2O7pgeIJ+53AbMyjynkKYTTAbEcCRBX5cO", "nome": "TUFANO ENZO"}, "faf71e968a090f98efce914e2fcf3a51a253bf2f28cb3d895d321a93da8346c3": {"salt": "Qyh68wgYbsk6P1cSXbETfw==", "nonce": "fV2TcFdkilvCObhk", "ct": "MjzuOuG2zXMSF2ajHIiWUVU6PCCzdRuZEHG+pRyX0LqhAgGhcdgmZKmDcDDPJzCk", "nome": "TUFANO ENZO"}, "927f43f646f0076231316e68b8eb09267986f37c52d12df1dbe88dd8c00bebbd": {"salt": "FjXwYuV6SbKUN9Q45MipZg==", "nonce": "rQwK0PmbkMGs4vPQ", "ct": "1yXLnql6Xr+rt6Mp805RTer/txlpFQGi73B92K+y0CGkZAcXSdAMF4uZLteeRZEg", "nome": "VALENTINO ANDREA"}, "9f78dbf106f472ca4ce667faa39cfbc512b7da012af28c46c4744bdeee25d85e": {"salt": "f87BWYx7lJGbY84TO9mbrg==", "nonce": "tXtLQTsL/XcTs1Q0", "ct": "U8L5p1fQLyxlXZDMseRvRAQM0JQPF5yeEgQ+1ZBvrrBCCORGHI69IgtP1aTvZbqA", "nome": "VALENTINO ANDREA"}, "13ec8f8320205f32faadfa853893918ab00c53b71538d54025ddb80cb19c15fe": {"salt": "GWHfYmtISHf+Z0zXKTC+JA==", "nonce": "cxB6jVc1NXBndQ+y", "ct": "5RSGktxuJNPBxIZhroyPAuZpQQwNEDwtewWtcvdLLc7AxQmyqI8tOr0UHJkw1tRV", "nome": "VARCACCIO GIUSEPPE"}, "e41ab746aebee7f16b209c353ec0ca7127394ab6fa6a578bfa0336c7186a6e1c": {"salt": "Zg/y1hoL6PvJHl/byKRpWg==", "nonce": "41IeE95zda+s968K", "ct": "gM5vrFRYcQgm7jgiPnKGu2VYWGOnUlf55JaUcWarkLdHvcvGd8lePhh5TmJxcUHy", "nome": "VARCACCIO GIUSEPPE"}, "ef1612ab63af0f93f335cd78a47d4fdc00b4534d4937958edde4c1871e00f174": {"salt": "0xP8ow2rIolteyfM19q9rA==", "nonce": "94dUUOyhOph7U+lV", "ct": "c3Z9AEYCSHOWUqCuXHBZbc3W/axoWm7jUrFlaFznUbCVQkaqfvJzl8mL3AmG+ei9", "nome": "VARDARO DAVIDE"}, "151669aee11086e207795e44864514abdaf950a4fc839c9cd84ce52a355c8cc6": {"salt": "tRfUpk7KR5LJN3N5WbdwlA==", "nonce": "UREEesaISh77rzAZ", "ct": "8BLBZOgdJgJNp/8T+15X8vhNEskw4wYpcnZxShMJEAAZHc/+JIg0El24M88qYMHp", "nome": "VARDARO DAVIDE"}, "fb4c9eb54068810d0a5fef079d87b7d83b72365d352b4dd91dee1f0768ef75ac": {"salt": "uS/Wkn+RTnjzcHjE6TnxPw==", "nonce": "h6acg6R0j0qv6a7G", "ct": "rfC2WOrnzIyF9X4tuEMwjwsAtTnJy8gXoSrgjQXEmWvvX7MmhftqbKqcw2urdX/j", "nome": "VARDARO EMANUELE"}, "15dc7a710a40279ccbdbd8c8532f92abc39c74e4390706135fcf7c965b22b481": {"salt": "OMO8lJC6IAlidw5Tq+qVGw==", "nonce": "KFzc34YhmT5pNfpk", "ct": "OrbC+P94Dmu0eP/iX5KNGw9+J7jZxR1s/EOcWTQ+n0U/87Tbo496eG6CGBLuNUm0", "nome": "VARDARO EMANUELE"}, "1f09f456e62bab47e0f8f09b9255b48b607b06a4c78d9dd9da9ae637b894ab1a": {"salt": "Z1ZHxAduc+/O46VcO8zADA==", "nonce": "BdvusPcmd9CNRMaU", "ct": "tSpoXk0gFiG8p+E8TeZa0SLlYqvHgv+F/VPs0bBZz4iy+HEOnxq/gz3RtLZreanS", "nome": "VENDITTO ALESSANDRA"}, "c525a16b320d3d3699177e9d8e4d8c731056c8e9db00c470bae05dd52eedf2c9": {"salt": "XMrUchG8GFvBUd+LOO9Yng==", "nonce": "tyOnrnEJzkrgk1rG", "ct": "aez5UrmFTbCAZAZZ1361m7EljNX6Rr03I+n5xOArC9AYyB9vxP4Bwwdu9TkM6aC4", "nome": "VENDITTO ALESSANDRA"}, "0094845d9a8a385a98c86324018d2f484e70ec021a288c55bcb94b765d5311fc": {"salt": "tPNO/EHHTky5ovQ+wbDTkA==", "nonce": "NPdpaOFvOKr0YWkJ", "ct": "Hx8dImrAocs0LG3/qP4wz9genGMHn93q8TucLAthd/RSV+Hz4a9rR6LyI8ZJbej9", "nome": "VERDE FILIPPO"}, "b8917f71fdb0aa1a2659b37446ba880a0bd0df5ae76c72f3880cb58f4bd2dd6d": {"salt": "Vm5w0nT1hNAhWHAY2g06rw==", "nonce": "GtPdHVHtSmA6zLTn", "ct": "y9DUvnPRvHdJZUok/kS9a6KUWup4VDlxUdJ6fELbul3CYFeyR8CjCLr4Xw9Kj41C", "nome": "VERDE FILIPPO"}, "5ffd7e2c3a1a818c4c8e93e1a612ee1b32a886d5fdd8b44871f2524315f5561c": {"salt": "o2do/KOi6cOpj+1RM4/NHQ==", "nonce": "qmu14vkSP3035Pji", "ct": "0qCJTZB/ab+64GrXq5ra4S61xGcKymmqdNyZ3RD3P5rjucKCjNN5AZYdUiLoDsk0", "nome": "VETTONE RAFFAELE"}, "a8e2ec2441543775ed2b3d0baf85127f6b6a0f2c1c3d2c1b2f736242d02bdc4a": {"salt": "HptRDBo4vfNas4Ug8TxS/Q==", "nonce": "OWDtiYRqdSa4PKUc", "ct": "Z+WPV2glpEub8tDHN2vpMHZXGVMBtDTqqdMRTVLR6gWFtuf9qXfiZ9u5llfj3cUR", "nome": "VETTONE RAFFAELE"}, "86957f8064c61062fa85bec1838917d2025e58e43d6dc78fa92f2bcc5fea4ebe": {"salt": "m6m2r0lfDoiBNkeOZ1WEWg==", "nonce": "FvCOvN89oyzseKJZ", "ct": "BtNevP+CdVeqR/Du2yDT6E7/glLn8xlqI6buG1YrMreSRy6HvYH7Ugn/Yxf1znyY", "nome": "VITIELLO DAVIDE"}, "977152fa0284b75897a0406cef6b1ec08c3ddc224a2b10edbad539b5a70d83e1": {"salt": "9TnJeznSSXwC8fp/82nJFw==", "nonce": "27FvIHiKSUXNqoiE", "ct": "MEbb3RuALCh2E3SXa123ABSQ5UXCck2CGTEzdiosZdeyZoCbhNgjvMe4D+d06J3i", "nome": "VITIELLO DAVIDE"}, "45ee7d270da095001d5d905b0d1fcc06c3bbfaea54a72317f02baa115d51d1fe": {"salt": "epgyR+AMzlPQ6fZupFwwPQ==", "nonce": "2kb5QmDp/NmhCTUR", "ct": "8mCKNsbrMM9sYv6bJ99NrB7cXDi1OTVmtck0pGw2A91fTRKX4ZXl8mE5SuePcHLv", "nome": "ZINNO EMANUELE"}, "789b42e192ea6fb0f991c1c9b7a43083c6c90c8129b99699887e42b0ce29cac7": {"salt": "xoXMhSOuGQ9Pj8LsikY90A==", "nonce": "kDmUjDtJ4wqo2mkG", "ct": "xm4SWQjwI/iqBBEKFZgrATNToe8sf6nZYI23ctdUVxrMA5aYu34fRrRkfxuyBq9O", "nome": "ZINNO EMANUELE"}};
+const PBKDF2_ITER       = 100000;
+
+// ── STATO ────────────────────────────────────────────────────────────────────
+let rubricaDecifrata = null;
+let tentativiFalliti = 0;
+let lockoutAttivo    = false;
+let risultatiCorrente = [];
+let paginaCorrente   = 0;
+const PER_PAGINA     = 20;
+
+// ── TEMA ─────────────────────────────────────────────────────────────────────
+function aggiornaLogoFip(theme) {
+    const src = theme === 'light' ? '1.png' : '2.png';
+    const l1  = document.getElementById('logoFipLogin');
+    const l2  = document.getElementById('logoFipMain');
+    if (l1) l1.src = src;
+    if (l2) l2.src = src;
+}
+
+function applicaTema(theme, salva) {
+    const html = document.documentElement;
+    if (theme === 'light') {
+        html.setAttribute('data-theme', 'light');
+        html.style.background = 'linear-gradient(135deg, #e8f0fe 0%, #c7d8f8 100%)';
+    } else {
+        html.removeAttribute('data-theme');
+        html.style.background = 'linear-gradient(135deg, #002d72 0%, #001f4d 100%)';
+    }
+    document.getElementById('themeToggle').textContent = theme === 'light' ? '🌙' : '☀️';
+    aggiornaLogoFip(theme);
+    if (salva) localStorage.setItem('gap-theme', theme);
+}
+
+(function() {
+    const saved = localStorage.getItem('gap-theme');
+    const sys   = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    applicaTema(saved || sys, false);
+
+    // Ascolta i cambiamenti del sistema in tempo reale
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+        // Segui il sistema solo se l'utente non ha scelto manualmente
+        if (!localStorage.getItem('gap-theme')) {
+            applicaTema(e.matches ? 'light' : 'dark', false);
+        }
+    });
+})();
+
+document.getElementById('themeToggle').addEventListener('click', () => {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    // Quando l'utente cambia manualmente, salva la preferenza
+    applicaTema(isLight ? 'dark' : 'light', true);
+});
+
+// ── CRYPTO ───────────────────────────────────────────────────────────────────
+function b64ToBytes(b64) { return Uint8Array.from(atob(b64), c => c.charCodeAt(0)); }
+
+async function derivaChiave(tessera, saltB64) {
+    const km = await crypto.subtle.importKey('raw', new TextEncoder().encode(tessera.trim()), 'PBKDF2', false, ['deriveKey']);
+    return crypto.subtle.deriveKey(
+        { name:'PBKDF2', salt:b64ToBytes(saltB64), iterations:PBKDF2_ITER, hash:'SHA-256' },
+        km, { name:'AES-GCM', length:256 }, false, ['decrypt']
+    );
+}
+
+async function decifraAESBytes(k, nb, cb) {
+    return crypto.subtle.decrypt({ name:'AES-GCM', iv:b64ToBytes(nb) }, k, b64ToBytes(cb));
+}
+
+async function decifraAES(k, nb, cb) {
+    return new TextDecoder().decode(await decifraAESBytes(k, nb, cb));
+}
+
+async function sha256(msg) {
+    const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
+    return Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2,'0')).join('');
+}
+
+// ── LOGIN ────────────────────────────────────────────────────────────────────
+async function verificaTessera() {
+    if (lockoutAttivo) return;
+    const input   = document.getElementById('tesseraInput').value.trim();
+    const errorEl = document.getElementById('errorMessage');
+    const btn     = document.getElementById('loginBtn');
+    const spinner = document.getElementById('loginSpinner');
+    const btnTxt  = document.getElementById('loginBtnText');
+
+    if (!input) { errorEl.textContent='Inserisci il numero di tessera.'; errorEl.style.display='block'; return; }
+
+    btn.disabled=true; btnTxt.style.display='none'; spinner.style.display='block'; errorEl.style.display='none';
+
+    try {
+        const varianti = [input];
+        if (!input.toUpperCase().startsWith('A0')) varianti.push('A0'+input);
+        let trovato = false;
+
+        for (const v of varianti) {
+            const h = await sha256(v);
+            if (!(h in PACCHETTI_TESSERE)) continue;
+            const pkt = PACCHETTI_TESSERE[h];
+            try {
+                const kdf       = await derivaChiave(v, pkt.salt);
+                const masterBuf = await decifraAESBytes(kdf, pkt.nonce, pkt.ct);
+                const master    = await crypto.subtle.importKey('raw', masterBuf, {name:'AES-GCM'}, false, ['decrypt']);
+                const json      = await decifraAES(master, RUBRICA_CIFRATA.nonce, RUBRICA_CIFRATA.ct);
+                rubricaDecifrata = JSON.parse(json);
+                trovato = true; tentativiFalliti = 0;
+
+                const lw = document.getElementById('loginWrapper');
+                const mw = document.getElementById('mainWrapper');
+                lw.classList.add('fade-out');
+                setTimeout(() => {
+                    lw.style.display='none'; mw.style.display='flex';
+                    void mw.offsetWidth; mw.classList.add('show');
+                    window.scrollTo(0,0);
+                    document.getElementById('searchInput').focus();
+                    mostraNotifica('Benvenuto ' + (pkt.nome||'Utente') + '! 👋');
+                }, 420);
+                break;
+            } catch(_) {}
+        }
+
+        if (!trovato) {
+            tentativiFalliti++;
+            if (tentativiFalliti >= 5) { avviaLockout(); }
+            else {
+                errorEl.textContent = `Tessera non valida. Tentativi rimasti: ${5-tentativiFalliti}`;
+                errorEl.style.display='block';
+            }
+            document.getElementById('tesseraInput').value='';
+            document.getElementById('tesseraInput').focus();
+        }
+    } catch(e) {
+        errorEl.textContent='Errore durante la verifica. Riprova.'; errorEl.style.display='block';
+    } finally {
+        btn.disabled=false; btnTxt.style.display='block'; spinner.style.display='none';
+    }
+}
+
+function avviaLockout() {
+    lockoutAttivo=true; let s=30;
+    const eEl=document.getElementById('errorMessage'), tEl=document.getElementById('lockoutTimer'), btn=document.getElementById('loginBtn');
+    eEl.textContent='Troppi tentativi falliti.'; eEl.style.display='block';
+    tEl.style.display='block'; btn.disabled=true;
+    const iv=setInterval(()=>{
+        tEl.textContent=`Riprova tra ${s} secondi...`; s--;
+        if(s<0){ clearInterval(iv); lockoutAttivo=false; tentativiFalliti=0; btn.disabled=false; tEl.style.display='none'; eEl.style.display='none'; document.getElementById('tesseraInput').focus(); }
+    },1000);
+}
+
+// ── RICERCA ──────────────────────────────────────────────────────────────────
+
+// Rimuove accenti: è→e, à→a, ecc.
+function rimuoviAccenti(s) {
+    return s.normalize('NFD').replace(/[̀-ͯ]/g,'');
+}
+
+// Distanza di Levenshtein (per tolleranza errori di battitura)
+function levenshtein(a, b) {
+    const m=a.length, n=b.length;
+    const dp=Array.from({length:m+1},(_,i)=>Array.from({length:n+1},(_,j)=>i===0?j:j===0?i:0));
+    for(let i=1;i<=m;i++) for(let j=1;j<=n;j++)
+        dp[i][j]=a[i-1]===b[j-1]?dp[i-1][j-1]:1+Math.min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]);
+    return dp[m][n];
+}
+
+// Punteggio di rilevanza (più basso = più rilevante)
+function punteggio(nomeLower, inputLower) {
+    if (nomeLower === inputLower)         return 0;
+    if (nomeLower.startsWith(inputLower)) return 1;
+    if (nomeLower.includes(inputLower))   return 2;
+    return 99;
+}
+
+function eseguiRicerca() {
+    const raw = document.getElementById('searchInput').value.trim();
+    document.getElementById('clearBtn').style.display = raw ? 'block' : 'none';
+
+    if (!raw || !rubricaDecifrata) {
+        document.getElementById('result').innerHTML=''; return;
+    }
+
+    const inputN     = rimuoviAccenti(raw.toLowerCase());
+    const inputParti = inputN.split(/\s+/);
+    const risultati  = [];
+
+    // ── FASE 1: ricerca normale (esatta/parziale/iniziali) ──────────────
+    for (const nomeCompleto in rubricaDecifrata) {
+        const nomeN   = rimuoviAccenti(nomeCompleto.toLowerCase());
+        const parti   = nomeN.split(/\s+/);
+        const cognome = parti[0]||'';
+        const nomeP   = parti[1]||'';
+        let   score   = 99;
+
+        // Corrispondenza diretta
+        score = Math.min(score, punteggio(nomeN, inputN));
+
+        // Tutte le parole dell'input presenti nel nome
+        const tuttePresenti = inputParti.every(p => nomeN.includes(p));
+        if (tuttePresenti) score = Math.min(score, 2);
+
+        // Ricerca inversa (es. "mario rossi" → "rossi mario")
+        if (inputParti.length === 2) {
+            const inverso = inputParti[1] + ' ' + inputParti[0];
+            if (nomeN === inverso) score = 0;
+        }
+
+        // Ricerca per iniziali (es. "AR" → "ARCIELLO ROBERTO")
+        if (inputParti.length === 1 && inputN.length >= 2) {
+            const iniziali = parti.map(p => p[0]||'').join('');
+            if (iniziali.startsWith(inputN)) score = Math.min(score, 2);
+        }
+
+        if (score < 99) risultati.push({ nome:nomeCompleto, telefono:rubricaDecifrata[nomeCompleto], score });
+    }
+
+    // ── FASE 2: Levenshtein solo se la ricerca normale non trova nulla ──
+    if (risultati.length === 0 && inputN.length >= 4) {
+        for (const nomeCompleto in rubricaDecifrata) {
+            const nomeN   = rimuoviAccenti(nomeCompleto.toLowerCase());
+            const parti   = nomeN.split(/\s+/);
+            const cognome = parti[0]||'';
+            const nomeP   = parti[1]||'';
+
+            for (const p of inputParti) {
+                if (p.length < 4) continue;
+                const soglia = p.length <= 5 ? 1 : 2;
+                const d = Math.min(levenshtein(cognome, p), levenshtein(nomeP, p));
+                if (d <= soglia) {
+                    risultati.push({ nome:nomeCompleto, telefono:rubricaDecifrata[nomeCompleto], score:5 });
+                    break;
+                }
+            }
+        }
+    }
+
+    risultati.sort((a,b) => a.score!==b.score ? a.score-b.score : a.nome.localeCompare(b.nome,'it'));
+    risultatiCorrente = risultati;
+    paginaCorrente    = 0;
+    renderRisultati(true);
+}
+
+function mostraTutti() {
+    if (!rubricaDecifrata) return;
+    document.getElementById('searchInput').value='';
+    document.getElementById('clearBtn').style.display='none';
+    risultatiCorrente = Object.entries(rubricaDecifrata)
+        .map(([nome,tel])=>{return {nome,telefono:tel,score:0};} )
+        .sort((a,b)=>a.nome.localeCompare(b.nome,'it'));
+    paginaCorrente=0;
+    renderRisultati(true);
+}
+
+function renderRisultati(reset=false) {
+    const resultDiv = document.getElementById('result');
+    const totale    = risultatiCorrente.length;
+
+    if (totale===0) {
+        resultDiv.innerHTML=`<div class="no-results fade-in">Nessun risultato trovato.<br><small>Prova con un nome diverso</small></div>`;
+        return;
+    }
+
+    const inizio = paginaCorrente * PER_PAGINA;
+    const fetta  = risultatiCorrente.slice(inizio, inizio+PER_PAGINA);
+
+    const labelTot = totale===1?'Trovato 1 contatto':`Trovati ${totale} contatti`;
+
+    const html = fetta.map((item,idx)=>cardHTML(item,inizio+idx)).join('');
+    const mostraLoadMore = inizio+PER_PAGINA < totale;
+    const rimanenti = totale - inizio - PER_PAGINA;
+
+    if (reset) {
+        resultDiv.innerHTML=`<div class="result-count">${labelTot}</div><div id="cardList">${html}</div>`;
+    } else {
+        document.getElementById('cardList').insertAdjacentHTML('beforeend', html);
+    }
+
+    // Rimuovi vecchio bottone load more
+    const old = document.getElementById('loadMoreWrap');
+    if (old) old.remove();
+
+    if (mostraLoadMore) {
+        resultDiv.insertAdjacentHTML('beforeend',
+            `<div class="load-more-wrap" id="loadMoreWrap">
+                <button class="load-more-btn btn-secondary" onclick="caricaAltri()">
+                    ⬇️ Carica altri ${Math.min(PER_PAGINA,rimanenti)} di ${rimanenti} rimasti
+                </button>
+             </div>`);
+    }
+}
+
+function caricaAltri() {
+    paginaCorrente++;
+    renderRisultati(false);
+}
+
+function cardHTML(item, idx) {
+    const haTel  = item.telefono && item.telefono.trim()!=='';
+    const waUrl  = haTel ? 'https://wa.me/'+item.telefono.replace('+','') : '#';
+    const telNum = haTel ? item.telefono : '';
+    const ns     = item.nome.replace(/</g,'&lt;').replace(/"/g,'&quot;');
+
+    const bottoni = haTel
+        ? `<button class="copy-button" data-action="copia" data-tel="${item.telefono}" data-nome="${ns}">
+               <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>Copia
+           </button>
+           <a href="tel:${telNum}" class="call-button">
+               <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Chiama
+           </a>
+           <button class="save-button" data-action="salva" data-tel="${item.telefono}" data-nome="${ns}">
+               <svg viewBox="0 0 24 24"><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>Salva
+           </button>
+           <a href="${waUrl}" target="_blank" rel="noopener" class="whatsapp-button">
+               <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.189-1.248-6.189-3.515-8.464"/></svg>WhatsApp
+           </a>`
+        : `<span style="font-size:12px;opacity:.5;align-self:center;">Numero non disponibile</span>`;
+
+    return `<div class="result-item fade-in" style="animation-delay:${Math.min(idx,9)*0.04}s">
+        <div class="contact-info">
+            <div class="contact-details">
+                <strong>${item.nome.replace(/</g,'&lt;')}</strong>
+                <span class="${haTel?'':'no-phone'}">${haTel?item.telefono:'Numero non disponibile'}</span>
+            </div>
+            <div class="action-buttons">${bottoni}</div>
+        </div>
+    </div>`;
+}
+
+function svuotaRicerca() {
+    document.getElementById('searchInput').value='';
+    document.getElementById('clearBtn').style.display='none';
+    document.getElementById('result').innerHTML='';
+    document.getElementById('searchInput').focus();
+}
+
+// ── RICERCA VOCALE ───────────────────────────────────────────────────────────
+let recognition = null;
+
+function avviaVoce() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+        mostraNotifica('Ricerca vocale non supportata su questo browser.', true); return;
+    }
+
+    const btn = document.getElementById('voiceBtn');
+
+    if (recognition) { recognition.stop(); return; }
+
+    recognition = new SpeechRecognition();
+    recognition.lang = 'it-IT';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = () => {
+        btn.classList.add('recording');
+        btn.textContent = '⏹ Stop';
+        mostraNotifica('🎙️ Parla ora...');
+    };
+
+    recognition.onresult = (e) => {
+        const testo = e.results[0][0].transcript;
+        document.getElementById('searchInput').value = testo;
+        document.getElementById('clearBtn').style.display = 'block';
+        eseguiRicerca();
+    };
+
+    recognition.onerror = (e) => {
+        mostraNotifica('Errore microfono: ' + e.error, true);
+    };
+
+    recognition.onend = () => {
+        btn.classList.remove('recording');
+        btn.innerHTML = '🎙️ Voce';
+        recognition = null;
+    };
+
+    recognition.start();
+}
+
+// ── AZIONI CONTATTI ───────────────────────────────────────────────────────────
+document.addEventListener('click', e => {
+    const btn = e.target.closest('[data-action]');
+    if (!btn) return;
+    const action = btn.dataset.action;
+    const tel    = btn.dataset.tel  || '';
+    const nome   = btn.dataset.nome || '';
+
+    if (action==='copia') {
+        const n = tel.replace(/[^\d+]/g,'');
+        navigator.clipboard.writeText(n)
+            .then(()=>mostraNotifica('Copiato: <strong>'+n+'</strong>'))
+            .catch(()=>mostraNotifica('Errore nella copia',true));
+    }
+    if (action==='salva') {
+        const vcard=`BEGIN:VCARD
+VERSION:3.0
+FN:${nome}
+TEL;TYPE=CELL:${tel}
+END:VCARD`;
+        const url=URL.createObjectURL(new Blob([vcard],{type:'text/vcard'}));
+        const a=document.getElementById('vcardDownload');
+        a.href=url; a.download=nome.replace(/[^a-zA-Z0-9]/g,'_')+'.vcf'; a.click();
+        setTimeout(()=>URL.revokeObjectURL(url),1000);
+        mostraNotifica('File .vcf pronto per il salvataggio');
+    }
+});
+
+function mostraNotifica(msg, isError=false) {
+    document.querySelectorAll('.notification').forEach(n=>n.remove());
+    const n=document.createElement('div');
+    n.className='notification'+(isError?' error':'');
+    n.innerHTML=msg; document.body.appendChild(n);
+    setTimeout(()=>n.classList.add('show'),50);
+    setTimeout(()=>{n.classList.remove('show');setTimeout(()=>n.remove(),300);},2600);
+}
+
+// ── EVENT LISTENERS ───────────────────────────────────────────────────────────
+document.getElementById('tesseraInput').addEventListener('keypress', e=>{ if(e.key==='Enter') verificaTessera(); });
+document.getElementById('searchInput').addEventListener('keypress',  e=>{ if(e.key==='Enter') eseguiRicerca(); });
+document.getElementById('searchInput').addEventListener('input', function() {
+    document.getElementById('clearBtn').style.display = this.value ? 'block' : 'none';
+});
+
+['searchInput','tesseraInput'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.addEventListener('touchstart',()=>{el.style.fontSize='16px';},{passive:true});
+});
+</script>
+</body>
+</html>
